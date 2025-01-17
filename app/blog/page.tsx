@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 
-const HomePage: NextPage = () => {
+const BlogPage: NextPage = () => {
   return (
     <div>
       <h1>Hello World</h1>
@@ -8,4 +8,4 @@ const HomePage: NextPage = () => {
   )
 }
 
-export default HomePage
+export default BlogPage
