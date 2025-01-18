@@ -1,10 +1,12 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { getPostMetadata } from "../components/getPostMetadata";
+import { getPostMetadata } from "../components/blog";
 
 const BlogPage: NextPage = () => {
 
     const postMetadata = getPostMetadata()
+    console.log(postMetadata)
+
     const postPreviews = postMetadata.map((post) => (
         <div key={post.slug}>
             <Link href={`/blog/posts/${post.slug}`}>
@@ -13,9 +15,6 @@ const BlogPage: NextPage = () => {
             <p>{post.date}</p>
         </div>
     ))
-
-    console.log(postPreviews)
-
     return (
         <div>
             <h1>Hello World</h1>

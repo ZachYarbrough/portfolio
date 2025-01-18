@@ -4,6 +4,7 @@ export interface PostMetadata {
     date: string
     tags: string[]
     slug: string
+    timeToRead: number
 }
 
 export interface Post extends PostMetadata {

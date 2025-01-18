@@ -5,22 +5,23 @@ tags: [blog]
 ---
 
 # Goals
-I've recently been inspired to start this blog so I can document my development journey and create a database full of lessons I've learned and projects I'm working on. My hope is that creating this blog will help me learn more effectively while at the same time creating a resource for me to refer back to. This blog is for myself, but if other's find it useful in the future, that's great! I don't plan on keeping to a specific schedule or format (I don't want to get burned out or start to dread writing). Instead I want this to be a fun way of retaining information. Another hope I have for starting this blog is that it will give me a sense of accountability to keep learning and growing.
+I recently felt inspired to create this blog as a way of documenting my journey as a developer. I want this project to serve as a personal knowledge base where I can store information I've learned and reference it in the future. Some of my goals in creating this blog are to streamline my learning process and improve my technical writing skills. I wanted to make this a public blog to hopefully increase accountability. While this blog is primarily for my own benefit, I would love it if others find value in posts here too!
+
+I'm not going to try and stick to any schedule or posting cadence. I want to keep this side project as enjoyable as possible and I don't want to turn this blog into work. Depending on my motivation and what projects I am working on, I will post more or less frequently. Some months life will get busy or I will get distracted with a video game/tv show.
+
+Finally, I figured this blog would be a fun outlit to reflect on challenges and to go down rabbit holes.
 
 # Types of Content
-
-### Project Retrospectives
+Here are some examples of content I plan to write about. This is not an exhaustive list, just some ideas I have.
 
 ### Project Dev Blogs
+
+### Project Retrospectives
 
 ### Technical Deep Dives
 
 ### Thoughts on Software Development
 
-### Thoughts on Life
-
 # Further Readings
 
 - [Some Blogging Myths](https://jvns.ca/blog/2023/06/05/some-blogging-myths/)
-- [How to Start a Blog](https://www.joshwcomeau.com/blog/how-to-start-a-blog/)
-- [How to Write a Blog Post](https://www.joshwcomeau.com/blog/how-to-write-a-blog-post/)
