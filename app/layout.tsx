@@ -9,7 +9,7 @@ const inconsolata = Inconsolata({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-      <html lang="en" className={inconsolata.className}>
+      <html lang='en' className={inconsolata.className}>
         <body>
             {children}
         </body>

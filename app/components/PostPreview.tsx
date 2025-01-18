@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { PostMetadata } from "../types/blog"
+import Link from 'next/link'
+import { PostMetadata } from '../types/blog'
 
 const PostPreview = ({ slug, title, date }: PostMetadata) => {
     return (

@@ -1,7 +1,7 @@
-import { PostMetadata } from "../types/blog";
+import { PostMetadata } from '../types/blog';
 
-import fs from "fs";
-import matter from "gray-matter";
+import fs from 'fs';
+import matter from 'gray-matter';
 
 /**
  * Calculates the time to read a post based on the number of words in the post / the average reading speed of 238 words per minute.
@@ -22,12 +22,12 @@ export const getTimeToRead = (content: string): number => {
  * @returns {string[]} An array of post slugs (filenames without the .md extension)
  */
 export const getPostMetadata = (): PostMetadata[] => {
-    const folder = "posts/"
+    const folder = 'posts/'
     const files = fs.readdirSync(folder)
-    const markdownPosts = files.filter((file) => file.endsWith(".md"))
+    const markdownPosts = files.filter((file) => file.endsWith('.md'))
 
     const posts = markdownPosts.map((fileName) => {
-        const fileContents = fs.readFileSync(`posts/${fileName}`, "utf8")
+        const fileContents = fs.readFileSync(`posts/${fileName}`, 'utf8')
         const matterResult = matter(fileContents)
         return {
             title: matterResult.data.title,
@@ -35,7 +35,7 @@ export const getPostMetadata = (): PostMetadata[] => {
             date: matterResult.data.date.toISOString(),
             tags: matterResult.data.tags,
             timeToRead: getTimeToRead(matterResult.content),
-            slug: fileName.replace(".md", "")
+            slug: fileName.replace('.md', '')
         }
     })
 
