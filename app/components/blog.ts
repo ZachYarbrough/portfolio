@@ -4,7 +4,7 @@ import fs from "fs";
 import matter from "gray-matter";
 
 /**
- * Calculates the time to read a post based on the number of words in the post / the average reading speed of 200 words per minute.
+ * Calculates the time to read a post based on the number of words in the post / the average reading speed of 238 words per minute.
  * 
  * @param {string} content - The content of the post
  * @returns {number} The time to read the post in minutes

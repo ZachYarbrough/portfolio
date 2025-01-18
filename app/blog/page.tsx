@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Link from "next/link";
 import { getPostMetadata } from "../components/blog";
 import PostPreview from "../components/PostPreview";
 
@@ -13,7 +12,8 @@ const BlogPage: NextPage = () => {
     ))
     return (
         <div>
-            <h1>Hello World</h1>
+                <h1 className="text-3xl font-bold underline">
+                Hello World</h1>
             <div>{postPreviews}</div>
         </div>
     )

@@ -1,3 +1,4 @@
+import './styles/globals.css'
 import { Inconsolata } from 'next/font/google';
 
 // Inconsolata font Configuration
