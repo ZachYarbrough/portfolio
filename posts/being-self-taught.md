@@ -10,8 +10,7 @@ As a self-taught developer, my journey into programming has been both challengin
 
 
 
-Test [External Link](https://www.google.com) here. This is a test [Relative Link](why-blog.md) here.
- here
+Test [External Link](https://www.google.com) here. This is a test [Relative Link](why-blog.md) here. ojects that would help me grow. This self-directed approach has taught me not just programming concepts, but also valuable skills like problem-solving, self-motivation, and the ability to learn independently. While it can sometimes feel overwhelming to navigate the vast ocean of programming knowledge without a formal roadmap, the freedom to focus on what interests me most has kept me passv This is a test [Why Blog](why-blog.md) here ionate and engaged. Through online courses, documentation, open source projects, and countless hours of practice, I've built a foundation that continues to grow with each new challenge I tackle.
 
 ```js
 console.log('Hello World')
@@ -36,11 +35,15 @@ print(doMath(x))```
 $ echo 'Hello World'```
 ```js
 console.log('Hello World')```
+```js
+console.log('Hello World')
+
+console.log('Hello World')```
 
 More testing includes:
 
-- [ ] Fix single line code block styling
-- [ ] Get secondary css variable working
+- [x] Fix single line code block styling
+- [x] Get secondary css variable working
 
 > This is a test of a table:
 

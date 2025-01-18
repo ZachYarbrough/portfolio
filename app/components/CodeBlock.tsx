@@ -59,6 +59,10 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
                 language={language.toLowerCase()}
                 style={theme === 'dark' ? oneDark : oneLight}
                 showLineNumbers
+                lineNumberStyle={{
+                    minWidth: '0.5rem',
+                    paddingLeft: '0.5rem',
+                }}
                 wrapLines
                 codeTagProps={{ style: { fontFamily: "inherit" } }} // inherit font family from parent
             >

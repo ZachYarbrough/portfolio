@@ -7,6 +7,7 @@ import { getPostMetadata, getTimeToRead } from '@/app/components/blog'
 import { formatDate } from '@/app/components/general'
 import CodeBlock from '@/app/components/CodeBlock'
 import Link from '@/app/components/Link'
+import Paragraph from '@/app/components/Paragraph'
 
 /**
  * Generates static paths for all posts
@@ -54,6 +55,9 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
               },
               a: {
                 component: Link,
+              },
+              p: {
+                component: Paragraph
               }
             }
           }}>{post.content}</Markdown>

@@ -8,7 +8,9 @@ const Link = ({ href, children }: { href: string, children: React.ReactNode }) =
     return (
         <a className='text-highlight hover:cursor-pointer inline-flex'
             style={{
-                padding: isExternalLink ?  '0' : '0.1rem 0.3rem',
+                lineHeight: '1.2rem',
+                fontWeight: '600',
+                padding: isExternalLink ?  '0' : '0 0.2rem',
                 backgroundColor: isExternalLink ? 'transparent' : 'var(--secondary)',
                 borderRadius: isExternalLink ? '0' : '0.3rem',
             }}
@@ -16,7 +18,10 @@ const Link = ({ href, children }: { href: string, children: React.ReactNode }) =
             rel={isExternalLink ? 'noopener noreferrer' : undefined}>
             <span>{children}</span>
             {isExternalLink &&
-                <span className="text-foreground"><ExternalLinkIcon /></span>
+                <span style={{
+                    marginTop: '0.4rem',
+                    color: 'var(--primary)',
+                }}><ExternalLinkIcon /></span>
             }
         </a>
     )

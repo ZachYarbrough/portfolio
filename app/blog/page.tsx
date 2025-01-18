@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { getPostMetadata } from '../components/blog';
-import PostPreview from '../components/PostPreview';
+import PostPreview from '@/app/components/PostPreview';
 
 const BlogPage: NextPage = () => {
 
