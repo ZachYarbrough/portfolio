@@ -3,7 +3,7 @@ import { PostMetadata } from '../types/blog'
 
 const PostPreview = ({ slug, title, date }: PostMetadata) => {
     return (
-        <div key={slug}>
+        <div key={slug} className='flex flex-col gap-4'>
             <Link href={`/blog/posts/${slug}`}>
                 <h2>{title}</h2>
             </Link>

@@ -37,13 +37,15 @@ const getPostContent = (slug: string): Post => {
     }
 }
 
-const PostPage = ({ params: { slug } }: any) => {
+const PostPage = async ({ params: { slug } }: any) => {
     const post: Post = getPostContent(slug)
 
     return (
       <div>
         <h1>{post.title}</h1>
-        <Markdown>{post.content}</Markdown>
+        <article className='prose lg:prose-xl'>
+          <Markdown>{post.content}</Markdown>
+        </article>
       </div>
     )
   }

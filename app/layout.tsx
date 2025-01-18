@@ -1,17 +1,13 @@
 import './styles/globals.css'
-import { Inconsolata } from 'next/font/google';
 
-// Inconsolata font Configuration
-const inconsolata = Inconsolata({
-    subsets: ['latin'],
-    display: 'swap',
-  })
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-      <html lang='en' className={inconsolata.className}>
+      <html lang='en' className='font-inconsolata'>
         <body>
-            {children}
+            <div className='mx-auto max-w-7xl px-4'>
+              {children}
+            </div>
         </body>
       </html>
     )

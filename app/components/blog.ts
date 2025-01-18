@@ -4,6 +4,21 @@ import fs from 'fs';
 import matter from 'gray-matter';
 
 /**
+ * Formats a date object to a string in the format 'MMM D, YYYY'
+ * i.e. 'Jan 1, 2025', 'Feb 2, 2025', 'Mar 3, 2025'
+ * 
+ * @param {Date} date - The date object to format
+ * @returns {string} The formatted date string
+ */
+const formatDate = (date: Date): string => {
+    return date.toLocaleDateString('en-EN', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    })
+}
+
+/**
  * Calculates the time to read a post based on the number of words in the post / the average reading speed of 238 words per minute.
  * 
  * @param {string} content - The content of the post
@@ -32,7 +47,7 @@ export const getPostMetadata = (): PostMetadata[] => {
         return {
             title: matterResult.data.title,
             subtitle: matterResult.data.subtitle,
-            date: matterResult.data.date.toISOString(),
+            date: formatDate(matterResult.data.date),
             tags: matterResult.data.tags,
             timeToRead: getTimeToRead(matterResult.content),
             slug: fileName.replace('.md', '')
