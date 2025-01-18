@@ -4,6 +4,8 @@ import fs from 'fs'
 import Markdown from 'markdown-to-jsx'
 import matter from 'gray-matter'
 import { getPostMetadata, getTimeToRead } from '@/app/components/blog'
+import { formatDate } from '@/app/components/general'
+import CodeBlock from '@/app/components/CodeBlock'
 
 /**
  * Generates static paths for all posts
@@ -29,7 +31,7 @@ const getPostContent = (slug: string): Post => {
     return {
         title: matterResult.data.title, 
         subtitle: matterResult.data.subtitle,
-        date: matterResult.data.date.toISOString(),
+        date: formatDate(matterResult.data.date),
         tags: matterResult.data.tags,
         timeToRead: getTimeToRead(matterResult.content),
         slug: slug,
@@ -37,15 +39,20 @@ const getPostContent = (slug: string): Post => {
     }
 }
 
-const PostPage = async ({ params: { slug } }: any) => {
-    const post: Post = getPostContent(slug)
-
+const PostPage = async ({ params }: { params: { slug: string } }) => {
+    const paramObj = await params
+    const post: Post = getPostContent(paramObj.slug)
     return (
       <div>
         <h1>{post.title}</h1>
-        <article className='prose lg:prose-xl'>
-          <Markdown>{post.content}</Markdown>
-        </article>
+        <p className='text-highlight'>{post.date}, {post.timeToRead} min read</p>
+          <Markdown options={{
+            overrides: {
+              code: {
+                component: CodeBlock
+              }
+            }
+          }}>{post.content}</Markdown>
       </div>
     )
   }

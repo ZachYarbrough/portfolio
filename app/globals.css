@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.light {
+  --highlight: #d14ecb;
+  --foreground: #000;
+  --background: #fff;
+}
+
+.dark {
+  --highlight: #8b1085;
+  --foreground: #fff;
+  --background: #000;
+}

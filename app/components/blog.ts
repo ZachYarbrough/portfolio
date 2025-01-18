@@ -2,21 +2,7 @@ import { PostMetadata } from '../types/blog';
 
 import fs from 'fs';
 import matter from 'gray-matter';
-
-/**
- * Formats a date object to a string in the format 'MMM D, YYYY'
- * i.e. 'Jan 1, 2025', 'Feb 2, 2025', 'Mar 3, 2025'
- * 
- * @param {Date} date - The date object to format
- * @returns {string} The formatted date string
- */
-const formatDate = (date: Date): string => {
-    return date.toLocaleDateString('en-EN', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-    })
-}
+import { formatDate } from './general';
 
 /**
  * Calculates the time to read a post based on the number of words in the post / the average reading speed of 238 words per minute.

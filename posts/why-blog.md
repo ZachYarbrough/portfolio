@@ -1,5 +1,5 @@
 ---
-title: Why I Blog
+title: Why I Am Starting a Blog
 date: 2025-01-17
 tags: [blog]
 ---
@@ -21,7 +21,7 @@ I plan to write development blog posts for bigger projects that I am working on.
 I want retrospective posts to be a way for me to reflect on the project and what I learned from it. Ideally I will create a post for each project I work on. I will also create a template for this type of post and evolve it as I write more retrospective posts.
 
 ### Technical Deep Dives
-Any tools, concepts, or technologies that I want to understand better will be documented here.
+Any tools, concepts, or technologies that I want to understand better, I will write a technical deep dive post about it.
 
 ### Thoughts on Software Development
 I am not sure how often I will write about my opinions on the software development industry as I'm still a junior developer. But if there is something in the back of my mind or that I just want to get off my chest, I will write about it.
@@ -29,12 +29,22 @@ I am not sure how often I will write about my opinions on the software developme
 ```js
 console.log('Hello World')
 const x = 1
-const doMath = (x) => {
+const doMath = (x: any) => {
   return x * 2
 }
 
-console.log(doMath(x))
-```
+console.log(doMath(x))```
+
+```python
+print('Hello World')
+x = 1
+def doMath(x):
+  return x * 2
+
+print(doMath(x))```
+
+```bash
+echo 'Hello World```
 
 # Further Readings
 

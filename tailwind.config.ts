@@ -4,7 +4,6 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 export default {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
@@ -12,6 +11,7 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        highlight: 'var(--highlight)',
       },
       fontFamily: {
         inconsolata: ['Inconsolata', ...defaultTheme.fontFamily.sans],
