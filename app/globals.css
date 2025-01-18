@@ -6,12 +6,14 @@
 
 .light {
   --highlight: #d14ecb;
-  --foreground: #000;
+  --primary: #000;
+  --secondary: #aeaeae;
   --background: #fff;
 }
 
 .dark {
   --highlight: #8b1085;
-  --foreground: #fff;
+  --primary: #fff;
+  --secondary: #7c7c7c;
   --background: #000;
 }

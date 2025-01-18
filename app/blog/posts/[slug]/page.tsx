@@ -6,6 +6,7 @@ import matter from 'gray-matter'
 import { getPostMetadata, getTimeToRead } from '@/app/components/blog'
 import { formatDate } from '@/app/components/general'
 import CodeBlock from '@/app/components/CodeBlock'
+import Link from '@/app/components/Link'
 
 /**
  * Generates static paths for all posts
@@ -46,13 +47,18 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
       <div>
         <h1>{post.title}</h1>
         <p className='text-highlight'>{post.date}, {post.timeToRead} min read</p>
-          <Markdown options={{
+        <article className='prose lg:prose-xl'>
+        <Markdown options={{
             overrides: {
               code: {
                 component: CodeBlock
+              },
+              a: {
+                component: Link,
               }
             }
           }}>{post.content}</Markdown>
+        </article>
       </div>
     )
   }

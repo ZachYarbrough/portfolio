@@ -9,7 +9,7 @@ const Header = () => {
   // Set the theme on initial load
   useEffect(() => {
     const listenStorageChange = () => {
-      const theme = localStorage.getItem('theme')
+      const theme = window.localStorage.getItem('theme')
       if (theme === 'dark') setDarkMode(true)
     };
 
@@ -23,13 +23,13 @@ const Header = () => {
       document.documentElement.classList.add('dark')
       document.documentElement.classList.remove('light')
 
-      localStorage.setItem('theme', 'dark')
+      window.localStorage.setItem('theme', 'dark')
       window.dispatchEvent(new Event("storage"));
     } else {
       document.documentElement.classList.remove('dark')
       document.documentElement.classList.add('light')
 
-      localStorage.setItem('theme', 'light')
+      window.localStorage.setItem('theme', 'light')
       window.dispatchEvent(new Event("storage"));
     }
   }, [darkMode])

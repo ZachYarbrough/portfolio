@@ -26,26 +26,6 @@ Any tools, concepts, or technologies that I want to understand better, I will wr
 ### Thoughts on Software Development
 I am not sure how often I will write about my opinions on the software development industry as I'm still a junior developer. But if there is something in the back of my mind or that I just want to get off my chest, I will write about it.
 
-```js
-console.log('Hello World')
-const x = 1
-const doMath = (x: any) => {
-  return x * 2
-}
-
-console.log(doMath(x))```
-
-```python
-print('Hello World')
-x = 1
-def doMath(x):
-  return x * 2
-
-print(doMath(x))```
-
-```bash
-echo 'Hello World```
-
 # Further Readings
 
 - [Some Blogging Myths](https://jvns.ca/blog/2023/06/05/some-blogging-myths/)
