@@ -47,7 +47,6 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
       <div>
         <h1>{post.title}</h1>
         <p className='text-highlight'>{post.date}, {post.timeToRead} min read</p>
-        <article className='prose lg:prose-xl'>
         <Markdown options={{
             overrides: {
               code: {
@@ -58,7 +57,6 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
               }
             }
           }}>{post.content}</Markdown>
-        </article>
       </div>
     )
   }
