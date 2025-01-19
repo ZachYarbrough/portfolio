@@ -6,10 +6,9 @@ const Link = ({ href, children }: { href: string, children: React.ReactNode }) =
     const hrefOrSlug = isExternalLink ? href : `${window.location.origin}/blog/posts/${href.replace('.md', '')}`
 
     return (
-        <a className='text-highlight hover:cursor-pointer inline-flex'
+        <a className='text-highlight hover:cursor-pointer inline-flex font-bold'
             style={{
                 lineHeight: '1.2rem',
-                fontWeight: '600',
                 padding: isExternalLink ?  '0' : '0 0.2rem',
                 backgroundColor: isExternalLink ? 'transparent' : 'var(--secondary)',
                 borderRadius: isExternalLink ? '0' : '0.3rem',

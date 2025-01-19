@@ -30,15 +30,20 @@ export const getPostMetadata = (): PostMetadata[] => {
     const posts = markdownPosts.map((fileName) => {
         const fileContents = fs.readFileSync(`posts/${fileName}`, 'utf8')
         const matterResult = matter(fileContents)
+        const headers = ( matterResult.content + '\n').match(/(#+ .*\n)/g)
         return {
+            headers: headers,
             title: matterResult.data.title,
             subtitle: matterResult.data.subtitle,
             date: formatDate(matterResult.data.date),
             tags: matterResult.data.tags,
+            backlinks: matterResult.data.backlinks,
             timeToRead: getTimeToRead(matterResult.content),
-            slug: fileName.replace('.md', '')
+            slug: fileName.replace('.md', ''),
         }
     })
 
-    return posts
+    const sortedPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+    return sortedPosts
 }

@@ -7,13 +7,13 @@
 .light {
   --highlight: #d14ecb;
   --primary: #000;
-  --secondary: #dedede;
-  --background: #fff;
+  --secondary: #939292;
+  --background: #faf8f8;
 }
 
 .dark {
   --highlight: #8b1085;
   --primary: #fff;
   --secondary: #7c7c7c;
-  --background: #000;
+  --background: #202020;
 }

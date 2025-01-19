@@ -2,7 +2,7 @@
 const Paragraph = ({ children }: { children: React.ReactNode }) => {
 
     return (
-        <p>{children}</p>
+        <p className='text-primary' style={{ padding: '0.5rem 0' }}>{children}</p>
     )
 }
 

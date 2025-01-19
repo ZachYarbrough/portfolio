@@ -11,7 +11,7 @@ I'm not going to try and stick to any schedule or posting cadence. I want to kee
 
 Last but not least, I figured this blog would be a fun outlit to reflect on challenges and to document rabbit holes I go down.
 
-# Types of Content
+# Content
 Here are some examples of content I plan to write about. This is not an exhaustive list, just some ideas I have.
 
 ### Project Dev Blogs
