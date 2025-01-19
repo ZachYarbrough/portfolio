@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <div>
       <h1>Hello World</h1>
-      <button className="text-highlight" onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MoonIcon /> : <SunIcon />}</button>
+      <button onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MoonIcon /> : <SunIcon />}</button>
     </div>
   )
 }

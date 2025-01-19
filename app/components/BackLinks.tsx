@@ -6,7 +6,7 @@ const BackLinks = ({ backlinks }: { backlinks: string[] }) => {
         <div style={{
             margin: '1rem 0',
         }}>
-            <h1 className='font-bold hover:cursor-pointer' style={{
+            <h1 className='font-bold' style={{
                 marginBottom: '0.5rem',
             }}>Backlinks</h1>
             {backlinks.length > 0 ? backlinks.map((backlink) => (

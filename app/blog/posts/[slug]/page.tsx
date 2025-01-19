@@ -10,6 +10,8 @@ import PostLink from '@/app/components/PostLink'
 import Paragraph from '@/app/components/Paragraph'
 import PostHeader from '@/app/components/PostHeader'
 import Sidebar from '@/app/components/Sidebar'
+import BlockQuote from '@/app/components/BlockQuote'
+import BulletLists from '@/app/components/BulletLists'
 
 /**
  * Generates static paths for all posts
@@ -60,15 +62,15 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
   const post: Post = getPostContent(paramObj.slug)
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-      <div style={{ maxWidth: '750px', margin: '0 auto' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', maxWidth: '750px', margin: '0 auto' }}>
+      <div>
         <h1 style={{ color: 'var(--primary)', fontSize: '2rem', margin: '0 0 0 0', fontWeight: '700', lineHeight: '1' }}>{post.title}</h1>
         <p style={{ color: 'var(--secondary)' }}>{post.date}, {post.timeToRead} min read</p>
         <ul style={{ display: 'flex', gap: '0.5rem', margin: '0.5rem 0 0 0' }}>
           {post.tags.map((tag) => (
             <li className='text-primary' style={{ 
-              lineHeight: '1.2rem',
-                padding: '0.2rem 0.4rem',
+                margin: '1rem 0 0.5rem 0',
+                padding: '0 0.4rem',
                 fontWeight: 'bold',
                 color: 'var(--highlight)',
                 backgroundColor: 'var(--secondary-light)',
@@ -98,6 +100,12 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
               props: {
                 headerNumber: 1.1
               }
+            },
+            blockquote: {
+              component: BlockQuote
+            },
+            ul: {
+              component: BulletLists
             }
           }
         }}>

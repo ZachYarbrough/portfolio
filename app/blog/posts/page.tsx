@@ -11,8 +11,7 @@ const BlogPage: NextPage = () => {
     ))
     return (
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
-            <h1 className='text-3xl font-bold underline'>
-                Hello World</h1>
+            <h1 className='text-3xl font-bold'>Posts</h1>
             <div>{postPreviews}</div>
         </div>
     )

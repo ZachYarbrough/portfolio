@@ -16,11 +16,10 @@ const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
                     <Link key={tag} href={`/blog/tags/${tag}`}
                         className='bg-secondary text-highlight px-2 py-1 rounded-md'
                         style={{
-                            lineHeight: '1.2rem',
                             fontWeight: '600',
                             padding: '0.2rem 0.3rem',
                             marginRight: '0.5rem',
-                            backgroundColor: 'var(--secondary)',
+                            backgroundColor: 'var(--secondary-light)',
                             borderRadius: '0.3rem',
                         }}>
                         #{tag}

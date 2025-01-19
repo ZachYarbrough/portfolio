@@ -8,8 +8,7 @@ const PostLink = ({ href, children }: { href: string, children: React.ReactNode 
     return (
         <Link className='text-highlight hover:cursor-pointer inline-flex font-bold'
             style={{
-                lineHeight: '1.2rem',
-                padding: isExternalLink ?  '0' : '0.2rem 0.4rem',
+                padding: isExternalLink ?  '0' : '0 0.4rem',
                 backgroundColor: isExternalLink ? 'transparent' : 'var(--secondary-light)',
                 borderRadius: isExternalLink ? '0' : '0.4rem',
             }}

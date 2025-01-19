@@ -2,15 +2,14 @@
 title: Why I Am Starting a Blog
 date: 2025-01-17
 tags: [blog]
-backlinks: [being-self-taught]
 ---
 
 # Goals
 I recently felt inspired to create this blog as a way of documenting my journey as a developer. I want this project to serve as a personal knowledge base where I can store information I've learned and reference it in the future. Some of my goals in creating this blog are to streamline my learning process and improve my technical writing skills. I wanted to make this a public blog to hopefully increase accountability. While this blog is primarily for my own benefit, I would love it if others find value in posts here too!
 
-I'm not going to try and stick to any schedule or posting cadence. I want to keep this side project as enjoyable as possible and I don't want to turn this blog into work. Depending on my motivation and what projects I am working on, I will post more or less frequently. Some months life will get busy or I will get distracted with a new video game/tv show.
+I'm not going to try and stick to any schedule or posting cadence. I want to keep this side project as enjoyable as possible and the last thing I want is for this blog to feel like work. Depending on my motivation and what projects I am working on, I will post more or less frequently. Some months life will get busy or I will get distracted with a new video game/tv show.
 
-Last but not least, I figured this blog would be a fun outlit to reflect on challenges and to document rabbit holes I go down.
+Last but not least, I figured this blog would be a fun outlit for me to reflect on challenges and go down rabbit holes on topics I find interesting.
 
 # Content
 Here are some examples of content I plan to write about. This is not an exhaustive list, just some ideas I have.

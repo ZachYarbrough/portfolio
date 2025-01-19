@@ -8,9 +8,13 @@ html {
   scroll-behavior: smooth;
 }
 
+tbody, li, p {
+  line-height: 1.6rem;
+}
+
 .light {
   --highlight: #46B47F;
-  --primary: #000;
+  --primary: #4E4E4E;
   --secondary: #B8B8B8;
   --secondary-light: #EBEBEB;
   --background: hsl(151, 99%, 99%);
@@ -18,8 +22,12 @@ html {
 
 .dark {
   --highlight: #98fbcb;
-  --primary: #fff;
+  --primary: #D4D4D4;
   --secondary: #B8B8B8;
   --secondary-light: #EBEBEB;
   --background: #202020;
+}
+
+.collapse-list {
+  max-height: 0 !important;
 }
