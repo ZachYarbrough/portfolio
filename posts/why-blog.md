@@ -2,6 +2,7 @@
 title: Why I Am Starting a Blog
 date: 2025-01-17
 tags: [blog]
+backlinks: [being-self-taught]
 ---
 
 # Goals

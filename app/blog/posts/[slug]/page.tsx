@@ -3,7 +3,7 @@ import { Post } from '@/app/types/blog'
 import fs from 'fs'
 import Markdown from 'markdown-to-jsx'
 import matter from 'gray-matter'
-import { getPostMetadata, getTimeToRead } from '@/app/components/blog'
+import { getPostMetadata, getTableOfContents, getTimeToRead } from '@/app/components/blog'
 import { formatDate } from '@/app/components/general'
 import CodeBlock from '@/app/components/CodeBlock'
 import Link from '@/app/components/Link'
@@ -33,7 +33,8 @@ const getPostContent = (slug: string): Post => {
   const file = `${folder}${slug}.md`
   const content = fs.readFileSync(file, 'utf8')
   const matterResult = matter(content)
-  const headers = (matterResult.content + '\n').match(/(#+ .*\n)/g)
+  const headers = (matterResult.content + '\n').match(/(#+ .*\n)/g) || []
+  const tableOfContents = getTableOfContents(headers)
 
   return {
     title: matterResult.data.title,
@@ -41,6 +42,7 @@ const getPostContent = (slug: string): Post => {
     date: formatDate(matterResult.data.date),
     tags: matterResult.data.tags,
     headers: headers,
+    tableOfContents: tableOfContents,
     timeToRead: getTimeToRead(matterResult.content),
     slug: slug,
     backlinks: matterResult.data.backlinks,
@@ -85,7 +87,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
         </Markdown>
       </div>
       <div style={{ position: 'fixed', top: '10rem', right: '15rem' }}>
-        <TableOfContent headers={post.headers || []} />
+        {Object.keys(post.tableOfContents).length > 0 && <TableOfContent tableOfContents={post.tableOfContents} />}
         <BackLinks backlinks={post.backlinks || []} />
       </div>
     </div>
