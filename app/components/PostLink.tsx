@@ -1,17 +1,17 @@
 'use client'
 import { ExternalLinkIcon } from "./assets/icons"
-
-const Link = ({ href, children }: { href: string, children: React.ReactNode }) => {
+import Link from "next/link"
+const PostLink = ({ href, children }: { href: string, children: React.ReactNode }) => {
     const isExternalLink = href.startsWith('http')
-    const hrefOrSlug = isExternalLink ? href : `${window.location.origin}/blog/posts/${href.replace('.md', '')}`
+    const hrefOrSlug = isExternalLink ? href : `/blog/posts/${href.replace('.md', '')}`
 
     return (
-        <a className='text-highlight hover:cursor-pointer inline-flex font-bold'
+        <Link className='text-highlight hover:cursor-pointer inline-flex font-bold'
             style={{
                 lineHeight: '1.2rem',
-                padding: isExternalLink ?  '0' : '0 0.2rem',
-                backgroundColor: isExternalLink ? 'transparent' : 'var(--secondary)',
-                borderRadius: isExternalLink ? '0' : '0.3rem',
+                padding: isExternalLink ?  '0' : '0.2rem 0.4rem',
+                backgroundColor: isExternalLink ? 'transparent' : 'var(--secondary-light)',
+                borderRadius: isExternalLink ? '0' : '0.4rem',
             }}
             href={hrefOrSlug} target={isExternalLink ? '_blank' : undefined}
             rel={isExternalLink ? 'noopener noreferrer' : undefined}>
@@ -22,8 +22,8 @@ const Link = ({ href, children }: { href: string, children: React.ReactNode }) =
                     color: 'var(--primary)',
                 }}><ExternalLinkIcon /></span>
             }
-        </a>
+        </Link>
     )
 }
 
-export default Link
+export default PostLink

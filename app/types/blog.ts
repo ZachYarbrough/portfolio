@@ -6,10 +6,10 @@ export interface PostMetadata {
     tags: string[]
     slug: string
     timeToRead: number
-    tableOfContents: {
+    tableOfContents: Record<string, {
         text: string,
         subSections: string[]
-    }[]
+    }>
     backlinks: string[]
 }
 

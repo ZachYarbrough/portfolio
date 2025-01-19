@@ -1,5 +1,6 @@
+import TableOfContentsLink from "./TableOfContentsLink"
 
-const TableOfContent = ({ tableOfContents }: { tableOfContents: { text: string, subSections: string[] }[] }) => {
+const TableOfContent = ({ tableOfContents }: { tableOfContents: Record<string, { text: string, subSections: string[] }> }) => {
 
     return (
         <div style={{
@@ -8,19 +9,20 @@ const TableOfContent = ({ tableOfContents }: { tableOfContents: { text: string, 
             <h1 className='font-bold hover:cursor-pointer' style={{
                 marginBottom: '0.5rem',
             }}>Table of Contents</h1>
-            <ul>
+            <ul className='flex flex-col gap-2'>
                 {Object.keys(tableOfContents).map((section: any) => (
-                    <li key={section} className='text-secondary'>{tableOfContents[section].text}
+                    <div key={section}>
+                        <TableOfContentsLink section={section} tableOfContents={tableOfContents}/>
                         {tableOfContents[section].subSections && tableOfContents[section].subSections.length > 0 && (
-                            <ul key={`${section}-sub-section`} className='text-secondary' style={{
+                            <ul key={`${section}-sub-section`} className='text-secondary flex flex-col gap-2' style={{
                                 marginLeft: '1rem'
                             }}>
                                 {tableOfContents[section].subSections.map((subSection: any) => (
-                                    <li key={subSection}>{subSection}</li>
+                                    <a key={subSection} href={`#${subSection}`}>{subSection}</a>
                                 ))}
                             </ul>
                         )}
-                    </li>
+                    </div>
                 ))}
             </ul>
         </div>

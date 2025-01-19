@@ -6,11 +6,10 @@ import matter from 'gray-matter'
 import { getPostMetadata, getTableOfContents, getTimeToRead } from '@/app/components/blog'
 import { formatDate } from '@/app/components/general'
 import CodeBlock from '@/app/components/CodeBlock'
-import Link from '@/app/components/Link'
+import PostLink from '@/app/components/PostLink'
 import Paragraph from '@/app/components/Paragraph'
 import PostHeader from '@/app/components/PostHeader'
-import TableOfContent from '@/app/components/TableOfContent'
-import BackLinks from '@/app/components/BackLinks'
+import Sidebar from '@/app/components/Sidebar'
 
 /**
  * Generates static paths for all posts
@@ -33,8 +32,14 @@ const getPostContent = (slug: string): Post => {
   const file = `${folder}${slug}.md`
   const content = fs.readFileSync(file, 'utf8')
   const matterResult = matter(content)
+
+  // Get headers with regex that matches the format '# Header', '## Header', etc.
   const headers = (matterResult.content + '\n').match(/(#+ .*\n)/g) || []
   const tableOfContents = getTableOfContents(headers)
+
+  // Get backlinks with regex that matches the format '](link.md)'
+  const backlinks = (matterResult.content + '\n').match(/\]\(([^ ]+?)\.md\)/g) || []
+  const formattedBacklinks = [...new Set(backlinks.map((backlink) => backlink.split('](')[1].replace('.md)', '')))]
 
   return {
     title: matterResult.data.title,
@@ -45,7 +50,7 @@ const getPostContent = (slug: string): Post => {
     tableOfContents: tableOfContents,
     timeToRead: getTimeToRead(matterResult.content),
     slug: slug,
-    backlinks: matterResult.data.backlinks,
+    backlinks: formattedBacklinks,
     content: matterResult.content
   }
 }
@@ -53,18 +58,31 @@ const getPostContent = (slug: string): Post => {
 const PostPage = async ({ params }: { params: { slug: string } }) => {
   const paramObj = await params
   const post: Post = getPostContent(paramObj.slug)
+
   return (
     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
       <div style={{ maxWidth: '750px', margin: '0 auto' }}>
         <h1 style={{ color: 'var(--primary)', fontSize: '2rem', margin: '0 0 0 0', fontWeight: '700', lineHeight: '1' }}>{post.title}</h1>
         <p style={{ color: 'var(--secondary)' }}>{post.date}, {post.timeToRead} min read</p>
+        <ul style={{ display: 'flex', gap: '0.5rem', margin: '0.5rem 0 0 0' }}>
+          {post.tags.map((tag) => (
+            <li className='text-primary' style={{ 
+              lineHeight: '1.2rem',
+                padding: '0.2rem 0.4rem',
+                fontWeight: 'bold',
+                color: 'var(--highlight)',
+                backgroundColor: 'var(--secondary-light)',
+                borderRadius: '0.4rem'
+             }} key={tag}>#{tag}</li>
+          ))}
+        </ul>
         <Markdown options={{
           overrides: {
             code: {
               component: CodeBlock
             },
             a: {
-              component: Link,
+              component: PostLink,
             },
             p: {
               component: Paragraph
@@ -86,10 +104,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
           {post.content}
         </Markdown>
       </div>
-      <div style={{ position: 'fixed', top: '10rem', right: '15rem' }}>
-        {Object.keys(post.tableOfContents).length > 0 && <TableOfContent tableOfContents={post.tableOfContents} />}
-        <BackLinks backlinks={post.backlinks || []} />
-      </div>
+      <Sidebar post={post} />
     </div>
   )
 }

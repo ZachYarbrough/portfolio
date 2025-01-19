@@ -4,16 +4,22 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+html {
+  scroll-behavior: smooth;
+}
+
 .light {
-  --highlight: #d14ecb;
+  --highlight: #46B47F;
   --primary: #000;
-  --secondary: #939292;
-  --background: #faf8f8;
+  --secondary: #B8B8B8;
+  --secondary-light: #EBEBEB;
+  --background: hsl(151, 99%, 99%);
 }
 
 .dark {
-  --highlight: #8b1085;
+  --highlight: #98fbcb;
   --primary: #fff;
-  --secondary: #7c7c7c;
+  --secondary: #B8B8B8;
+  --secondary-light: #EBEBEB;
   --background: #202020;
 }

@@ -3,7 +3,6 @@ import { PostMetadata } from '../types/blog';
 import fs from 'fs';
 import matter from 'gray-matter';
 import { formatDate } from './general';
-import TableOfContent from './TableOfContent';
 
 /**
  * Calculates the time to read a post based on the number of words in the post / the average reading speed of 238 words per minute.
@@ -86,6 +85,14 @@ export const getTableOfContents = (headers: string[]) => {
             }
         } else if (headerLevel >= 1) {
             currentSection.subSections.push(headerText)
+        }
+
+        if (headers.length === index + 1 && !tableOfContents[currentSection.text]) {
+            if (!tableOfContents[currentSection.text]) {
+                tableOfContents[currentSection.text] = currentSection
+            } else {
+                tableOfContents[`${currentSection.text}-${index}`] = currentSection
+            }
         }
     })
 
