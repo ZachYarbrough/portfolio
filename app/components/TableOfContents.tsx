@@ -44,7 +44,7 @@ const TableOfContent = ({ tableOfContents }: { tableOfContents: Record<string, {
                                 marginLeft: '1rem'
                             }}>
                                 {tableOfContents[section].subSections.map((subSection: any) => (
-                                    <a key={subSection} href={`#${subSection}`}>{subSection}</a>
+                                    <TableOfContentsLink key={subSection} section={subSection} tableOfContents={tableOfContents} />
                                 ))}
                             </ul>
                         )}

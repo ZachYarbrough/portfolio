@@ -17,7 +17,7 @@ const PostLink = ({ href, children }: { href: string, children: React.ReactNode 
             <span>{children}</span>
             {isExternalLink &&
                 <span style={{
-                    marginTop: '0.4rem',
+                    marginTop: '0.5rem',
                     color: 'var(--primary)',
                 }}><ExternalLinkIcon /></span>
             }

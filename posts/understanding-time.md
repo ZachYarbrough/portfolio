@@ -1,5 +1,5 @@
 ---
-title: Understanding Time
+title: Understanding Time with JavaScript
 date: 2025-01-19
 tags: [dev, javascript]
 ---

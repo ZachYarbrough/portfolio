@@ -79,3 +79,6 @@ More testing includes:
 
 > **Note** 
   test
+
+  # Further Readings
+  - [Vim Cheat Sheet](https://vim.rtorr.com/)
