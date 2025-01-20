@@ -15,7 +15,7 @@ const TableOfContentsLink = ({ section, tableOfContents }: { section: string, ta
                 setIsPastMain(entry.isIntersecting);
             },
             {
-                rootMargin: '100% 0px 0px 0px', // Triggers when section enters from bottom of viewport
+                rootMargin: '10000px 0px 0px 0px', // Triggers when section enters from bottom of viewport
                 threshold: 0
             }
         );
