@@ -35,9 +35,9 @@ const Header = () => {
   }, [darkMode])
 
   return (
-    <div>
-      <h1>Hello World</h1>
-      <button onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MoonIcon /> : <SunIcon />}</button>
+    <div className="flex justify-between items-center h-20">
+      <h1 className="md:hidden">Hello World</h1>
+      <button className="md:hidden" onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MoonIcon /> : <SunIcon />}</button>
     </div>
   )
 }

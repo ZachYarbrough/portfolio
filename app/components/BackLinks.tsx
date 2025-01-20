@@ -11,7 +11,7 @@ const BackLinks = ({ backlinks }: { backlinks: string[] }) => {
             }}>Backlinks</h1>
             {backlinks.length > 0 ? backlinks.map((backlink) => (
                 <div key={backlink} className='text-highlight font-bold'>
-                    <Link href={`/blog/posts/${backlink}`}>{backlink}</Link>
+                    <Link href={`/posts/${backlink}`}>{backlink}</Link>
                 </div>
             )) :
                 <div className='text-secondary'>

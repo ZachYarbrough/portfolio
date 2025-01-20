@@ -1,4 +1,4 @@
-import { Post } from "@/app/types/blog"
+import { Post } from "@/app/types/posts"
 import TableOfContents from "./TableOfContents"
 import BackLinks from "./BackLinks"
 

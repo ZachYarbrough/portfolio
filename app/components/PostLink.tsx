@@ -3,7 +3,7 @@ import { ExternalLinkIcon } from "./assets/icons"
 import Link from "next/link"
 const PostLink = ({ href, children }: { href: string, children: React.ReactNode }) => {
     const isExternalLink = href.startsWith('http')
-    const hrefOrSlug = isExternalLink ? href : `/blog/posts/${href.replace('.md', '')}`
+    const hrefOrSlug = isExternalLink ? href : `/posts/${href.replace('.md', '')}`
 
     return (
         <Link className='text-highlight hover:cursor-pointer inline-flex font-bold'

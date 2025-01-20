@@ -18,7 +18,7 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
     const [theme, setTheme] = useState('light')
     const [copied, setCopied] = useState(false)
 
-    const language = className.replace('lang-', '') || 'text';
+    const language = className ? className.replace('lang-', '') : 'text';
 
     useEffect(() => {
         window.addEventListener('storage', () => {

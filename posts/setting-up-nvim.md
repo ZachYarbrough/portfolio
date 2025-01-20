@@ -10,12 +10,12 @@ For the below commands and setup, I will assume that you are in a neovim editor.
 
 
 To see the dtirectory that neovim will look on your decive, type the below command.
-```vim
+```
 :h rtp```
 
 In order to create a new file, use the '%' sign.
-```vim
+```
 %[file-name-here]```
 
 
-`:so` - sources the current file you are editting
+**:so** - sources the current file you are editting

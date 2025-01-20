@@ -1,10 +1,10 @@
-import { Post } from '@/app/types/blog'
+import { Post } from '@/app/types/posts'
 
 import fs from 'fs'
 import Markdown from 'markdown-to-jsx'
 import matter from 'gray-matter'
-import { getPostMetadata, getTableOfContents, getTimeToRead } from '@/app/components/blog'
-import { formatDate } from '@/app/components/general'
+import { getPostMetadata, getTimeToRead } from '@/app/components/posts'
+import { formatDate, getTableOfContents } from '@/app/components/general'
 import CodeBlock from '@/app/components/CodeBlock'
 import PostLink from '@/app/components/PostLink'
 import Paragraph from '@/app/components/Paragraph'
@@ -63,8 +63,8 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', maxWidth: '750px', margin: '0 auto' }}>
-      <div>
-        <h1 style={{ color: 'var(--primary)', fontSize: '2rem', margin: '0 0 0 0', fontWeight: '700', lineHeight: '1' }}>{post.title}</h1>
+      <div style={{ width: '100%', margin: '0 auto' }}>
+        <h1 style={{ color: 'var(--primary)', fontSize: '2rem', margin: '0 0 0 0', fontWeight: '700', lineHeight: '2.25rem' }}>{post.title}</h1>
         <p style={{ color: 'var(--secondary)' }}>{post.date}, {post.timeToRead} min read</p>
         <ul style={{ display: 'flex', gap: '0.5rem', margin: '0.5rem 0 0 0' }}>
           {post.tags.map((tag) => (
