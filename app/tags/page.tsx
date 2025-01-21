@@ -1,18 +1,42 @@
 import { NextPage } from 'next';
 import { getPostMetadata } from '../components/posts';
 import PostPreview from '@/app/components/PostPreview';
+import BreadcrumbTrail from '../components/BreadcrumbTrail';
+import InternalLink from '../components/InternalLInk';
+import ItemCount from '../components/ItemCount';
 
 const BlogPage: NextPage = () => {
 
     const postMetadata = getPostMetadata()
 
-    const postPreviews = postMetadata.map((post) => (
-        <PostPreview key={post.slug} {...post} />
-    ))
+    const getTagData = (metadata: any[]) => {
+        const tags = metadata.map((post) => post.tags).flat()
+        const uniqueTags = [...new Set(tags)]
+
+        return uniqueTags.sort((a, b) => a.localeCompare(b)).map((tag, index) => {
+            const tagPosts = metadata.filter((post) => post.tags.includes(tag))
+
+            return (
+                <div key={tag} style={{ marginTop: index === 0 ? '0' : '1.5rem' }}>
+                    <InternalLink fileName={tag} linkType='tags'>#{tag}</InternalLink>
+                    <ItemCount count={tagPosts.length} message='found with this tag.' />
+                    <div>
+                        {tagPosts.map((post) => (
+                            <PostPreview key={post.slug} {...post} />
+                        ))}
+                    </div>
+                </div>
+            )
+        })
+    }
+
+    const postPreviews = getTagData([...postMetadata])
+    
     return (
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
-            <h1 className='text-3xl font-bold'>Tags</h1>
-            <div>{postPreviews}</div>
+            <BreadcrumbTrail />
+            <h1 className='text-3xl font-bold'>Tag Index</h1>
+            <div style={{ marginTop: '1rem' }}>{postPreviews}</div>
         </div>
     )
 }

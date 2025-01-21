@@ -21,7 +21,7 @@ const TableOfContent = ({ tableOfContents }: { tableOfContents: Record<string, {
 
     return (
         <div style={{
-            margin: '1rem 0',
+            margin: '0 0 1rem 0',
         }}>
             <h1 className='flex items-center font-bold hover:cursor-pointer' style={{
                 marginBottom: '0.5rem',

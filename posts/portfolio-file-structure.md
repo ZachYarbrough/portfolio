@@ -1,6 +1,6 @@
 ---
 title: Portfolio File Structure
-date: 2025-01-21
+date: 2025-02-01
 tags: [blog, portfolio, side-project]
 ---
 
@@ -25,6 +25,11 @@ The About Me page will consist of the following:
 - Latest Blog Posts (1/2 the page)
 - Latest Projects (2/2 the page)
 
+Or the about me could look like this:
+- About Me
+- Featured Projects (3 in a row)
+- List of latest posts
+
 ### Left Side Bar
 
 - Name
@@ -43,3 +48,9 @@ Should Projects and Posts be dropdowns that display the top most recent projects
 
 - Get All posts and Project .md files at start?
    - Is this necessary for the search functionality?
+
+### Where is my data being stored?
+
+- getPostMetadata() can be used to get all the posts
+- gtProjectMetadata() will be created to get all the projects
+- When searching can I use both functions? Should I add an optional filter to each function or perform it after fetching the data?

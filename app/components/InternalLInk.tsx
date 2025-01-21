@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-const InternalLink = ({ href, linkType, children }: { href: string, linkType: string, children: React.ReactNode }) => {
+const InternalLink = ({ fileName, linkType, children }: { fileName: string, linkType: string, children: React.ReactNode }) => {
 
     return (
         <Link className='text-highlight hover:cursor-pointer inline-flex font-bold'
@@ -11,7 +11,7 @@ const InternalLink = ({ href, linkType, children }: { href: string, linkType: st
                 backgroundColor: 'var(--secondary-light)',
                 borderRadius: '0.4rem',
             }}
-            href={`/${linkType}/${href.replace('.md', '')}`}
+            href={`/${linkType}/${fileName.replace('.md', '')}`}
             >
             <span>{children}</span>
         </Link>

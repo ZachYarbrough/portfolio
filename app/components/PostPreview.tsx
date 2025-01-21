@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import { PostMetadata } from '../types/posts'
+import InternalLink from './InternalLInk'
 
 const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
     return (
@@ -11,19 +12,18 @@ const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
                     <h2 className='text-highlight font-bold' style={{ paddingLeft: '1rem' }}>{title}</h2>
                 </Link>
             </div>
-            <div>
+            <div className='flex'>
                 {tags.map((tag) => (
-                    <Link key={tag} href={`/tags/${tag}`}
-                        className='bg-secondary text-highlight px-2 py-1 rounded-md'
-                        style={{
-                            fontWeight: '600',
-                            padding: '0.2rem 0.3rem',
-                            marginRight: '0.5rem',
-                            backgroundColor: 'var(--secondary-light)',
-                            borderRadius: '0.3rem',
-                        }}>
+                    <div
+                        key={tag}
+                    style={{
+                        marginLeft: '0.5rem'
+                    }}>
+                    <InternalLink key={tag} fileName={tag} linkType={'tags'}
+                        >
                         #{tag}
-                    </Link>
+                    </InternalLink>
+                    </div>
                 ))}
             </div>
         </div>

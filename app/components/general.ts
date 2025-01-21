@@ -7,11 +7,10 @@
  * @returns {string} The formatted date string
  */
 export const formatDate = (date: Date): string => {
-    return date.toLocaleDateString('en-EN', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-    })
+    console.log(date)
+    const formattedDate = new Date(date)
+
+    return `${formattedDate.toLocaleString('default', { month: 'short' })} ${("0" + formattedDate.getDate()).slice(-2)}, ${formattedDate.getFullYear()}`
 }
 
 /**
@@ -68,4 +67,14 @@ export const getTableOfContents = (headers: string[]) => {
     })
 
     return tableOfContents
+}
+
+/**
+ * Formats a number to a string with two digits
+ * 
+ * @param {number} number - The number to format
+ * @returns {string} The formatted number string
+ */
+export const twoDigits = (number: number) => {
+    return number < 10 && number > 0 ? `0${number}` : number
 }

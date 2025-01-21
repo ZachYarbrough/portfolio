@@ -1,7 +1,7 @@
 import ExternalLink from "./ExternalLink"
 import InternalLink from "./InternalLInk"
 
-const PostLink = ({ href, children }: { href: string, children: React.ReactNode }) => {
+const PostLink = ({ href , children }: { href: string, children: React.ReactNode }) => {
     const isExternalLink = href.startsWith('http')
 
     return (
@@ -9,7 +9,7 @@ const PostLink = ({ href, children }: { href: string, children: React.ReactNode 
             {
                 isExternalLink ?
                     <ExternalLink href={href} >{children}</ExternalLink> :
-                    <InternalLink href={href} linkType={'posts'} >{children}</InternalLink>
+                    <InternalLink fileName={href} linkType={'posts'} >{children}</InternalLink>
             }
         </>
     )

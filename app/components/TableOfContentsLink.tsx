@@ -25,7 +25,7 @@ const TableOfContentsLink = ({ section, tableOfContents }: { section: string, ta
     }, [section])
 
     return (
-        <a href={`#${section}`} className={`${isPastMain ? 'text-primary' : 'text-secondary'} transition-colors duration-200`}>
+        <a href={`#${section}`} className={`${isPastMain ? 'text-primary font-bold' : 'text-secondary'} transition-colors duration-200`}>
             <span>{tableOfContents[section] !== undefined ? tableOfContents[section].text : section}</span>
         </a>
     )
