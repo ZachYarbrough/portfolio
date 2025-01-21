@@ -17,6 +17,11 @@ tbody, li, p {
   --primary: #4E4E4E;
   --secondary: #B8B8B8;
   --secondary-light: #EBEBEB;
+  --info: #46B47F;
+  --note: #46B47F;
+  --warning: #46B47F;
+  --caution: #46B47F;
+  --tip: #46B47F;
   --background: hsl(151, 99%, 99%);
 }
 
@@ -25,6 +30,11 @@ tbody, li, p {
   --primary: #D4D4D4;
   --secondary: #B8B8B8;
   --secondary-light: #858585;
+  --info: #46B47F;
+  --note: #46B47F;
+  --warning: #46B47F;
+  --caution: #46B47F;
+  --tip: #46B47F;
   --background: #202020;
 }
 

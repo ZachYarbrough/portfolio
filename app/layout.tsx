@@ -8,9 +8,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang='en' className='font-inconsolata'>
       <body className={`bg-background text-primary`}>
         <Header />
-        <div className='mx-auto max-w-7xl px-4'>
+        <div>
           <LeftSidebar />
           {children}
+        </div>
+        <div className='mx-auto px-4 text-sm text-muted-foreground' style={{ maxWidth: '750px', margin: '1rem auto' }}>
+          Handcrafted with love in 2025 ✌️
         </div>
       </body>
     </html>

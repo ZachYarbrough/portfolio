@@ -36,15 +36,15 @@ This is test text to see how the blockquote component works. If it looks good, I
 > This is useful when you are editing a file and want to see the changes you made in another file.
 
 
-> [!INFO]
+> [!NOTE]
 > This is useful **test** when you are editing a file and want to see the changes you made in another file.
 
 This is test text to see how the blockquote component works. If it looks good, I will use it for the blog.
 
-> [!SUCCESS] 
+> [!CAUTION] 
 > This is useful when you are editing a file and want to see the changes you made in another file.
 
-> [!TIP] 
-> This is useful when you are editing a file and want to see the changes you made in another file.
+> [!WARNING] 
+> **Test** -- This is useful when you are editing a file and want to see the changes you made in another file.
 
 > This is useful when you are editing a file and want to see the changes you made in another file.
