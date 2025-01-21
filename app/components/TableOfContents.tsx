@@ -40,7 +40,7 @@ const TableOfContent = ({ tableOfContents }: { tableOfContents: Record<string, {
                     <div key={section}>
                         <TableOfContentsLink section={section} tableOfContents={tableOfContents}/>
                         {tableOfContents[section].subSections && tableOfContents[section].subSections.length > 0 && (
-                            <ul key={`${section}-sub-section`} className='text-secondary flex flex-col gap-2' style={{
+                            <ul className='text-secondary flex flex-col gap-2' style={{
                                 marginLeft: '1rem'
                             }}>
                                 {tableOfContents[section].subSections.map((subSection: any) => (
