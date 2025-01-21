@@ -32,10 +32,6 @@ In order to create a new file, use the '%' sign.
 
 This is test text to see how the blockquote component works. If it looks good, I will use it for the blog.
 
-> [!INFO] 
-> This is useful when you are editing a file and want to see the changes you made in another file.
-
-
 > [!NOTE]
 > This is useful **test** when you are editing a file and want to see the changes you made in another file.
 

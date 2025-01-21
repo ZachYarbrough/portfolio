@@ -8,7 +8,6 @@ const BreadcrumbTrail = ({ isTag }: { isTag?: boolean }) => {
     const pathname = usePathname()
     const pathnameArray = pathname.split('/').filter((path) => path)
     let currentPath = ''
-    console.log(pathnameArray)
 
     return (
         <div className='flex items-center gap-1 font-bold' style={{

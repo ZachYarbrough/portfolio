@@ -5,8 +5,9 @@ import BreadcrumbTrail from '../components/BreadcrumbTrail';
 import InternalLink from '../components/InternalLInk';
 import ItemCount from '../components/ItemCount';
 import PageHeader from '../components/PageHeader';
+import TagHeader from '../components/TagHeader';
 
-const BlogPage: NextPage = () => {
+const TagPage: NextPage = () => {
 
     const postMetadata = getPostMetadata()
 
@@ -19,7 +20,7 @@ const BlogPage: NextPage = () => {
 
             return (
                 <div key={tag} style={{ marginTop: index === 0 ? '0' : '1.5rem' }}>
-                    <InternalLink fileName={tag} linkType='tags'>#{tag}</InternalLink>
+                    <TagHeader tag={tag}>{tag}</TagHeader>
                     <ItemCount count={tagPosts.length} message='found with this tag.' />
                     <div>
                         {tagPosts.map((post) => (
@@ -42,4 +43,4 @@ const BlogPage: NextPage = () => {
     )
 }
 
-export default BlogPage 
+export default TagPage 

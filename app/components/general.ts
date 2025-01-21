@@ -7,7 +7,6 @@
  * @returns {string} The formatted date string
  */
 export const formatDate = (date: Date): string => {
-    console.log(date)
     const formattedDate = new Date(date)
 
     return `${formattedDate.toLocaleString('default', { month: 'short' })} ${("0" + formattedDate.getDate()).slice(-2)}, ${formattedDate.getFullYear()}`

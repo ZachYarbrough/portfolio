@@ -15,6 +15,10 @@ export default {
       colors: {
         background: 'var(--background)',
         primary: 'var(--primary)',
+        note: 'var(--note)',
+        warning: 'var(--warning)',
+        caution: 'var(--caution)',
+        tip: 'var(--tip)',
         secondary: 'var(--secondary)',
         highlight: 'var(--highlight)',
       },

@@ -2,11 +2,25 @@ import { getPostMetadata } from '@/app/components/posts';
 import PostPreview from '@/app/components/PostPreview';
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail';
 import ItemCount from '@/app/components/ItemCount';
+import TagHeader from '@/app/components/TagHeader';
 
-const BlogPage = async ({ params }: { params: { tag: string } }) => {
-    const paramObj = await params
-    const tag = paramObj.tag
-  
+/**
+ * Generates static paths for all posts
+ * 
+ * @returns {Array<{ tag: string }>} An array of objects with the tags of each post
+ */
+export const generateStaticParams = async () => {
+    const posts = getPostMetadata()
+    const tags: any[] = []
+
+    posts.forEach((post: any) => post.tags.forEach((tag: any) => (tags.push(tag))))
+
+    return [...new Set(tags)].map((tag: any) => ({ tag: tag }))
+}
+
+const SingleTagPage = async ({ params }: any) => {
+    const tag = await params.tag
+    
     const postMetadata = getPostMetadata()
 
     const filteredPosts = postMetadata.filter((post) => post.tags.includes(tag)).map((post) => (
@@ -17,12 +31,7 @@ const BlogPage = async ({ params }: { params: { tag: string } }) => {
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
             <BreadcrumbTrail isTag={true} />
             <div key={tag}>
-                    <h1 className='text-highlight hover:cursor-pointer inline-flex font-bold'
-            style={{
-                padding: '0 0.4rem',
-                backgroundColor: 'var(--secondary-light)',
-                borderRadius: '0.4rem',
-            }}>#{tag}</h1>
+                <TagHeader>{tag}</TagHeader>
                     <ItemCount count={filteredPosts.length} message='found with this tag.' />
                     <div>
                         {filteredPosts}
@@ -32,4 +41,4 @@ const BlogPage = async ({ params }: { params: { tag: string } }) => {
     )
 }
 
-export default BlogPage 
+export default SingleTagPage 

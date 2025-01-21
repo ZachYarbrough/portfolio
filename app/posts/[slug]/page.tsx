@@ -60,9 +60,9 @@ const getPostContent = (slug: string): Post => {
   }
 }
 
-const PostPage = async ({ params }: { params: { slug: string } }) => {
-  const paramObj = await params
-  const post: Post = getPostContent(paramObj.slug)
+const PostPage = async ({ params }: any) => {
+  const slug = await params.slug
+  const post: Post = getPostContent(slug)
 
   return (
     <>
