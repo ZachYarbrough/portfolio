@@ -4,6 +4,7 @@ import PostPreview from '@/app/components/PostPreview';
 import BreadcrumbTrail from '../components/BreadcrumbTrail';
 import InternalLink from '../components/InternalLInk';
 import ItemCount from '../components/ItemCount';
+import PageHeader from '../components/PageHeader';
 
 const BlogPage: NextPage = () => {
 
@@ -35,7 +36,7 @@ const BlogPage: NextPage = () => {
     return (
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
             <BreadcrumbTrail />
-            <h1 className='text-3xl font-bold'>Tag Index</h1>
+            <PageHeader>Tag Index</PageHeader>
             <div style={{ marginTop: '1rem' }}>{postPreviews}</div>
         </div>
     )

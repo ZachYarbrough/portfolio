@@ -43,6 +43,8 @@ Every
 Should Projects and Posts be dropdowns that display the top most recent projects/posts? Or would that clutter the screen too much?
 > I do not think so
 
+# Test
+
 
 ### How Should the data be structured?
 
@@ -50,6 +52,20 @@ Should Projects and Posts be dropdowns that display the top most recent projects
    - Is this necessary for the search functionality?
 
 ### Where is my data being stored?
+
+- getPostMetadata() can be used to get all the posts
+- gtProjectMetadata() will be created to get all the projects
+- When searching can I use both functions? Should I add an optional filter to each function or perform it after fetching the data?
+
+## Test 2
+
+
+### How Should the data be structured? 2
+
+- Get All posts and Project .md files at start?
+   - Is this necessary for the search functionality?
+
+### Where is my data being stored? 2
 
 - getPostMetadata() can be used to get all the posts
 - gtProjectMetadata() will be created to get all the projects

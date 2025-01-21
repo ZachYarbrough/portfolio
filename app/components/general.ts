@@ -32,6 +32,7 @@ export const getTableOfContents = (headers: string[]) => {
     if (headers.length === 0) return []
     
     const tableOfContents: any = {}
+    let currentHeaderLevel = headers[0].match(/#/g)?.length || 0
     let currentSection: any = {
         text: headers[0].replace(/#+/g, '').trim(),
         subSections: []
@@ -42,7 +43,8 @@ export const getTableOfContents = (headers: string[]) => {
         const headerText = header.replace(/#+/g, '').trim()
         const headerLevel = header.match(/#/g)?.length || 0
 
-        if (headerLevel === 1) {
+        if (headerLevel <= currentHeaderLevel) {
+            currentHeaderLevel = headerLevel
             if (!tableOfContents[currentSection.text]) {
                 tableOfContents[currentSection.text] = currentSection
             } else {
@@ -53,7 +55,7 @@ export const getTableOfContents = (headers: string[]) => {
                 text: headerText,
                 subSections: []
             }
-        } else if (headerLevel >= 1) {
+        } else if (headerLevel > currentHeaderLevel) {
             currentSection.subSections.push(headerText)
         }
 

@@ -3,6 +3,7 @@ import { getPostMetadata } from '../components/posts';
 import PostPreview from '@/app/components/PostPreview';
 import BreadcrumbTrail from '../components/BreadcrumbTrail';
 import ItemCount from '../components/ItemCount';
+import PageHeader from '../components/PageHeader';
 
 const BlogPage: NextPage = () => {
 
@@ -14,7 +15,7 @@ const BlogPage: NextPage = () => {
     return (
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
             <BreadcrumbTrail />
-            <h1 className='text-3xl font-bold'>Posts</h1>
+            <PageHeader>Posts</PageHeader>
             <ItemCount count={postPreviews.length} message='found in this folder.' />
             <div>{postPreviews}</div>
         </div>

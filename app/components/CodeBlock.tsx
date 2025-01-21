@@ -52,7 +52,6 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
                     border: '1px solid #e0e0e0',
                     borderRadius: '0.5rem',
                     padding: '0.5rem',
-                    margin: '0.5rem',
                     minHeight: '3rem',
                     alignItems: 'center',
                 }}

@@ -14,6 +14,7 @@ import InternalLink from '@/app/components/InternalLInk'
 import PostLink from '@/app/components/PostLink'
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail'
 import RightSidebar from '@/app/components/RightSidebar'
+import PageHeader from '@/app/components/PageHeader'
 
 /**
  * Generates static paths for all posts
@@ -68,7 +69,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', maxWidth: '750px', margin: '0 auto' }}>
         <div style={{ width: '100%', margin: '0 auto' }}>
           <BreadcrumbTrail />
-          <h1 style={{ color: 'var(--primary)', fontSize: '2rem', margin: '0 0 0 0', fontWeight: '700', lineHeight: '2.25rem' }}>{post.title}</h1>
+          <PageHeader>{post.title}</PageHeader>
           <p style={{ color: 'var(--secondary)' }}>{post.date}, {post.timeToRead} min read</p>
           <ul style={{ display: 'flex', gap: '0.5rem', margin: '1rem 0 0 0' }}>
             {post.tags.map((tag) => (
@@ -92,10 +93,22 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                   headerNumber: 1.5
                 }
               },
+              h2: {
+                component: PostHeader,
+                props: {
+                  headerNumber: 1.3
+                }
+              },
               h3: {
                 component: PostHeader,
                 props: {
                   headerNumber: 1.1
+                }
+              },
+              h4: {
+                component: PostHeader,
+                props: {
+                  headerNumber: 1
                 }
               },
               blockquote: {

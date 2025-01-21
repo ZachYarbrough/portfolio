@@ -19,3 +19,28 @@ In order to create a new file, use the '%' sign.
 
 
 **:so** - sources the current file you are editting
+
+> This is useful when you are editing a file and want to see the changes you made in another file.
+
+> [!NOTE] 
+> This is useful when you are editing a file and want to see the changes you made in another file.
+
+> [!TIP] 
+> This is useful when you are editing a file and want to see the changes you made in another file.
+
+> This is useful when you are editing a file and want to see the changes you made in another file.
+
+This is test text to see how the blockquote component works. If it looks good, I will use it for the blog.
+
+> [!INFO] 
+> This is useful when you are editing a file and want to see the changes you made in another file.
+
+This is test text to see how the blockquote component works. If it looks good, I will use it for the blog.
+
+> [!SUCCESS] 
+> This is useful when you are editing a file and want to see the changes you made in another file.
+
+> [!TIP] 
+> This is useful when you are editing a file and want to see the changes you made in another file.
+
+> This is useful when you are editing a file and want to see the changes you made in another file.
