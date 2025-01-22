@@ -69,14 +69,7 @@ More testing includes:
 | Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 3 |
 | Row 3, Column 1 | Row 3, Column 2 | Row 3, Column 3 | 
 
-> :memo: **This is a Note**: a pen in front of a paper
-
-> :warning: **This is a Note**: an exclamation mark in front of a triangle
-
-> :bulb: **This is a Note**: a light bulb
-
-> :heavy_check_mark: **This is a Note**: a check mark
-
+> s
 > **Note** 
   test
 

@@ -37,7 +37,7 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
     return (
         <div className='group relative'>
             <button onClick={handleCopy} className='absolute z-5 text-gray-500 hover:text-gray-700 
-                opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-300' style={{
+                opacity-0 group-hover:opacity-100 transition-opacity ease-out duration-300' style={{
                     background: 'transparent',
                     top: '0.5rem',
                     right: '1rem',

@@ -13,7 +13,7 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
     }
 
     return (
-        <div onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2'>
+        <div onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2' style={{ margin: '0.5rem auto'}}>
             {tag ?
                 <Link className='text-highlight hover:cursor-pointer inline-flex font-bold'
                     style={{

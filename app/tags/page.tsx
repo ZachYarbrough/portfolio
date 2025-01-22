@@ -19,7 +19,7 @@ const TagPage: NextPage = () => {
             const tagPosts = metadata.filter((post) => post.tags.includes(tag))
 
             return (
-                <div key={tag} style={{ marginTop: index === 0 ? '0' : '1.5rem' }}>
+                <div key={tag} style={{ marginTop: index === 0 ? '0' : '2rem' }}>
                     <TagHeader tag={tag}>{tag}</TagHeader>
                     <ItemCount count={tagPosts.length} message='found with this tag.' />
                     <div>

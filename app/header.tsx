@@ -35,7 +35,7 @@ const Header = () => {
   }, [darkMode])
 
   return (
-    <div className="flex justify-between items-center h-20" style={{
+    <div className="flex justify-between items-center h-20 sticky top-0 bg-background" style={{
       maxWidth: '750px', 
       margin: '0 auto'
     }}>

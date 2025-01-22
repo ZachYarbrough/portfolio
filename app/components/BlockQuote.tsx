@@ -12,7 +12,6 @@ const BlockQuote = ({ children }: { children: any[] }) => {
     useEffect(() => {
         // Extract the first child that has props.children, or empty string if none found
         const childData = children.filter((child: any) => child?.props?.children)[0]?.props?.children || ''
-
         if (childData) {
             // Extract block type from syntax like [!INFO] - gets the text between [! and ]
             // Convert to lowercase and set as blockType state
@@ -26,7 +25,7 @@ const BlockQuote = ({ children }: { children: any[] }) => {
                 // Fallback to full content if no ']' found
                 setQuote([childData[0].split(']')[1], ...childData.slice(1)])
             } else {
-                setQuote(childData)
+                setQuote(children)
             }
         }
         
