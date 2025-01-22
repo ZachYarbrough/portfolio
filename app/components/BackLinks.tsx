@@ -1,4 +1,4 @@
-import Link from "next/link"
+import InternalLink from "./InternalLInk"
 
 const BackLinks = ({ backlinks }: { backlinks: string[] }) => {
 
@@ -11,7 +11,7 @@ const BackLinks = ({ backlinks }: { backlinks: string[] }) => {
             }}>Backlinks</h1>
             {backlinks.length > 0 ? backlinks.map((backlink) => (
                 <div key={backlink} className='text-highlight font-bold'>
-                    <Link href={`/posts/${backlink}`}>{backlink}</Link>
+                    <InternalLink link='posts' fileName={backlink}>{backlink}</InternalLink>
                 </div>
             )) :
                 <div className='text-secondary'>

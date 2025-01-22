@@ -3,7 +3,7 @@ import { Post } from '@/app/types/posts'
 import fs from 'fs'
 import Markdown from 'markdown-to-jsx'
 import matter from 'gray-matter'
-import { getPostMetadata, getTimeToRead } from '@/app/components/posts'
+import { getMetadata, getTimeToRead } from '@/app/components/data'
 import { formatDate, getTableOfContents } from '@/app/components/general'
 import CodeBlock from '@/app/components/CodeBlock'
 import Paragraph from '@/app/components/Paragraph'
@@ -22,7 +22,7 @@ import PageHeader from '@/app/components/PageHeader'
  * @returns {Array<{ slug: string }>} An array of objects with the slug of each post
  */
 export const generateStaticParams = async () => {
-  const posts = getPostMetadata()
+  const posts = getMetadata('posts')
   return posts.map((post) => ({ slug: post.slug }))
 }
 
@@ -48,7 +48,7 @@ const getPostContent = (slug: string): Post => {
 
   return {
     title: matterResult.data.title,
-    subtitle: matterResult.data.subtitle,
+    description: matterResult.data.description,
     date: formatDate(matterResult.data.date),
     tags: matterResult.data.tags,
     headers: headers,
@@ -73,7 +73,7 @@ const PostPage = async ({ params }: any) => {
           <p style={{ color: 'var(--secondary)' }}>{post.date}, {post.timeToRead} min read</p>
           <ul style={{ display: 'flex', gap: '0.5rem', margin: '1rem 0 0 0' }}>
             {post.tags.map((tag) => (
-              <InternalLink key={tag} fileName={tag} linkType={'tags'}>#{tag}</InternalLink>
+              <InternalLink key={tag} fileName={tag} link={'tags'}>#{tag}</InternalLink>
             ))}
           </ul>
           <Markdown options={{

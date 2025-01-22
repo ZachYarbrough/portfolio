@@ -1,7 +1,7 @@
 ---
 title: Portfolio File Structure
 date: 2025-02-01
-tags: [blog, portfolio, side-project]
+tags: [blog, portfolio, side-projects]
 ---
 
 
@@ -53,7 +53,7 @@ Should Projects and Posts be dropdowns that display the top most recent projects
 
 ### Where is my data being stored?
 
-- getPostMetadata() can be used to get all the posts
+- getMetadata() can be used to get all the posts
 - gtProjectMetadata() will be created to get all the projects
 - When searching can I use both functions? Should I add an optional filter to each function or perform it after fetching the data?
 
@@ -67,6 +67,6 @@ Should Projects and Posts be dropdowns that display the top most recent projects
 
 ### Where is my data being stored? 2
 
-- getPostMetadata() can be used to get all the posts
+- getMetadata() can be used to get all the posts
 - gtProjectMetadata() will be created to get all the projects
 - When searching can I use both functions? Should I add an optional filter to each function or perform it after fetching the data?

@@ -19,7 +19,7 @@ const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
                     style={{
                         marginLeft: '0.5rem'
                     }}>
-                    <InternalLink key={tag} fileName={tag} linkType={'tags'}
+                    <InternalLink key={tag} fileName={tag} link={'tags'}
                         >
                         #{tag}
                     </InternalLink>

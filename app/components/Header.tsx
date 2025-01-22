@@ -1,6 +1,6 @@
 'use client'
 
-import { MoonIcon, SunIcon } from "./components/assets/icons"
+import { MoonIcon, SunIcon } from "./assets/icons"
 import { useEffect, useState } from "react"
 
 const Header = () => {

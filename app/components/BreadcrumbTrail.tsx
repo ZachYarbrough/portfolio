@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import { ArrowRightIcon } from './assets/icons'
-import Link from 'next/link'
+import InternalLink from './InternalLInk'
 
 const BreadcrumbTrail = ({ isTag }: { isTag?: boolean }) => {
     const pathname = usePathname()
@@ -13,18 +13,18 @@ const BreadcrumbTrail = ({ isTag }: { isTag?: boolean }) => {
         <div className='flex items-center gap-1 font-bold' style={{
             marginBottom: '2rem'
         }}>
-            <Link href={'/'} className='text-highlight flex items-center'>
+            <InternalLink link=''>
                 Home
                 <span className='text-primary'><ArrowRightIcon /></span>
-            </Link>
+            </InternalLink>
             {pathnameArray.map((path, index) => {
                 currentPath += `/${path}`
                 const formattedPath = path.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
                 return (
-                    <Link key={index} href={currentPath} className='flex items-center text-highlight'>
+                    <InternalLink key={index} link={currentPath}>
                         {isTag && index + 1 === pathnameArray.length ? '#' + path : formattedPath}
                         {index !== pathnameArray.length - 1 && <span className='text-primary'><ArrowRightIcon /></span>}
-                    </Link>
+                    </InternalLink>
                 )
             })}
         </div>

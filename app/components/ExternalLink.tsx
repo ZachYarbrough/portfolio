@@ -3,7 +3,7 @@
 import { ExternalLinkIcon } from "./assets/icons"
 import Link from "next/link"
 
-const ExternalLink = ({ href, children }: { href: string, children: React.ReactNode }) => {
+const ExternalLink = ({ href, showIcon = true, isMail = false, children }: { href: string, showIcon?: boolean, isMail?: boolean, children: React.ReactNode }) => {
 
     return (
         <Link className='text-highlight hover:cursor-pointer inline-flex font-bold'
@@ -12,14 +12,13 @@ const ExternalLink = ({ href, children }: { href: string, children: React.ReactN
                 backgroundColor: 'transparent',
                 borderRadius: '0',
             }}
-            href={href} target={'_blank'}
+            href={isMail ? `mailto:${href}` : href} target={'_blank'}
             rel={'noopener noreferrer'}>
             <span>{children}</span>
-            <span style={{
+            {showIcon && <span style={{
                 marginTop: '0.5rem',
                 color: 'var(--primary)',
-            }}><ExternalLinkIcon /></span>
-
+            }}><ExternalLinkIcon /></span>}
         </Link>
     )
 }

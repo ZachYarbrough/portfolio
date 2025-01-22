@@ -17,18 +17,19 @@ export const getTimeToRead = (content: string): number => {
 }
 
 /**
- * Retrieves an array of post slugs from markdown files in the posts directory and
- * removes the .md extension from each filename.
+ * Retrieves metadata from markdown files in the specified directory.
+ * Files are sorted by date in descending order.
  * 
- * @returns {string[]} An array of post slugs (filenames without the .md extension)
+ * @param {string} folder - The folder path to get markdown files from (defaults to '/')
+ * @param {number} amount - Optional limit on number of posts to return (0 returns all)
+ * @returns {PostMetadata[]} Array of post metadata objects containing title, description, date, tags, etc
  */
-export const getPostMetadata = (): PostMetadata[] => {
-    const folder = 'posts/'
+export const getMetadata = (folder: string = '', amount: number = 0): PostMetadata[] => {
     const files = fs.readdirSync(folder)
     const markdownPosts = files.filter((file) => file.endsWith('.md'))
 
     const posts = markdownPosts.map((fileName) => {
-        const fileContents = fs.readFileSync(`posts/${fileName}`, 'utf8')
+        const fileContents = fs.readFileSync(`${folder}/${fileName}`, 'utf8')
         const matterResult = matter(fileContents)
         const headers = ( matterResult.content + '\n').match(/(#+ .*\n)/g) || []
 
@@ -38,9 +39,9 @@ export const getPostMetadata = (): PostMetadata[] => {
             tableOfContents: tableOfContents,
             headers: headers,
             title: matterResult.data.title,
-            subtitle: matterResult.data.subtitle,
+            description: matterResult.data.description,
             date: formatDate(matterResult.data.date),
-            tags: matterResult.data.tags,
+            tags: matterResult.data.tags || [],
             backlinks: matterResult.data.backlinks,
             timeToRead: getTimeToRead(matterResult.content),
             slug: fileName.replace('.md', ''),
@@ -49,5 +50,5 @@ export const getPostMetadata = (): PostMetadata[] => {
 
     const sortedPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
-    return sortedPosts
+    return amount > 0 ? sortedPosts.slice(0, amount) : sortedPosts
 }

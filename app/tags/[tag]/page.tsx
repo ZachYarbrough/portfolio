@@ -1,4 +1,4 @@
-import { getPostMetadata } from '@/app/components/posts';
+import { getMetadata } from '@/app/components/data';
 import PostPreview from '@/app/components/PostPreview';
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail';
 import ItemCount from '@/app/components/ItemCount';
@@ -10,20 +10,32 @@ import TagHeader from '@/app/components/TagHeader';
  * @returns {Array<{ tag: string }>} An array of objects with the tags of each post
  */
 export const generateStaticParams = async () => {
-    const posts = getPostMetadata()
-    const tags: any[] = []
+    const posts: any[] = getMetadata('posts')
+    const projects: any[] = getMetadata('projects')
+    const tags: string[] = []
 
-    posts.forEach((post: any) => post.tags.forEach((tag: any) => (tags.push(tag))))
+    // Collect all tags from posts and projects
+    for (const data of [...posts, ...projects]) {
+        if (data.tags && Array.isArray(data.tags)) {
+            for (const tag of data.tags) {
+                if (typeof tag === 'string') {
+                    tags.push(tag)
+                }
+            }
+        }
+    }
 
-    return [...new Set(tags)].map((tag: any) => ({ tag: tag }))
+    // Return unique tags
+    return [...new Set(tags)].map((tag) => ({ tag }))
 }
 
 const SingleTagPage = async ({ params }: any) => {
     const tag = await params.tag
     
-    const postMetadata = getPostMetadata()
+    const postMetadata = getMetadata('posts')
+    const projectMetadata = getMetadata('projects')
 
-    const filteredPosts = postMetadata.filter((post) => post.tags.includes(tag)).map((post) => (
+    const filteredEntries = [...postMetadata, ...projectMetadata].filter((data) => data.tags.length > 0 && data.tags.includes(tag)).map((post) => (
         <PostPreview key={post.slug} {...post} />
     ))
 
@@ -32,9 +44,9 @@ const SingleTagPage = async ({ params }: any) => {
             <BreadcrumbTrail isTag={true} />
             <div key={tag}>
                 <TagHeader>{tag}</TagHeader>
-                    <ItemCount count={filteredPosts.length} message='found with this tag.' />
+                    <ItemCount count={filteredEntries.length} message='found.' />
                     <div>
-                        {filteredPosts}
+                        {filteredEntries}
                     </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ const PostLink = ({ href , children }: { href: string, children: React.ReactNode
             {
                 isExternalLink ?
                     <ExternalLink href={href} >{children}</ExternalLink> :
-                    <InternalLink fileName={href} linkType={'posts'} >{children}</InternalLink>
+                    <InternalLink fileName={href} link={'posts'} >{children}</InternalLink>
             }
         </>
     )
