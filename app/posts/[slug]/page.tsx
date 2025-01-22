@@ -15,6 +15,8 @@ import PostLink from '@/app/components/PostLink'
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail'
 import RightSidebar from '@/app/components/RightSidebar'
 import PageHeader from '@/app/components/PageHeader'
+import Image from '@/app/components/Image'
+
 /**
  * Generates static paths for all posts
  * 
@@ -115,6 +117,9 @@ const PostPage = async ({ params }: any) => {
               },
               ul: {
                 component: BulletLists
+              },
+              img: {
+                component: Image
               }
             }
           }}>
