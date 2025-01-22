@@ -19,7 +19,7 @@ const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
                     style={{
                         marginLeft: '0.5rem'
                     }}>
-                    <InternalLink key={tag} fileName={tag} link={'tags'}
+                    <InternalLink key={tag} useBubbleStyle={true} fileName={tag} link={'tags'}
                         >
                         #{tag}
                     </InternalLink>

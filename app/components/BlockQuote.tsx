@@ -28,7 +28,7 @@ const BlockQuote = ({ children }: { children: any[] }) => {
                 setQuote(children)
             }
         }
-        
+        console.log(children)
     }, [children])
 
     return (
