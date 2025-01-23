@@ -11,7 +11,7 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     const [searchToggle, setSearchToggle] = useState<boolean>(false)
 
     const toggleSearch = (toggle?: boolean) => {
-        setSearchToggle((prev) => toggle ? toggle : !prev)
+        setSearchToggle((prev) => typeof toggle === 'boolean' ? toggle : !prev)
     }
 
     return (

@@ -44,7 +44,7 @@ const SearchModal = () => {
                         maxWidth: '750px',
                         margin: '6.6rem auto 0 auto',
                         width: '100%',
-                        cursor: 'text'
+                        cursor: 'text',
                     }} />
                 </div>
             </div>
