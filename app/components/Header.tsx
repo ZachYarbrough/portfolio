@@ -35,12 +35,12 @@ const Header = () => {
   }, [darkMode])
 
   return (
-    <div className="flex justify-between items-center h-20 sticky top-0 bg-background" style={{
+    <div className="flex justify-between items-center h-20 sticky top-0 bg-background sm-hidden" style={{
       maxWidth: '750px', 
       margin: '0 auto'
     }}>
-      <h1 className="lg:hidden">Hello World</h1>
-      <button className="lg:hidden" onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MoonIcon /> : <SunIcon />}</button>
+      <h1>Hello World</h1>
+      <button onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MoonIcon /> : <SunIcon />}</button>
     </div>
   )
 }

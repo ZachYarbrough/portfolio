@@ -3,6 +3,8 @@ import PostPreview from '@/app/components/PostPreview';
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail';
 import ItemCount from '@/app/components/ItemCount';
 import TagHeader from '@/app/components/TagHeader';
+import BorderLine from '@/app/components/BorderLine';
+import { skills } from '@/app/config';
 
 /**
  * Generates static paths for all posts
@@ -12,16 +14,19 @@ import TagHeader from '@/app/components/TagHeader';
 export const generateStaticParams = async () => {
     const posts: any[] = getMetadata('posts')
     const projects: any[] = getMetadata('projects')
+
     const tags: string[] = []
 
     // Collect all tags from posts and projects
-    for (const data of [...posts, ...projects]) {
+    for (const data of [...posts, ...projects, ...skills]) {
         if (data.tags && Array.isArray(data.tags)) {
             for (const tag of data.tags) {
                 if (typeof tag === 'string') {
                     tags.push(tag)
                 }
             }
+        } else if (typeof data === 'string') {
+            tags.push(data)
         }
     }
 
@@ -49,6 +54,7 @@ const SingleTagPage = async ({ params }: any) => {
                         {filteredEntries}
                     </div>
             </div>
+            <BorderLine />
         </div>
     )
 }

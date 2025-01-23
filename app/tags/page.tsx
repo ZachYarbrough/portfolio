@@ -6,7 +6,7 @@ import InternalLink from '../components/InternalLInk';
 import ItemCount from '../components/ItemCount';
 import PageHeader from '../components/PageHeader';
 import TagHeader from '../components/TagHeader';
-
+import BorderLine from '../components/BorderLine';
 const TagPage: NextPage = () => {
 
     const postMetadata = getMetadata('posts')
@@ -40,6 +40,7 @@ const TagPage: NextPage = () => {
             <BreadcrumbTrail />
             <PageHeader>Tag Index</PageHeader>
             <div style={{ marginTop: '1rem' }}>{postPreviews}</div>
+            <BorderLine />
         </div>
     )
 }

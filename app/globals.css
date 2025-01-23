@@ -39,3 +39,13 @@ tbody, li, p {
 .collapse-list {
   max-height: 0 !important;
 }
+
+@media (min-width: 1500px) {
+  .header {
+    background: transparent !important;
+  }
+
+  .sm-hidden {
+    visibility: hidden !important;
+  }
+}

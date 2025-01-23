@@ -4,7 +4,7 @@ import PostPreview from '@/app/components/PostPreview';
 import BreadcrumbTrail from '../components/BreadcrumbTrail';
 import ItemCount from '../components/ItemCount';
 import PageHeader from '../components/PageHeader';
-
+import BorderLine from '../components/BorderLine';
 const BlogPage: NextPage = () => {
 
     const postMetadata = getMetadata('posts')
@@ -18,6 +18,7 @@ const BlogPage: NextPage = () => {
             <PageHeader>Posts</PageHeader>
             <ItemCount count={postPreviews.length} message='found.' />
             <div>{postPreviews}</div>
+            <BorderLine />
         </div>
     )
 }
