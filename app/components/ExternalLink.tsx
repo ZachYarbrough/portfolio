@@ -6,7 +6,7 @@ import Link from "next/link"
 const ExternalLink = ({ href, showIcon = true, isMail = false, children }: { href: string, showIcon?: boolean, isMail?: boolean, children: React.ReactNode }) => {
 
     return (
-        <Link className='text-highlight hover:cursor-pointer inline-flex font-bold'
+        <Link className='text-highlight cursor-pointer inline-flex font-bold'
             style={{
                 padding: '0',
                 backgroundColor: 'transparent',

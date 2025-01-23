@@ -7,7 +7,7 @@ const InternalLink = ({ fileName, link, children, useBubbleStyle = false, style 
     const href = fileName ? `/${link}/${fileName.replace('.md', '')}` : link.startsWith('/') ? link : `/${link}`
     return (
         <>
-            {useBubbleStyle ? <Link className='text-highlight hover:cursor-pointer inline-flex font-bold'
+            {useBubbleStyle ? <Link className='text-highlight cursor-pointer inline-flex font-bold'
                 style={Object.keys(style).length > 0 ? style : {
                     padding: '0 0.4rem',
                     backgroundColor: 'var(--secondary-light)',
@@ -16,7 +16,7 @@ const InternalLink = ({ fileName, link, children, useBubbleStyle = false, style 
                 href={href}
             >
                 <span className='flex'>{children}</span>
-            </Link> : <Link style={style} className='text-highlight hover:cursor-pointer inline-flex font-bold' href={href}
+            </Link> : <Link style={style} className='text-highlight cursor-pointer inline-flex font-bold' href={href}
             >
                 <span className='flex'>{children}</span>
             </Link>}

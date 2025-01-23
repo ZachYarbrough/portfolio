@@ -15,7 +15,7 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
     return (
         <div onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2' style={{ margin: '0.5rem auto'}}>
             {tag ?
-                <Link className='text-highlight hover:cursor-pointer inline-flex font-bold'
+                <Link className='text-highlight cursor-pointer inline-flex font-bold'
                     style={{
                         padding: '0 0.4rem',
                         backgroundColor: 'var(--secondary-light)',
@@ -25,12 +25,12 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
                 >
                     <span>{children}</span>
                 </Link> :
-                <h1 id={children?.toString()} className='text-highlight hover:cursor-pointer inline-flex font-bold' style={{
+                <h1 id={children?.toString()} className='text-highlight cursor-pointer inline-flex font-bold' style={{
                     padding: '0 0.4rem',
                     backgroundColor: 'var(--secondary-light)',
                     borderRadius: '0.4rem',
                 }}>#{children}</h1>}
-            {showCopy && <span onClick={handleCopy} className='hover:cursor-pointer hover:text-highlight'><LinkIcon /></span>}
+            {showCopy && <span onClick={handleCopy} className='cursor-pointer hover:text-highlight'><LinkIcon /></span>}
         </div>
     )
 }

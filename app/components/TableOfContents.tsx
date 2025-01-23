@@ -23,7 +23,7 @@ const TableOfContent = ({ tableOfContents }: { tableOfContents: Record<string, {
         <div style={{
             margin: '0 0 1rem 0',
         }}>
-            <h1 className='flex items-center font-bold hover:cursor-pointer' style={{
+            <h1 className='flex items-center font-bold cursor-pointer' style={{
                 marginBottom: '0.5rem',
             }} onClick={toggleTableOfContents}>Table of Contents <span style={{
                 fontWeight: 'bolder',

@@ -19,7 +19,7 @@ const PostHeader = ({ headerNumber, children }: { headerNumber: number, children
                 fontSize: `${headerNumber}rem`,
                 fontWeight: '700',
             }}>{children}</h1>
-            {showCopy && <span onClick={handleCopy} className='hover:cursor-pointer hover:text-highlight'><LinkIcon /></span>}
+            {showCopy && <span onClick={handleCopy} className='cursor-pointer hover:text-highlight'><LinkIcon /></span>}
         </div>
     )
 }
