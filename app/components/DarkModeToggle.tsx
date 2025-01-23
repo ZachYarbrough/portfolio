@@ -1,23 +1,18 @@
 'use client'
 
 import { MoonIcon, SunIcon } from "./assets/icons"
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useEffect } from "react";
-
+import { ThemeContext } from "./context/themeContext";
 
 const DarkModeToggle = () => {
+    const { theme, toggleTheme } = useContext(ThemeContext)
     const [darkMode, setDarkMode] = useState(false)
 
     // Set the theme on initial load
     useEffect(() => {
-        const listenStorageChange = () => {
-            const theme = window.localStorage.getItem('theme')
-            if (theme === 'dark') setDarkMode(true)
-        };
-
-        window.addEventListener("storage", listenStorageChange);
-        return () => window.removeEventListener("storage", listenStorageChange);
-    }, [])
+        setDarkMode(theme === 'dark')
+    }, [theme])
 
     // Update the theme
     useEffect(() => {
@@ -37,7 +32,7 @@ const DarkModeToggle = () => {
     }, [darkMode])
 
     return (
-        <button className='cursor-pointer' onClick={() => setDarkMode(!darkMode)}>{darkMode ? <MoonIcon /> : <SunIcon />}</button>
+        <button className='cursor-pointer' onClick={() => toggleTheme()}>{darkMode ? <MoonIcon /> : <SunIcon />}</button>
     )
 }
 

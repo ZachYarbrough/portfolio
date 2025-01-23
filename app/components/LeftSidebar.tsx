@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar"
 const LeftSidebar = () => {
 
     return (
-        <div style={{ position: 'fixed', top: '5rem', left: 'calc(50vw - 700px)', width: '250px', display: 'flex',flexDirection: 'column' }}>
+        <div className='sm-hidden' style={{ position: 'fixed', top: '5rem', left: 'calc(50vw - 700px)', width: '250px', display: 'flex',flexDirection: 'column' }}>
         <InternalLink link='' style={{ fontSize: '2rem' }}>Zach Yarbrough</InternalLink>
         <div className='flex justify-between items-center' style={{ margin: '0.5rem 0 1rem 0' }}>
             <SearchBar />

@@ -6,7 +6,7 @@ const Header = () => {
 
 
   return (
-    <div className="flex justify-between items-center h-20 sticky top-0 bg-background sm-hidden" style={{
+    <div className="flex justify-between items-center h-20 sticky top-0 bg-background sm-visible" style={{
       maxWidth: '750px',
       margin: '0 auto'
     }}>

@@ -45,6 +45,12 @@ tbody, li, p {
     background: transparent !important;
   }
 
+  .sm-visible {
+    visibility: hidden !important;
+  }
+}
+
+@media (max-width: 1500px) {
   .sm-hidden {
     visibility: hidden !important;
   }
