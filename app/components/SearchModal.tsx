@@ -1,12 +1,13 @@
 'use client'
 
 import { useCallback, useContext, useEffect, useState } from "react"
-import { SearchIcon } from "./assets/icons"
 import { SearchContext } from "./context/searchContext"
 
 const SearchModal = () => {
+    const [searchResults, setSearchResults] = useState([])
     const { searchToggle, toggleSearch } = useContext(SearchContext)
     const [search, setSearch] = useState('')
+
     const escFunction = useCallback((event: KeyboardEvent) => {
         if (event.key === "Escape") {
             toggleSearch(false)
@@ -46,6 +47,8 @@ const SearchModal = () => {
                         width: '100%',
                         cursor: 'text',
                     }} />
+                    {searchResults.length > 0 && <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
+                    </div>}
                 </div>
             </div>
             }

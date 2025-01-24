@@ -10,9 +10,3 @@ tags: [blog, side-projects]
 10k Cards is a freelance website that allows users to create and share virtual business cards.
 
 ## Technologies Used
-
-- Next.js
-- Tailwind CSS
-- TypeScript
-- Shadcn UI
-- Clerk Authentication

@@ -1,19 +1,17 @@
 import Link from 'next/link'
 
-import { PostMetadata } from '../types/posts'
 import InternalLink from './InternalLInk'
 
-const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
+const ProjectPreview = ({ slug, title, tags }: any) => {
     return (
         <div key={slug} style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem 0' }}>
             <div className='flex'>
-                <p className='text-secondary'>{date}</p>
-                <InternalLink fileName={slug} link={'posts'}>
+                <InternalLink fileName={slug} link={'projects'}>
                     <h2 className='text-highlight font-bold' style={{ paddingLeft: '1rem' }}>{title}</h2>
                 </InternalLink>
             </div>
             <div className='flex'>
-                {tags.map((tag) => (
+                {tags.map((tag: any) => (
                     <div
                         key={tag}
                     style={{
@@ -30,4 +28,4 @@ const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
     )
 }
 
-export default PostPreview
+export default ProjectPreview

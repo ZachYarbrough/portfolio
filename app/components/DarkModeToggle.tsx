@@ -14,6 +14,12 @@ const DarkModeToggle = () => {
         setDarkMode(theme === 'dark')
     }, [theme])
 
+    useEffect(() => {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            setDarkMode(event.matches)
+        });
+    }, [])
+
     // Update the theme
     useEffect(() => {
         if (darkMode) {

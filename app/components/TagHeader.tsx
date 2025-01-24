@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { LinkIcon } from './assets/icons'
 import { copyToClipboard } from './general';
-import Link from 'next/link';
+import InternalLink from './InternalLInk';
 
 const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string }) => {
     const [showCopy, setShowCopy] = useState(false)
@@ -15,17 +15,16 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
     return (
         <div onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2' style={{ margin: '0.5rem auto'}}>
             {tag ?
-                <Link className='text-highlight cursor-pointer inline-flex font-bold'
+                <InternalLink fileName={tag} link={'tags'}
                     style={{
                         padding: '0 0.4rem',
                         backgroundColor: 'var(--secondary-light)',
                         borderRadius: '0.4rem',
                     }}
-                    href={`/tags/${tag}`}
-                >
+                    >
                     <span>{children}</span>
-                </Link> :
-                <h1 id={children?.toString()} className='text-highlight cursor-pointer inline-flex font-bold' style={{
+                </InternalLink> :
+                <h1 id={children?.toString()} className='text-highlight inline-flex font-bold' style={{
                     padding: '0 0.4rem',
                     backgroundColor: 'var(--secondary-light)',
                     borderRadius: '0.4rem',
