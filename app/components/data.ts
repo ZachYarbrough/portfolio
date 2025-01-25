@@ -52,3 +52,21 @@ export const getMetadata = (folder: string = '', amount: number = 0): PostMetada
 
     return amount > 0 ? sortedPosts.slice(0, amount) : sortedPosts
 }
+
+/**
+ * Retrieves the title and backlink of a post from a markdown file in the posts directory
+ * 
+ * @param {string} backlink - The backlink to retrieve
+ * @returns {Object} An object containing the title and backlink of the post
+ */
+export const getBacklink = (backlink: string) => {
+    const link = backlink.split('](')[1].replace('.md)', '')
+    const file = `${link}.md`
+    const content = fs.readFileSync(file, 'utf8')
+    const matterResult = matter(content)
+  
+    return {
+      title: matterResult.data.title,
+      backlink: link 
+    }
+  }

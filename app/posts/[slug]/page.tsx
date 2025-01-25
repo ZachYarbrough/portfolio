@@ -3,7 +3,7 @@ import { Post } from '@/app/types/posts'
 import fs from 'fs'
 import Markdown from 'markdown-to-jsx'
 import matter from 'gray-matter'
-import { getMetadata, getTimeToRead } from '@/app/components/data'
+import { getBacklink, getMetadata, getTimeToRead } from '@/app/components/data'
 import { formatDate, getTableOfContents } from '@/app/components/general'
 import CodeBlock from '@/app/components/CodeBlock'
 import Paragraph from '@/app/components/Paragraph'
@@ -46,7 +46,7 @@ const getPostContent = (slug: string): Post => {
 
   // Get backlinks with regex that matches the format '](link.md)'
   const backlinks = (matterResult.content + '\n').match(/\]\(([^ ]+?)\.md\)/g) || []
-  const formattedBacklinks = [...new Set(backlinks.map((backlink) => backlink.split('](')[1].replace('.md)', '')))]
+  const formattedBacklinks = [...new Set(backlinks)].map((backlink) => getBacklink(backlink))
 
   return {
     title: matterResult.data.title,

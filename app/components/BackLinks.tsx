@@ -1,6 +1,6 @@
 import InternalLink from "./InternalLInk"
 
-const BackLinks = ({ backlinks }: { backlinks: string[] }) => {
+const BackLinks = ({ backlinks }: { backlinks: { title: string, backlink: string }[] }) => {
 
     return (
         <div style={{
@@ -10,8 +10,8 @@ const BackLinks = ({ backlinks }: { backlinks: string[] }) => {
                 marginBottom: '0.5rem',
             }}>Backlinks</h1>
             {backlinks.length > 0 ? backlinks.map((backlink) => (
-                <div key={backlink} className='text-highlight font-bold'>
-                    <InternalLink link='posts' fileName={backlink}>{backlink}</InternalLink>
+                <div key={backlink.backlink} className='text-highlight font-bold'>
+                    <InternalLink link={backlink.backlink}>{backlink.title}</InternalLink>
                 </div>
             )) :
                 <div className='text-secondary'>

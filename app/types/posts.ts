@@ -10,7 +10,10 @@ export interface PostMetadata {
         text: string,
         subSections: string[]
     }>
-    backlinks: string[]
+    backlinks: {
+        title: string
+        backlink: string
+    }[]
 }
 
 export interface Post extends PostMetadata {
