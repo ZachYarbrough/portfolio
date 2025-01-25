@@ -9,7 +9,7 @@ const PostLink = ({ href , children }: { href: string, children: React.ReactNode
             {
                 isExternalLink ?
                     <ExternalLink href={href} >{children}</ExternalLink> :
-                    <InternalLink fileName={href} useBubbleStyle={true} link={'posts'} >{children}</InternalLink>
+                    <InternalLink useBubbleStyle={true} href={href.replace('.md', '')} >{children}</InternalLink>
             }
         </>
     )

@@ -10,7 +10,7 @@ const Header = () => {
       maxWidth: '750px',
       margin: '0 auto'
     }}>
-      <InternalLink link='' style={{ fontSize: '2rem' }}>Zach Yarbrough</InternalLink>
+      <InternalLink href='/' style={{ fontSize: '2rem' }}>Zach Yarbrough</InternalLink>
       <div className='flex items-center gap-2' style={{ width: '200px' }}>
         <SearchBar />
         <DarkModeToggle />

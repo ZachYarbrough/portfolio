@@ -31,7 +31,7 @@ const HomePage: NextPage = () => {
       <p style={{ padding: '0.5rem 0' }}>Skills include:</p>
         <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', padding: '0.5rem 0' }}>
           {skills.map((skill) => (
-            <InternalLink key={skill} useBubbleStyle={true} link={`tags/${skill}`}>#{skill}</InternalLink>
+            <InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`}>#{skill}</InternalLink>
           ))}
         </ul>
       <p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/44439415-god-emperor-of-dune?ac=1&from_search=true&qid=ACssZpWWrk&rank=1'>God Emperor of Dune - Frank Herbert</ExternalLink></p>
@@ -43,13 +43,13 @@ const HomePage: NextPage = () => {
         <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '1 rem' }}>
           {/* TODO: Add Featured Projects */}
         </ul>
-          <InternalLink link='projects'>View More Projects <ArrowRightIcon /></InternalLink>
+          <InternalLink href='/projects'>View More Projects <ArrowRightIcon /></InternalLink>
       </div>
       <div style={{margin: '1rem 0'}}>
         <PageHeader noCopy={true}>Recent Posts</PageHeader>
         <ul>
           {postPreviews}
-          <InternalLink link='posts'>View More Posts <ArrowRightIcon /></InternalLink>
+          <InternalLink href='/posts'>View More Posts <ArrowRightIcon /></InternalLink>
         </ul>
       </div>
     </div>

@@ -8,7 +8,7 @@ const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
         <div key={slug} style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem 0' }}>
             <div className='flex'>
                 <p className='text-secondary'>{date}</p>
-                <InternalLink fileName={slug} link={'posts'}>
+                <InternalLink href={`/posts/${slug}`}>
                     <h2 className='text-highlight font-bold' style={{ paddingLeft: '1rem' }}>{title}</h2>
                 </InternalLink>
             </div>
@@ -19,7 +19,7 @@ const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
                     style={{
                         marginLeft: '0.5rem'
                     }}>
-                    <InternalLink key={tag} useBubbleStyle={true} fileName={tag} link={'tags'}
+                    <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}
                         >
                         #{tag}
                     </InternalLink>

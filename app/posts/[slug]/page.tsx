@@ -75,7 +75,7 @@ const PostPage = async ({ params }: any) => {
           <p style={{ color: 'var(--secondary)' }}>{post.date}, {post.timeToRead} min read</p>
           <ul style={{ display: 'flex', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
             {post.tags.map((tag) => (
-              <InternalLink key={tag} useBubbleStyle={true} fileName={tag} link={'tags'}>#{tag}</InternalLink>
+              <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>#{tag}</InternalLink>
             ))}
           </ul>
           <Markdown options={{

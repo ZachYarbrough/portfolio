@@ -15,7 +15,7 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
     return (
         <div onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2' style={{ margin: '0.5rem auto'}}>
             {tag ?
-                <InternalLink fileName={tag} link={'tags'}
+                <InternalLink href={`/tags/${tag}`}
                     style={{
                         padding: '0 0.4rem',
                         backgroundColor: 'var(--secondary-light)',
