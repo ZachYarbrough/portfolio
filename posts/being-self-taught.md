@@ -54,24 +54,5 @@ console.log('Hello World')```
 
 More testing includes:
 
-- [x] Fix single line code block styling
-- [x] Get secondary css variable working
-- [ ] Allow Table of Contents to be sticky
-- [ ] Implement Table of Contents clickable links
-- [ ] Implement on scroll color change for table of content headers
-    - i.e. when you scroll down the page, the content color changes as you scroll past
-
-> This is a test of a table:
-
-| Column 1 | Column 2 | Column 3 |
-| -------- | -------- | -------- |
-| Row 1, Column 1 | Row 1, Column 2 | Row 1, Column 3 |
-| Row 2, Column 1 | Row 2, Column 2 | Row 2, Column 3 |
-| Row 3, Column 1 | Row 3, Column 2 | Row 3, Column 3 | 
-
-> s
-> **Note** 
-  test
-
-  # Further Readings
-  - [Vim Cheat Sheet](https://vim.rtorr.com/)
+  Test
+  This is a `test` of the inline code block.

@@ -1,7 +1,7 @@
 import InternalLink from "./InternalLInk"
 
 const BackLinks = ({ backlinks }: { backlinks: { title: string, backlink: string }[] }) => {
-    console.log(backlinks)
+
     return (
         <div style={{
             margin: '1rem 0',

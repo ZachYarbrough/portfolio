@@ -5,9 +5,10 @@ import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
 import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
 import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { copyToClipboard } from './general';
 import { CopyIcon, PasteIcon } from './assets/icons';
+import { ThemeContext } from './context/themeContext';
 
 // Register languages for syntax highlighting
 SyntaxHighlighter.registerLanguage("tsx", tsx);
@@ -15,16 +16,10 @@ SyntaxHighlighter.registerLanguage("python", python);
 SyntaxHighlighter.registerLanguage("bash", bash);
 
 const CodeBlock = ({ className, children }: { className: string, children: string }) => {
-    const [theme, setTheme] = useState('light')
+    const { theme } = useContext(ThemeContext)
     const [copied, setCopied] = useState(false)
 
     const language = className ? className.replace('lang-', '') : 'text';
-
-    useEffect(() => {
-        window.addEventListener('storage', () => {
-            setTheme(window.localStorage.getItem('theme') || 'light')
-        })
-    }, [])
 
     const handleCopy = async () => {
         await copyToClipboard(children)
