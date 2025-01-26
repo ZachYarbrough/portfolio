@@ -19,3 +19,7 @@ export interface PostMetadata {
 export interface Post extends PostMetadata {
     content: string
 }
+
+export interface Project extends PostMetadata {
+    content: string
+}

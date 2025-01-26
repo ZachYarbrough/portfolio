@@ -2,7 +2,7 @@
 title: 10k Cards
 date: 2024-01-23
 description: A freelance website that allows users to create and share virtual business cards.
-tags: [blog, side-projects]
+tags: [freelance, react, mui, express, node, stripe, aws, multer]
 ---
 
 ## Overview

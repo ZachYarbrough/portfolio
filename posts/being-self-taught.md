@@ -55,4 +55,3 @@ console.log('Hello World')```
 More testing includes:
 
   Test
-  This is a `test` of the inline code block.

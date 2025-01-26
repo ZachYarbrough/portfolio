@@ -5,12 +5,13 @@ import BreadcrumbTrail from '../components/BreadcrumbTrail';
 import ItemCount from '../components/ItemCount';
 import PageHeader from '../components/PageHeader';
 import BorderLine from '../components/BorderLine';
+import ProjectPreview from '../components/ProjectPreview';
 const ProjectPage: NextPage = () => {
 
     const postMetadata = getMetadata('projects')
 
     const postPreviews = postMetadata.map((post) => (
-        <PostPreview key={post.slug} {...post} />
+        <ProjectPreview key={post.slug} {...post} />
     ))
     return (
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>

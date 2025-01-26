@@ -1,14 +1,10 @@
+import DropdownList from "./DropdownList"
 import InternalLink from "./InternalLInk"
 
 const BackLinks = ({ backlinks }: { backlinks: { title: string, backlink: string }[] }) => {
 
     return (
-        <div style={{
-            margin: '1rem 0',
-        }}>
-            <h1 className='font-bold' style={{
-                marginBottom: '0.5rem',
-            }}>Backlinks</h1>
+        <DropdownList title='Backlinks'>
             {backlinks.length > 0 ? backlinks.map((backlink) => (
                 <div key={backlink.backlink} className='text-highlight font-bold'>
                     <InternalLink href={backlink.backlink}>{backlink.title}</InternalLink>
@@ -18,7 +14,7 @@ const BackLinks = ({ backlinks }: { backlinks: { title: string, backlink: string
                     No backlinks found
                 </div>
             }
-        </div>
+        </DropdownList>
     )
 }
 

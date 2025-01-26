@@ -4,11 +4,10 @@ import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
 import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
 import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
-import { oneDark, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { useState, useEffect, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { copyToClipboard } from './general';
 import { CopyIcon, PasteIcon } from './assets/icons';
-import { ThemeContext } from './context/themeContext';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 // Register languages for syntax highlighting
 SyntaxHighlighter.registerLanguage("tsx", tsx);
@@ -16,11 +15,10 @@ SyntaxHighlighter.registerLanguage("python", python);
 SyntaxHighlighter.registerLanguage("bash", bash);
 
 const CodeBlock = ({ className, children }: { className: string, children: string }) => {
-    const { theme } = useContext(ThemeContext)
     const [copied, setCopied] = useState(false)
 
     const language = className ? className.replace('lang-', '') : 'text';
-
+    console.log(language)
     const handleCopy = async () => {
         await copyToClipboard(children)
         setCopied(true)
@@ -28,6 +26,10 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
             setCopied(false)
         }, 2000)
     }
+
+    useEffect(() => {
+        console.log(oneDark)
+    }, [oneDark])
 
     return (
         <div className='group relative'>
@@ -40,24 +42,15 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
                 {copied ? <PasteIcon /> : <CopyIcon />}
             </button>
             <SyntaxHighlighter
-                customStyle={{
-                    fontFamily: 'inherit',
-                    display: 'flex',
-                    background: 'transparent',
-                    border: '1px solid #e0e0e0',
-                    borderRadius: '0.5rem',
-                    padding: '0.5rem',
-                    minHeight: '3rem',
-                    alignItems: 'center',
-                }}
+                style={oneDark}
+                className='syntax-highlighter'
                 language={language.toLowerCase()}
-                style={theme === 'dark' ? oneDark : oneLight}
                 showLineNumbers
                 lineNumberStyle={{
                     minWidth: '0.5rem',
                     paddingLeft: '0.5rem',
                 }}
-                wrapLines
+                wrapLines={true}
                 codeTagProps={{ style: { fontFamily: "inherit" } }} // inherit font family from parent
             >
                 {children}
