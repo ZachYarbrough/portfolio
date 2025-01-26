@@ -46,6 +46,7 @@ export const getMetadata = (folder: string = '', amount: number = 0): PostMetada
             source: matterResult.data.source,
             live: matterResult.data.live,
             tags: matterResult.data.tags || [],
+            preview: matterResult.data.preview,
             backlinks: matterResult.data.backlinks,
             timeToRead: getTimeToRead(matterResult.content),
             slug: fileName.replace('.md', ''),
