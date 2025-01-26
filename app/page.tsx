@@ -12,14 +12,17 @@ import ProjectPreview from './components/ProjectPreview';
 const HomePage: NextPage = () => {
 
   const postMetadata = getMetadata('posts', 5)
-  const projectMetadata = getMetadata('projects', 3)
+  const projectMetadata = getMetadata('projects')
+
+  // Should this be more dynamic? It probably would be good to come back and see if this could be better?
+  const featuredProject = ['10k-cards', 'weather-dashboard', 'reploy']
 
   const postPreviews = postMetadata.map((post) => (
       <PostPreview key={post.slug} {...post} />
   ))
 
-  const projectPreviews = projectMetadata.map((project) => (
-      <ProjectPreview key={project.slug} {...project} />
+  const projectPreviews = projectMetadata.filter((project) => featuredProject.includes(project.slug)).map((project, index) => (
+      <ProjectPreview key={project.slug} isOdd={index % 2 === 0} {...project} />
   ))
 
   return (
@@ -46,10 +49,10 @@ const HomePage: NextPage = () => {
       </div>
       <div style={{ margin: '1rem 0', width: '100%' }}>
         <PageHeader noCopy={true}>Featured Projects</PageHeader>
-        <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '1 rem', width: '100%' }}>
+        <ul style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
           {projectPreviews}
         </ul>
-          <InternalLink href='/projects'>View More Projects <ArrowRightIcon /></InternalLink>
+          <InternalLink style={{ marginTop: '1rem' }} href='/projects'>View More Projects <ArrowRightIcon /></InternalLink>
       </div>
       <div style={{margin: '1rem 0'}}>
         <PageHeader noCopy={true}>Recent Posts</PageHeader>

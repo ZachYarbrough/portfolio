@@ -25,9 +25,9 @@ const TagPage: NextPage = () => {
                 <div key={tag} style={{ marginTop: index === 0 ? '0' : '2rem' }}>
                     <TagHeader tag={tag}>{tag}</TagHeader>
                     <ItemCount count={tagPosts.length + tagProjects.length} message='found.' />
-                    <div>
-                        {tagProjects.map((project) => (
-                            <ProjectPreview key={project.slug} {...project} />
+                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+                        {tagProjects.map((project, index) => (
+                            <ProjectPreview key={project.slug} isOdd={index % 2 === 0} {...project} hidePreview={true} />
                         ))}
                         {tagPosts.map((post) => (
                             <PostPreview key={post.slug} {...post} />
@@ -38,13 +38,13 @@ const TagPage: NextPage = () => {
         })
     }
 
-    const postPreviews = getTagData(postMetadata, projectMetadata)
+    const previews = getTagData(postMetadata, projectMetadata)
     
     return (
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
             <BreadcrumbTrail />
             <PageHeader>Tag Index</PageHeader>
-            <div style={{ marginTop: '1rem' }}>{postPreviews}</div>
+            <div style={{ marginTop: '1rem' }}>{previews}</div>
             <BorderLine />
         </div>
     )

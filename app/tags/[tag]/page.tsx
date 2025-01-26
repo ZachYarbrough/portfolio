@@ -45,8 +45,8 @@ const SingleTagPage = async ({ params }: any) => {
         <PostPreview key={post.slug} {...post} />
     ))
 
-    const filteredProjects = projectMetadata.filter((data) => data.tags.length > 0 && data.tags.includes(tag)).map((project) => (
-        <ProjectPreview key={project.slug} {...project} />
+    const filteredProjects = projectMetadata.filter((data) => data.tags.length > 0 && data.tags.includes(tag)).map((project, index) => (
+        <ProjectPreview key={project.slug} isOdd={index % 2 === 0} hidePreview={true} {...project} />
     ))
 
     return (
@@ -55,7 +55,7 @@ const SingleTagPage = async ({ params }: any) => {
             <div key={tag}>
                 <TagHeader>{tag}</TagHeader>
                     <ItemCount count={filteredPosts.length + filteredProjects.length} message='found.' />
-                    <div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                         {filteredProjects}
                         {filteredPosts}
                     </div>

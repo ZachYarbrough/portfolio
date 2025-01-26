@@ -16,7 +16,7 @@ tbody, li, p {
   --highlight: #46B47F;
   --primary: #4E4E4E;
   --secondary: #B8B8B8;
-  --secondary-light: #EBEBEB;
+  --secondary-light: hsl(151, 0%, 92%);
   --note: #46B47F;
   --warning: #46B47F;
   --caution: #46B47F;
@@ -65,9 +65,4 @@ tbody, li, p {
     padding: 0.5rem !important;
     min-height: 3rem !important;
     align-items: center !important;
-  }
-
-  .token.comment {
-    color: #a4489b !important;
-    font-weight: 450 !important;
   }
