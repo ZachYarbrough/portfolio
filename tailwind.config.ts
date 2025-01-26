@@ -10,6 +10,7 @@ export default {
     // using ./src/ dir
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {

@@ -2,18 +2,17 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import "./globals.css";
 import LeftSidebar from './components/LeftSidebar';
-import { ThemeProvider } from './components/context/themeContext';
 import SearchModal from './components/SearchModal';
 import { SearchProvider } from './components/context/searchContext';
-
+import ThemeWrapper from './components/ThemeWrapper';
 
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
-    <html lang='en' className='font-inconsolata'>
+    <html lang='en' className='font-inconsolata' suppressHydrationWarning>
       <body className={`bg-background text-primary mx-4`}>
-        <ThemeProvider>
+        <ThemeWrapper>
           <SearchProvider>
             <Header />
             <div>
@@ -23,7 +22,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <Footer />
             <SearchModal />
           </SearchProvider>
-        </ThemeProvider>
+        </ThemeWrapper>
       </body>
     </html>
   )
