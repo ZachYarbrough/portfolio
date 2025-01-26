@@ -3,7 +3,7 @@ import { CodeBracketIcon, GlobeIcon } from './assets/icons'
 import ExternalLink from './ExternalLink'
 import InternalLink from './InternalLInk'
 
-const ProjectPreview = ({ slug, title, source, live, description, preview }: Project) => {
+const ProjectPreview = ({ slug, title, source, live, description, preview }: any) => {
     
     return (
         <div key={slug} style={{ border: '1px solid var(--secondary-light)', borderRadius: '0.5rem', padding: '1rem', margin: '1rem 0', maxWidth: '33%'}}>
