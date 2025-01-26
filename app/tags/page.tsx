@@ -7,23 +7,28 @@ import ItemCount from '../components/ItemCount';
 import PageHeader from '../components/PageHeader';
 import TagHeader from '../components/TagHeader';
 import BorderLine from '../components/BorderLine';
+import ProjectPreview from '../components/ProjectPreview';
 const TagPage: NextPage = () => {
 
     const postMetadata = getMetadata('posts')
     const projectMetadata = getMetadata('projects')
 
-    const getTagData = (metadata: any[]) => {
-        const tags = metadata.map((post) => post.tags).flat()
+    const getTagData = (posts: any[], projects: any[]) => {
+        const tags = [...posts, ...projects].map((post) => post.tags).flat()
         const uniqueTags = [...new Set(tags)]
 
         return uniqueTags.sort((a, b) => a.localeCompare(b)).map((tag, index) => {
-            const tagPosts = metadata.filter((data) => data.tags.length > 0 && data.tags.includes(tag))
+            const tagPosts = posts.filter((post) => post.tags.length > 0 && post.tags.includes(tag))
+            const tagProjects = projects.filter((project) => project.tags.length > 0 && project.tags.includes(tag))
 
             return (
                 <div key={tag} style={{ marginTop: index === 0 ? '0' : '2rem' }}>
                     <TagHeader tag={tag}>{tag}</TagHeader>
-                    <ItemCount count={tagPosts.length} message='found.' />
+                    <ItemCount count={tagPosts.length + tagProjects.length} message='found.' />
                     <div>
+                        {tagProjects.map((project) => (
+                            <ProjectPreview key={project.slug} {...project} />
+                        ))}
                         {tagPosts.map((post) => (
                             <PostPreview key={post.slug} {...post} />
                         ))}
@@ -33,7 +38,7 @@ const TagPage: NextPage = () => {
         })
     }
 
-    const postPreviews = getTagData([...postMetadata, ...projectMetadata])
+    const postPreviews = getTagData(postMetadata, projectMetadata)
     
     return (
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>

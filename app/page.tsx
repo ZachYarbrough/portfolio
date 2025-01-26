@@ -7,13 +7,19 @@ import InternalLink from './components/InternalLInk';
 import { ArrowRightIcon } from './components/assets/icons';
 import BorderLine from './components/BorderLine';
 import { skills } from './config';
+import ProjectPreview from './components/ProjectPreview';
 
 const HomePage: NextPage = () => {
 
   const postMetadata = getMetadata('posts', 5)
+  const projectMetadata = getMetadata('projects', 3)
 
   const postPreviews = postMetadata.map((post) => (
       <PostPreview key={post.slug} {...post} />
+  ))
+
+  const projectPreviews = projectMetadata.map((project) => (
+      <ProjectPreview key={project.slug} {...project} />
   ))
 
   return (
@@ -38,10 +44,10 @@ const HomePage: NextPage = () => {
 
       <div className='flex justify-between'>
       </div>
-      <div style={{ margin: '1rem 0' }}>
+      <div style={{ margin: '1rem 0', width: '100%' }}>
         <PageHeader noCopy={true}>Featured Projects</PageHeader>
-        <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '1 rem' }}>
-          {/* TODO: Add Featured Projects */}
+        <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '1 rem', width: '100%' }}>
+          {projectPreviews}
         </ul>
           <InternalLink href='/projects'>View More Projects <ArrowRightIcon /></InternalLink>
       </div>

@@ -5,6 +5,7 @@ import ItemCount from '@/app/components/ItemCount';
 import TagHeader from '@/app/components/TagHeader';
 import BorderLine from '@/app/components/BorderLine';
 import { skills } from '@/app/config';
+import ProjectPreview from '@/app/components/ProjectPreview';
 
 /**
  * Generates static paths for all posts
@@ -40,8 +41,12 @@ const SingleTagPage = async ({ params }: any) => {
     const postMetadata = getMetadata('posts')
     const projectMetadata = getMetadata('projects')
 
-    const filteredEntries = [...postMetadata, ...projectMetadata].filter((data) => data.tags.length > 0 && data.tags.includes(tag)).map((post) => (
+    const filteredPosts = postMetadata.filter((data) => data.tags.length > 0 && data.tags.includes(tag)).map((post) => (
         <PostPreview key={post.slug} {...post} />
+    ))
+
+    const filteredProjects = projectMetadata.filter((data) => data.tags.length > 0 && data.tags.includes(tag)).map((project) => (
+        <ProjectPreview key={project.slug} {...project} />
     ))
 
     return (
@@ -49,9 +54,10 @@ const SingleTagPage = async ({ params }: any) => {
             <BreadcrumbTrail isTag={true} />
             <div key={tag}>
                 <TagHeader>{tag}</TagHeader>
-                    <ItemCount count={filteredEntries.length} message='found.' />
+                    <ItemCount count={filteredPosts.length + filteredProjects.length} message='found.' />
                     <div>
-                        {filteredEntries}
+                        {filteredProjects}
+                        {filteredPosts}
                     </div>
             </div>
             <BorderLine />

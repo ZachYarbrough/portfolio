@@ -2,23 +2,13 @@ import { PostMetadata } from '../types/posts'
 import InternalLink from './InternalLInk'
 
 const ProjectPreview = ({ slug, title, date, tags }: PostMetadata) => {
+    
     return (
-        <div key={slug} style={{ display: 'grid', gridTemplateColumns: '6rem 4fr 4fr', width: '100%', margin: '1rem 0' }}>
-            <p className='text-secondary'>{date}</p>
+        <div key={slug} style={{ border: '1px solid var(--secondary-light)', borderRadius: '0.5rem', padding: '1rem', margin: '1rem 0', maxWidth: '33%' }}>
             <div>
                 <InternalLink href={`/projects/${slug}`}>
-                    <h2 className='text-highlight font-bold' style={{ paddingLeft: '1rem' }}>{title}</h2>
+                    <h2 className='text-highlight font-bold'>{title}</h2>
                 </InternalLink>
-            </div>
-            <div className='flex' style={{ flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'flex-end' }}>
-                {tags.map((tag) => (
-                    <div key={tag}>
-                        <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}
-                        >
-                            #{tag}
-                        </InternalLink>
-                    </div>
-                ))}
             </div>
         </div>
     )
