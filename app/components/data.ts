@@ -35,12 +35,16 @@ export const getMetadata = (folder: string = '', amount: number = 0): PostMetada
 
         const tableOfContents = getTableOfContents(headers)
 
+        console.log(matterResult.data)
+
         return {
             tableOfContents: tableOfContents,
             headers: headers,
             title: matterResult.data.title,
             description: matterResult.data.description,
             date: formatDate(matterResult.data.date),
+            source: matterResult.data.source,
+            live: matterResult.data.live,
             tags: matterResult.data.tags || [],
             backlinks: matterResult.data.backlinks,
             timeToRead: getTimeToRead(matterResult.content),

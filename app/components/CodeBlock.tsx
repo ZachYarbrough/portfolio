@@ -37,7 +37,7 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
                 opacity-0 group-hover:opacity-100 transition-opacity ease-out duration-300 text-secondary' style={{
                     background: 'transparent',
                     top: '0.5rem',
-                    right: '0.5rem',
+                    right: '0.5rem'
                 }}>
                 {copied ? <PasteIcon /> : <CopyIcon />}
             </button>
