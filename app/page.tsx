@@ -22,7 +22,7 @@ const HomePage: NextPage = () => {
   ))
 
   const projectPreviews = projectMetadata.filter((project) => featuredProject.includes(project.slug)).map((project, index) => (
-      <ProjectPreview key={project.slug} isOdd={index % 2 === 0} {...project} />
+      <ProjectPreview key={project.slug} {...project} />
   ))
 
   return (

@@ -16,6 +16,7 @@ import PageHeader from '@/app/components/PageHeader'
 import Image from '@/app/components/Image'
 import BorderLine from '@/app/components/BorderLine'
 import { Post } from '@/app/types/posts'
+import ContentFooter from '@/app/components/ContentFooter'
 
 /**
  * Generates static paths for all projects
@@ -130,6 +131,7 @@ const ProjectPage = async ({ params }: any) => {
       </div>
       <RightSidebar post={project} />
       <BorderLine />
+      <ContentFooter post={project} />
     </>
   )
 }

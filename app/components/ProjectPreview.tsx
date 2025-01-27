@@ -7,7 +7,7 @@ import { CodeBracketIcon, GlobeIcon } from './assets/icons'
 import ExternalLink from './ExternalLink'
 import InternalLink from './InternalLInk'
 
-const ProjectPreview = ({ slug, title, source, live, description, preview, hidePreview = false, isOdd }: any) => {
+const ProjectPreview = ({ slug, title, source, live, description, preview, hidePreview = false }: any) => {
     const [width, setWidth] = useState(0)
 
     useEffect(() => {
@@ -46,58 +46,31 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
                 {!hidePreview && <p>{description}</p>}
             </div>}
             {width < 768 && <div style={{ display: 'flex', backgroundColor: 'var(--secondary-light)', justifyContent: 'space-between', border: '1px solid var(--secondary-light)', borderRadius: '0.5rem', padding: '1rem', marginTop: '1rem', width: '100%' }}>
-                {!isOdd ?
-                    <>
-                        <div style={{ width: '100%' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <InternalLink href={`/projects/${slug}`}>
-                                    <h2 className='text-highlight font-bold'>{title}</h2>
-                                </InternalLink>
-                                <div>
-                                    <ExternalLink showIcon={false} href={live}>
-                                        <GlobeIcon />
-                                    </ExternalLink>
-                                    <ExternalLink showIcon={false} href={source}>
-                                        <CodeBracketIcon />
-                                    </ExternalLink>
-                                </div>
-                            </div>
-                            {!hidePreview && <p>{description}</p>}
+                <>
+                    {!hidePreview &&
+                        <div style={{ width: '40%', marginRight: '1rem' }}>
+                            <InternalLink href={`/projects/${slug}`}>
+                                <img src={preview} alt={title} style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} />
+                            </InternalLink>
                         </div>
-                        {!hidePreview &&
-                            <div style={{ width: '40%', marginLeft: '1rem' }}>
-                                <InternalLink href={`/projects/${slug}`}>
-                                    <img src={preview} alt={title} style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} />
-                                </InternalLink>
+                    }
+                    <div style={{ width: '100%' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', textAlign: 'right' }}>
+                            <InternalLink href={`/projects/${slug}`}>
+                                <h2 className='text-highlight font-bold'>{title}</h2>
+                            </InternalLink>
+                            <div>
+                                <ExternalLink showIcon={false} href={live}>
+                                    <GlobeIcon />
+                                </ExternalLink>
+                                <ExternalLink showIcon={false} href={source}>
+                                    <CodeBracketIcon />
+                                </ExternalLink>
                             </div>
-                        }
-                    </>
-                    :
-                    <>
-                        {!hidePreview &&
-                            <div style={{ width: '40%', marginRight: '1rem' }}>
-                                <InternalLink href={`/projects/${slug}`}>
-                                    <img src={preview} alt={title} style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} />
-                                </InternalLink>
-                            </div>
-                        }
-                        <div style={{ width: '100%' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', textAlign: 'right' }}>
-                                <InternalLink href={`/projects/${slug}`}>
-                                    <h2 className='text-highlight font-bold'>{title}</h2>
-                                </InternalLink>
-                                <div>
-                                    <ExternalLink showIcon={false} href={live}>
-                                        <GlobeIcon />
-                                    </ExternalLink>
-                                    <ExternalLink showIcon={false} href={source}>
-                                        <CodeBracketIcon />
-                                    </ExternalLink>
-                                </div>
-                            </div>
-                            {!hidePreview && <p>{description}</p>}
                         </div>
-                    </>}
+                        {!hidePreview && <p>{description}</p>}
+                    </div>
+                </>
 
             </div>}
         </>

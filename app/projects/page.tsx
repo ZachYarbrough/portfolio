@@ -10,8 +10,8 @@ const ProjectPage: NextPage = () => {
 
     const postMetadata = getMetadata('projects')
 
-    const postPreviews = postMetadata.map((post, index) => (
-        <ProjectPreview key={post.slug} isOdd={index % 2 === 0} {...post} />
+    const postPreviews = postMetadata.map((post) => (
+        <ProjectPreview key={post.slug} {...post} />
     ))
     return (
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>

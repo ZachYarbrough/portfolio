@@ -4,6 +4,16 @@ date: 2025-01-17
 tags: [blog]
 ---
 
+> 'Sucking at something is the first step towards being sorta good at something.' - Jake the Dog, Adventure Time
+
+This quote perfectly encapsulates the mentality I try to have when working on side projects and exploring unfamiliar topics. I don't want to shy away from projects and technologies that I lack experience with. I want to be able to write about topics I am not an expert in. I don't want to hide my failures and mistakes. My hope with this mindset is that it will remove any fear of failure and foster a growth mindset. I want this blog to be a place where I can share my journey as a developer and document smaller side-projects that don't fit in the [projects](projects/) section of my portfolio.
+
+# Goals
+
+# Cadence
+
+# Content
+
 # Goals
 I recently felt inspired to create this blog as a way of documenting my journey as a developer. I want this project to serve as a personal knowledge base where I can store information I've learned and reference it in the future. Some of my goals in creating this blog are to streamline my learning process and improve my technical writing skills. I wanted to make this a public blog to hopefully increase accountability. While this blog is primarily for my own benefit, I would love it if others find value in posts here too!
 
