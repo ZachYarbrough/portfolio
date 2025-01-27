@@ -73,7 +73,7 @@ const ProjectPage = async ({ params }: any) => {
           <BreadcrumbTrail />
           <PageHeader>{project.title}</PageHeader>
           <p style={{ color: 'var(--secondary)' }}>{project.date}</p>
-          <ul style={{ display: 'flex', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
+          <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
             {project.tags.map((tag: string) => (
               <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>#{tag}</InternalLink>
             ))}

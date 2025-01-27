@@ -1,8 +1,14 @@
+'use client'
+import { useEffect } from "react"
 import DropdownList from "./DropdownList"
 import InternalLink from "./InternalLInk"
 
 const RelatedPosts = () => {
     const posts: any[] = []
+
+    useEffect(() => {
+        
+    }, [])
 
     return (
         <DropdownList title='Related Posts'>

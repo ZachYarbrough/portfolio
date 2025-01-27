@@ -6,6 +6,7 @@ tags: [freelance, react, mui, express, node, stripe, aws, multer]
 source: https://github.com/zachyarbrough/10k-cards
 live: https://10k-cards.vercel.app/
 preview: /images/10k-cards-preview.png
+related: [projects/10k-cards, posts/why-blog]
 ---
 
 ## Technologies Used

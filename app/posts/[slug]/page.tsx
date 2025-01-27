@@ -17,6 +17,7 @@ import RightSidebar from '@/app/components/RightSidebar'
 import PageHeader from '@/app/components/PageHeader'
 import Image from '@/app/components/Image'
 import BorderLine from '@/app/components/BorderLine'
+import ContentFooter from '@/app/components/ContentFooter'
 
 /**
  * Generates static paths for all posts
@@ -73,7 +74,7 @@ const PostPage = async ({ params }: any) => {
           <BreadcrumbTrail />
           <PageHeader>{post.title}</PageHeader>
           <p style={{ color: 'var(--secondary)' }}>{post.date}, {post.timeToRead} min read</p>
-          <ul style={{ display: 'flex', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
+          <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
             {post.tags.map((tag) => (
               <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>#{tag}</InternalLink>
             ))}
@@ -130,6 +131,7 @@ const PostPage = async ({ params }: any) => {
       </div>
       <RightSidebar post={post} />
       <BorderLine />
+      <ContentFooter post={post} /> 
     </>
   )
 }

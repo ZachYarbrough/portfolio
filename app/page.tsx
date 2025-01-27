@@ -10,7 +10,7 @@ import { skills } from './config';
 import ProjectPreview from './components/ProjectPreview';
 
 const HomePage: NextPage = () => {
-
+  
   const postMetadata = getMetadata('posts', 5)
   const projectMetadata = getMetadata('projects')
 
