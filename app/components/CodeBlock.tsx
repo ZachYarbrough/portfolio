@@ -18,7 +18,7 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
     const [copied, setCopied] = useState(false)
 
     const language = className ? className.replace('lang-', '') : 'text';
-    console.log(language)
+
     const handleCopy = async () => {
         await copyToClipboard(children)
         setCopied(true)
@@ -26,10 +26,6 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
             setCopied(false)
         }, 2000)
     }
-
-    useEffect(() => {
-        console.log(oneDark)
-    }, [oneDark])
 
     return (
         <div className='group relative'>

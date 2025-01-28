@@ -64,7 +64,6 @@ const getProjectContent = (slug: string): Post => {
 
 const ProjectPage = async ({ params }: any) => {
   const slug = await params.slug
-  console.log(slug)
   const project: Post = getProjectContent(slug)
 
   return (

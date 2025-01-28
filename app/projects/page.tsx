@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import { getMetadata } from '../components/data';
-import PostPreview from '@/app/components/PostPreview';
 import BreadcrumbTrail from '../components/BreadcrumbTrail';
 import ItemCount from '../components/ItemCount';
 import PageHeader from '../components/PageHeader';

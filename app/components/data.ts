@@ -35,8 +35,6 @@ export const getMetadata = (folder: string = '', amount: number = 0): PostMetada
 
         const tableOfContents = getTableOfContents(headers)
 
-        console.log(matterResult.data)
-
         return {
             tableOfContents: tableOfContents,
             headers: headers,
