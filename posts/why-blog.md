@@ -4,7 +4,7 @@ date: 2025-01-17
 tags: [blog]
 ---
 
-> 'Sucksng at something is the first step towards being sorta good at something.' - Jake the Dog, Adventure Time
+> 'Sucking at something is the first step towards being sorta good at something.' - Jake the Dog, Adventure Time
 
 This quote perfectly encapsulates the mentality I try to have when working on side projects and exploring unfamiliar topics. I don't want to shy away from projects and technologies that I lack experience with. I want to be able to write about topics I am not an expert in. I don't want to hide my failures and mistakes. My hope with this mindset is that it will remove any fear of failure and foster a growth mindset. I want this blog to be a place where I can share my journey as a developer and document smaller side-projects that don't fit in the [projects](projects/) section of my portfolio.
 
