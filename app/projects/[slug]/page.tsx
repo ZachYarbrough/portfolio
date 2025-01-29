@@ -1,7 +1,7 @@
 import fs from 'fs'
 import Markdown from 'markdown-to-jsx'
 import matter from 'gray-matter'
-import { getBacklink, getMetadata, getTimeToRead } from '@/app/components/data'
+import { getBacklink, getMetadata, getRelativePosts, getTimeToRead } from '@/app/components/data'
 import { formatDate, getTableOfContents } from '@/app/components/general'
 import CodeBlock from '@/app/components/CodeBlock'
 import Paragraph from '@/app/components/Paragraph'
@@ -12,6 +12,7 @@ import InternalLink from '@/app/components/InternalLInk'
 import projectLink from '@/app/components/PostLink'
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail'
 import RightSidebar from '@/app/components/RightSidebar'
+import LeftSidebar from '@/app/components/LeftSidebar'
 import PageHeader from '@/app/components/PageHeader'
 import Image from '@/app/components/Image'
 import BorderLine from '@/app/components/BorderLine'
@@ -25,7 +26,7 @@ import ContentFooter from '@/app/components/ContentFooter'
  */
 export const generateStaticParams = async () => {
   const projects = getMetadata('projects')
-  return projects.map((project) => ({ slug: project.slug }))
+  return projects.map((project: any) => ({ slug: project.slug }))
 }
 
 /**
@@ -48,6 +49,9 @@ const getProjectContent = (slug: string): Post => {
   const backlinks = (matterResult.content + '\n').match(/\]\(([^ ]+?)\.md\)/g) || []
   const formattedBacklinks = [...new Set(backlinks)].map((backlink) => getBacklink(backlink))
 
+
+  const relatedPosts = matterResult.data.related ? matterResult.data.related.map((post: any) => getRelativePosts(post)) : []
+
   return {
     title: matterResult.data.title,
     description: matterResult.data.description,
@@ -57,6 +61,7 @@ const getProjectContent = (slug: string): Post => {
     tableOfContents: tableOfContents,
     timeToRead: getTimeToRead(matterResult.content),
     slug: slug,
+    related: relatedPosts,
     backlinks: formattedBacklinks,
     content: matterResult.content
   }
@@ -69,6 +74,7 @@ const ProjectPage = async ({ params }: any) => {
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', maxWidth: '750px', margin: '0 auto' }}>
+	<LeftSidebar showRelatedPosts={true} relatedPosts={project.related} />
         <div style={{ width: '100%', margin: '0 auto' }}>
           <BreadcrumbTrail />
           <PageHeader>{project.title}</PageHeader>

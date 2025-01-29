@@ -1,7 +1,6 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import "./globals.css";
-import LeftSidebar from './components/LeftSidebar';
 import SearchModal from './components/SearchModal';
 import { SearchProvider } from './components/context/searchContext';
 import ThemeWrapper from './components/ThemeWrapper';
@@ -16,7 +15,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <SearchProvider>
             <Header />
             <div>
-              <LeftSidebar />
               {children}
             </div>
             <Footer />

@@ -6,6 +6,7 @@ import TagHeader from '@/app/components/TagHeader';
 import BorderLine from '@/app/components/BorderLine';
 import { skills } from '@/app/config';
 import ProjectPreview from '@/app/components/ProjectPreview';
+import LeftSidebar from '@/app/components/LeftSidebar';
 
 /**
  * Generates static paths for all posts
@@ -50,6 +51,8 @@ const SingleTagPage = async ({ params }: any) => {
     ))
 
     return (
+	<>
+	<LeftSidebar />
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
             <BreadcrumbTrail isTag={true} />
             <div key={tag}>
@@ -62,6 +65,7 @@ const SingleTagPage = async ({ params }: any) => {
             </div>
             <BorderLine />
         </div>
+	</>
     )
 }
 

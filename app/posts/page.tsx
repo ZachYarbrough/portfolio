@@ -5,6 +5,8 @@ import BreadcrumbTrail from '../components/BreadcrumbTrail';
 import ItemCount from '../components/ItemCount';
 import PageHeader from '../components/PageHeader';
 import BorderLine from '../components/BorderLine';
+import LeftSidebar from '../components/LeftSidebar';
+
 const BlogPage: NextPage = () => {
 
     const postMetadata = getMetadata('posts')
@@ -13,6 +15,8 @@ const BlogPage: NextPage = () => {
         <PostPreview key={post.slug} {...post} />
     ))
     return (
+	<>
+	<LeftSidebar />
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
             <BreadcrumbTrail />
             <PageHeader>Posts</PageHeader>
@@ -20,6 +24,7 @@ const BlogPage: NextPage = () => {
             <div>{postPreviews}</div>
             <BorderLine />
         </div>
+	</>
     )
 }
 

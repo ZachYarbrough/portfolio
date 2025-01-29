@@ -3,7 +3,7 @@ import InternalLink from "./InternalLInk"
 import RelatedPosts from "./RelatedPosts"
 import SearchBar from "./SearchBar"
 
-const LeftSidebar = () => {
+const LeftSidebar = ({ showRelatedPosts = false, relatedPosts = [] }: any) => {
 
     return (
         <div className='sm-hidden' style={{ position: 'fixed', top: '5rem', left: 'calc(50vw - 700px)', width: '250px', display: 'flex',flexDirection: 'column' }}>
@@ -16,7 +16,7 @@ const LeftSidebar = () => {
             <InternalLink href='/posts'>Posts</InternalLink>
             <InternalLink href='/projects'>Projects</InternalLink>
         </ul>
-        <RelatedPosts />
+	{showRelatedPosts && <RelatedPosts relatedPosts={relatedPosts} />}
         </div>
     )
 }

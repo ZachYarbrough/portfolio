@@ -6,7 +6,7 @@ import RelatedPosts from "./RelatedPosts"
 import { Post } from "../types/posts"
 
 const ContentFooter = ({ post }: { post: Post }) => {
-    const [width, setWidth] = useState(0)
+    const [width, setWidth] = useState(1501)
 
     useEffect(() => {
         function handleResize() {
@@ -25,7 +25,7 @@ const ContentFooter = ({ post }: { post: Post }) => {
     return (
         <>
             {width <= 1500 && <div style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem auto 0 auto', maxWidth: '750px' }}>
-                <div style={{ width: '40%' }}><RelatedPosts /></div>
+                <div style={{ width: '40%' }}><RelatedPosts relatedPosts={post.related} /></div>
                 <div style={{ width: '40%' }}><BackLinks backlinks={post.backlinks} /></div>
             </div>}
         </>

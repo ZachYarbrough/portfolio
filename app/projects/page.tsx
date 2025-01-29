@@ -5,6 +5,8 @@ import ItemCount from '../components/ItemCount';
 import PageHeader from '../components/PageHeader';
 import BorderLine from '../components/BorderLine';
 import ProjectPreview from '../components/ProjectPreview';
+import LeftSidebar from '../components/LeftSidebar';
+
 const ProjectPage: NextPage = () => {
 
     const postMetadata = getMetadata('projects')
@@ -12,7 +14,10 @@ const ProjectPage: NextPage = () => {
     const postPreviews = postMetadata.map((post) => (
         <ProjectPreview key={post.slug} {...post} />
     ))
+
     return (
+	<>
+	<LeftSidebar />
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
             <BreadcrumbTrail />
             <PageHeader>Projects</PageHeader>
@@ -20,6 +25,7 @@ const ProjectPage: NextPage = () => {
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>{postPreviews}</div>
             <BorderLine />
         </div>
+	</>
     )
 }
 

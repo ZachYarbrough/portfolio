@@ -17,6 +17,23 @@ export const getTimeToRead = (content: string): number => {
 }
 
 /**
+ * Retrieves the title and link of a post from a markdown file in the posts directory
+ * 
+ * @param {string} post - The post to retrieve
+ * @returns {Object} An object containing the title and link of the post
+ */
+export const getRelativePosts = (post: string) => {
+    const file = `${post}.md`
+    const content = fs.readFileSync(file, 'utf8')
+    const matterResult = matter(content)
+    
+    return {
+	    title: matterResult.data.title,
+	    link: post
+    }
+}
+
+/**
  * Retrieves metadata from markdown files in the specified directory.
  * Files are sorted by date in descending order.
  * 

@@ -13,6 +13,7 @@ import BulletLists from '@/app/components/BulletLists'
 import InternalLink from '@/app/components/InternalLInk'
 import PostLink from '@/app/components/PostLink'
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail'
+import LeftSidebar from '@/app/components/LeftSidebar'
 import RightSidebar from '@/app/components/RightSidebar'
 import PageHeader from '@/app/components/PageHeader'
 import Image from '@/app/components/Image'
@@ -35,11 +36,16 @@ export const generateStaticParams = async () => {
  * @param {string} slug - The slug of the post to retrieve
  * @returns {Post} A Post object containing the post's metadata and content
  */
-const getPostContent = (slug: string): Post => {
+const getPostContent = (slug: string, isRelativePost: boolean = false): any => {
   const folder = 'posts/'
   const file = `${folder}${slug}.md`
   const content = fs.readFileSync(file, 'utf8')
   const matterResult = matter(content)
+
+  if (isRelativePost) return {
+    title: matterResult.data.title,
+    slug: slug
+  }
 
   // Get headers with regex that matches the format '# Header', '## Header', etc.
   const headers = (matterResult.content + '\n').match(/(#+ .*\n)/g) || []
@@ -48,6 +54,8 @@ const getPostContent = (slug: string): Post => {
   // Get backlinks with regex that matches the format '](link.md)'
   const backlinks = (matterResult.content + '\n').match(/\]\(([^ ]+?)\.md\)/g) || []
   const formattedBacklinks = [...new Set(backlinks)].map((backlink) => getBacklink(backlink))
+
+  const relatedPosts = matterResult.data.related ? matterResult.data.related.map((post: any) => getPostContent(post, true)) : []
 
   return {
     title: matterResult.data.title,
@@ -59,6 +67,7 @@ const getPostContent = (slug: string): Post => {
     timeToRead: getTimeToRead(matterResult.content),
     slug: slug,
     backlinks: formattedBacklinks,
+    related: relatedPosts,
     content: matterResult.content
   }
 }
@@ -69,6 +78,7 @@ const PostPage = async ({ params }: any) => {
 
   return (
     <>
+      <LeftSidebar showRelatedPosts={true} relatedPosts={post.related} />
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', maxWidth: '750px', margin: '0 auto' }}>
         <div style={{ width: '100%', margin: '0 auto' }}>
           <BreadcrumbTrail />

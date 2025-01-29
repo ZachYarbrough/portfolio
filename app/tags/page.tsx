@@ -2,12 +2,13 @@ import { NextPage } from 'next';
 import { getMetadata } from '../components/data';
 import PostPreview from '@/app/components/PostPreview';
 import BreadcrumbTrail from '../components/BreadcrumbTrail';
-import InternalLink from '../components/InternalLInk';
 import ItemCount from '../components/ItemCount';
 import PageHeader from '../components/PageHeader';
 import TagHeader from '../components/TagHeader';
 import BorderLine from '../components/BorderLine';
 import ProjectPreview from '../components/ProjectPreview';
+import LeftSidebar from '../components/LeftSidebar';
+
 const TagPage: NextPage = () => {
 
     const postMetadata = getMetadata('posts')
@@ -41,12 +42,15 @@ const TagPage: NextPage = () => {
     const previews = getTagData(postMetadata, projectMetadata)
     
     return (
+	<>
+	<LeftSidebar />
         <div style={{ maxWidth: '750px', margin: '0 auto' }}>
             <BreadcrumbTrail />
             <PageHeader>Tag Index</PageHeader>
             <div style={{ marginTop: '1rem' }}>{previews}</div>
             <BorderLine />
         </div>
+	</>
     )
 }
 

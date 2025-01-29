@@ -9,7 +9,8 @@ export interface PostMetadata {
     tableOfContents: Record<string, {
         text: string,
         subSections: string[]
-    }>
+    }>,
+    related: string[]
     backlinks: {
         title: string
         backlink: string

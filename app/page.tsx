@@ -8,6 +8,7 @@ import { ArrowRightIcon } from './components/assets/icons';
 import BorderLine from './components/BorderLine';
 import { skills } from './config';
 import ProjectPreview from './components/ProjectPreview';
+import LeftSidebar from './components/LeftSidebar';
 
 const HomePage: NextPage = () => {
   
@@ -27,6 +28,7 @@ const HomePage: NextPage = () => {
 
   return (
     <>
+    <LeftSidebar />
     <div style={{
       maxWidth: '750px',
       display: 'flex',
