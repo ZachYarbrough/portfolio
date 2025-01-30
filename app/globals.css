@@ -17,10 +17,14 @@ tbody, li, p {
   --primary: #4E4E4E;
   --secondary: #B8B8B8;
   --secondary-light: hsl(151, 0%, 92%);
-  --note: #46B47F;
-  --warning: #46B47F;
-  --caution: #46B47F;
-  --tip: #46B47F;
+  --note: rgb(129, 173, 250);
+  --notebg: rgb(129, 173, 250, 0.1);
+  --warning: rgb(252, 149, 158); 
+  --warningbg: rgb(252, 149, 158, 0.1);
+  --caution: rgb(255, 164, 120);
+  --cautionbg: rgb(255, 164, 120, 0.1);
+  --tip: rgb(243, 211, 152);
+  --tipbg: rgb(243, 211, 152, 0.1);
   --background: hsl(151, 99%, 99%);
 }
 
@@ -29,10 +33,14 @@ tbody, li, p {
   --primary: #D4D4D4;
   --secondary: #B8B8B8;
   --secondary-light: #383639;
-  --note: #46B47F;
-  --warning: #46B47F;
-  --caution: #46B47F;
-  --tip: #46B47F;
+  --note: rgb(129, 173, 250);
+  --notebg: rgb(129, 173, 250, 0.1);
+  --warning: rgb(252, 149, 158); 
+  --warningbg: rgb(252, 149, 158, 0.1);
+  --caution: rgb(255, 164, 120);
+  --cautionbg: rgb(255, 164, 120, 0.1);
+  --tip: rgb(243, 211, 152);
+  --tipbg: rgb(243, 211, 152, 0.1);
   --background: #202020;
 }
 

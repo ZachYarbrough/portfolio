@@ -18,6 +18,7 @@ export default {
         primary: 'var(--primary)',
         note: 'var(--note)',
         warning: 'var(--warning)',
+	warningbg: 'var(--warningbg)',	
         caution: 'var(--caution)',
         tip: 'var(--tip)',
         secondary: 'var(--secondary)',

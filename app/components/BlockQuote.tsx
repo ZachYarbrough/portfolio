@@ -36,7 +36,7 @@ const BlockQuote = ({ children }: { children: any[] }) => {
             {blockType === undefined &&
                 <blockquote style={{ borderLeft: '3px solid var(--highlight)', paddingLeft: '1rem', margin: '0.5rem 0' }}>{quote}</blockquote>
             }
-            {blockType && <div style={{ border: `3px solid var(--${blockType})`, borderRadius: '0.5rem', padding: '0.5rem 1rem', margin: '0.5rem 0' }}>
+            {blockType && <div style={{ border: `3px solid var(--${blockType})`, background: `var(--${blockType}bg)`, borderRadius: '0.5rem', padding: '0.5rem 1rem', margin: '0.5rem 0' }}>
                 {/* Note Block */}
                 {blockType === 'note' && <>
                     <div className='font-bold flex items-center gap-2' style={{ color: 'var(--note)' }}>
@@ -57,7 +57,7 @@ const BlockQuote = ({ children }: { children: any[] }) => {
                 }
                 {/* Caution Block */}
                 {blockType === 'caution' && <>
-                    <div className='font-bold flex items-center gap-2' style={{ color: 'var(--warning)' }}>
+                    <div className='font-bold flex items-center gap-2' style={{ color: 'var(--caution)' }}>
                         <CautionIcon />
                         <span>Caution</span>
                     </div>
