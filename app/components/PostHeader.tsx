@@ -18,14 +18,13 @@ const PostHeader = ({ headerNumber, children }: { headerNumber: number, children
 	if (window.location.hash.includes(header)) {
 	    const element = document.getElementById(header)
 
-	    console.log(element)
 	    if (!element) return;
 
 	    const timeoutId = setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 100); // Adjust the delay as needed
 
 	    // Cleanup the timeout if the component unmounts
 	    return () => clearTimeout(timeoutId);
-	    }
+	}
     }, [])
 
     return (
