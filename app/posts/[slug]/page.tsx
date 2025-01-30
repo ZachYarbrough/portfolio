@@ -1,24 +1,17 @@
 import { Post } from '@/app/types/posts'
 
 import fs from 'fs'
-import Markdown from 'markdown-to-jsx'
 import matter from 'gray-matter'
 import { getBacklink, getMetadata, getTimeToRead } from '@/app/components/data'
 import { formatDate, getTableOfContents } from '@/app/components/general'
-import CodeBlock from '@/app/components/CodeBlock'
-import Paragraph from '@/app/components/Paragraph'
-import PostHeader from '@/app/components/PostHeader'
-import BlockQuote from '@/app/components/BlockQuote'
-import BulletLists from '@/app/components/BulletLists'
 import InternalLink from '@/app/components/InternalLInk'
-import PostLink from '@/app/components/PostLink'
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail'
 import LeftSidebar from '@/app/components/LeftSidebar'
 import RightSidebar from '@/app/components/RightSidebar'
 import PageHeader from '@/app/components/PageHeader'
-import Image from '@/app/components/Image'
 import BorderLine from '@/app/components/BorderLine'
 import ContentFooter from '@/app/components/ContentFooter'
+import MarkdownRenderer from '@/app/components/MarkdownRenderer'
 
 /**
  * Generates static paths for all posts
@@ -89,55 +82,8 @@ const PostPage = async ({ params }: any) => {
               <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>#{tag}</InternalLink>
             ))}
           </ul>
-          <Markdown options={{
-            overrides: {
-              code: {
-                component: CodeBlock
-              },
-              a: {
-                component: PostLink,
-              },
-              p: {
-                component: Paragraph
-              },
-              h1: {
-                component: PostHeader,
-                props: {
-                  headerNumber: 1.5
-                }
-              },
-              h2: {
-                component: PostHeader,
-                props: {
-                  headerNumber: 1.3
-                }
-              },
-              h3: {
-                component: PostHeader,
-                props: {
-                  headerNumber: 1.1
-                }
-              },
-              h4: {
-                component: PostHeader,
-                props: {
-                  headerNumber: 1
-                }
-              },
-              blockquote: {
-                component: BlockQuote
-              },
-              ul: {
-                component: BulletLists
-              },
-              img: {
-                component: Image
-              }
-            }
-          }}>
-            {post.content}
-          </Markdown>
-        </div>
+          <MarkdownRenderer content={post.content} />        
+	  </div>
       </div>
       <RightSidebar post={post} />
       <BorderLine />

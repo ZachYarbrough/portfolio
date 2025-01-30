@@ -18,7 +18,7 @@ import Image from '@/app/components/Image'
 import BorderLine from '@/app/components/BorderLine'
 import { Post } from '@/app/types/posts'
 import ContentFooter from '@/app/components/ContentFooter'
-
+import MarkdownRenderer from '@/app/components/MarkdownRenderer'
 /**
  * Generates static paths for all projects
  * 
@@ -84,55 +84,8 @@ const ProjectPage = async ({ params }: any) => {
               <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>#{tag}</InternalLink>
             ))}
           </ul>
-          <Markdown options={{
-            overrides: {
-              code: {
-                component: CodeBlock
-              },
-              a: {
-                component: projectLink,
-              },
-              p: {
-                component: Paragraph
-              },
-              h1: {
-                component: projectHeader,
-                props: {
-                  headerNumber: 1.5
-                }
-              },
-              h2: {
-                component: projectHeader,
-                props: {
-                  headerNumber: 1.3
-                }
-              },
-              h3: {
-                component: projectHeader,
-                props: {
-                  headerNumber: 1.1
-                }
-              },
-              h4: {
-                component: projectHeader,
-                props: {
-                  headerNumber: 1
-                }
-              },
-              blockquote: {
-                component: BlockQuote
-              },
-              ul: {
-                component: BulletLists
-              },
-              img: {
-                component: Image
-              }
-            }
-          }}>
-            {project.content}
-          </Markdown>
-        </div>
+          <MarkdownRenderer content={project.content} />        
+	  </div>
       </div>
       <RightSidebar post={project} />
       <BorderLine />
