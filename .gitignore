@@ -30,8 +30,8 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# TODO
-TODO
+# TODO file
+TODO.md
 
 # env files (can opt-in for committing if needed)
 .env*

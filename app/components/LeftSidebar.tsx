@@ -1,9 +1,10 @@
 import DarkModeToggle from "./DarkModeToggle"
 import InternalLink from "./InternalLInk"
+import LatestPosts from "./LatestPosts"
 import RelatedPosts from "./RelatedPosts"
 import SearchBar from "./SearchBar"
 
-const LeftSidebar = ({ showRelatedPosts = false, relatedPosts = [] }: any) => {
+const LeftSidebar = ({ showLatestPosts = false, showRelatedPosts = false, relatedPosts = [] }: any) => {
 
     return (
         <div className='sm-hidden' style={{ position: 'fixed', top: '5rem', left: 'calc(50vw - 700px)', width: '250px', display: 'flex',flexDirection: 'column' }}>
@@ -17,6 +18,7 @@ const LeftSidebar = ({ showRelatedPosts = false, relatedPosts = [] }: any) => {
             <InternalLink href='/projects'>Projects</InternalLink>
         </ul>
 	{showRelatedPosts && <RelatedPosts relatedPosts={relatedPosts} />}
+	{showLatestPosts && <LatestPosts />}
         </div>
     )
 }
