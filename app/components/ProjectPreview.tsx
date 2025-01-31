@@ -35,12 +35,12 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
                         <h2 className='text-highlight font-bold'>{title}</h2>
                     </InternalLink>
                     <div>
-                        <ExternalLink showIcon={false} href={live}>
-                            <GlobeIcon />
-                        </ExternalLink>
-                        <ExternalLink showIcon={false} href={source}>
-                            <CodeBracketIcon />
-                        </ExternalLink>
+			{live && <ExternalLink showIcon={false} href={live}>
+			    <GlobeIcon />
+			</ExternalLink>}
+			{source && <ExternalLink showIcon={false} href={source}>
+			    <CodeBracketIcon />
+			</ExternalLink>}
                     </div>
                 </div>
                 {!hidePreview && <p>{description}</p>}
@@ -60,12 +60,12 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
                                 <h2 className='text-highlight font-bold'>{title}</h2>
                             </InternalLink>
                             <div>
-                                <ExternalLink showIcon={false} href={live}>
+			    {live && <ExternalLink showIcon={false} href={live}>
                                     <GlobeIcon />
-                                </ExternalLink>
-                                <ExternalLink showIcon={false} href={source}>
+                                </ExternalLink>}
+                            {source && <ExternalLink showIcon={false} href={source}>
                                     <CodeBracketIcon />
-                                </ExternalLink>
+                                </ExternalLink>}
                             </div>
                         </div>
                         {!hidePreview && <p>{description}</p>}

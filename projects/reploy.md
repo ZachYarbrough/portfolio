@@ -1,13 +1,12 @@
 ---
 title: Reploy 
 date: 2024-01-23
-description: A freelance website that allows users to build and purchase virtual business cards.
+description: 
 tags: [freelance, react, mui, express, node, stripe, aws, multer]
-source: https://github.com/zachyarbrough/10k-cards
-live: https://10k-cards.vercel.app/
-preview: /images/10k-cards-preview.png
+source: https://github.com/
+preview: /images/reploy-preview.png
 ---
 
 ## Technologies Used
 
-## Gallery
+## Gallerykk

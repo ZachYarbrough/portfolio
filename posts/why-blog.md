@@ -1,43 +1,34 @@
 ---
-title: Why I Am Starting a Blog
+title: Why I Decided To Starting a Blog
 date: 2025-01-17
 tags: [blog]
 ---
 
 > 'Sucking at something is the first step towards being sorta good at something.' - Jake the Dog, Adventure Time
 
-This quote perfectly encapsulates the mentality I try to have when working on side projects and exploring unfamiliar topics. I don't want to shy away from projects and technologies that I lack experience with. I want to be able to write about topics I am not an expert in. I don't want to hide my failures and mistakes. My hope with this mindset is that it will remove any fear of failure and foster a growth mindset. I want this blog to be a place where I can share my journey as a developer and document smaller side-projects that don't fit in the [projects](projects/) section of my portfolio.
+I love the above quote, it perfectly aligns with the growth mindset I am trying to embrace in my development journey. As a software developer, you have to be willing to adapt to new technologies and concepts. The field is constantly evolving, who knows maybe one day we will all be coding on quantum computers and riding around in flying Teslas, only time will tell. This is part of the reason that I decided to start this blog - to track my progress, reflect on challenges, and solidify my understanding of concepts and technologies. 
 
-# Goals
+Along the way, I also hope to refine my technical writing skills and streamline my learning process. I decided to make this a public blog to add a bit of accountability. While it’s primarily for my own growth, I’d love for others to find value in my posts as well!
 
-# Cadence
+I don't plan on setting a strict schedule or posting cadence - the moment this begins to feel like work, I know I will lose motivation. How often I post will depend on my free time outside of my day job and whatever projects I’m working on at the time. Some months I’ll be more active, while others I might get caught up in the chaos of life, get lost in a new video game, or just binge a TV show.
 
-# Content
-
-# Goals
-I recently felt inspired to create this blog as a way of documenting my journey as a developer. I want this project to serve as a personal knowledge base where I can store information I've learned and reference it in the future. Some of my goals in creating this blog are to streamline my learning process and improve my technical writing skills. I wanted to make this a public blog to hopefully increase accountability. While this blog is primarily for my own benefit, I would love it if others find value in posts here too!
-
-I'm not going to try and stick to any schedule or posting cadence. I want to keep this side project as enjoyable as possible and the last thing I want is for this blog to feel like work. Depending on my motivation and what projects I am working on, I will post more or less frequently. Some months life will get busy or I will get distracted with a new video game/tv show.
-
-Last but not least, I figured this blog would be a fun outlit for me to reflect on challenges and go down rabbit holes on topics I find interesting.
+I see this blog as a fun space to reflect on challenges, explore interesting topics, and dive into the occasional rabbit hole.
 
 # Content
-Here are some examples of content I plan to write about. This is not an exhaustive list, just some ideas I have.
 
-### Project Dev Blogs
-I plan to write development blog posts for bigger projects that I am working on. If the project is less than a month long and I didn't encounter any unique challenges, I probably won't write about it during development.
-
-### Project Reviews
-I want review posts to be a way for me to reflect on the project and what I learned from it. Ideally I will create a post for each project I work on. I will also create a template for this type of post and evolve it as I write more project reviews.
+Here are some examples of content I plan to make posts about. This is not an exhaustive list, just some ideas I have.
 
 ### Technical Deep Dives
-Any tools, concepts, or technologies that I want to understand better, I will write a technical deep dive post about it.
+I say 'deep dive' very loosely here, I plan on writing posts about technologies and concepts that I want to learn more in depth.
 
-### (Not so Technical) Deep Dives
-I want to seperate deep dives into two categories. This category will be for deep dives on topics that I find interesting, but don't pertain to software development. This could be anything from a new book I am reading, to a part of history I want to learn more about.
+### (Not So) Technical Deep Dives
+Even though posts will be technical for the most part, I still want to allow myself to go down random rabbit holes I find interesting and write about them. Again, this blog is meant to be a fun hobby, anything could ultimately become a post if I have enough interest in the topic. (I have been reading a lot about [The Condor Cluster](https://phys.org/news/2010-12-air-playstation-3s-supercomputer.html) recently which could be a good first topic)
 
-### Tutorials
-I plan to write tutorials for issues I encounter while working on projects. My hope is that creating tutorials for topics that I have trouble grasping will deepen my understanding of the topic.
+### Project Reviews
+After finishing a project, I think it is beneficial to take a step back and reflect on successes and lessons learned. I want to write reviews or retrospectives for my projects so I can condense my takeaways in a digestible way.
+
+### Project Showcases
+I already have a dedicated [projects](/projects) section in my portfolio where I showcase my bigger projects, but I still want to make posts highlighting smaller ideas I work on. This could be anything from a random bash script that I am proud of, to a project that I posed an interesting challenge, but I never finished.
 
 # Further Readings
 
