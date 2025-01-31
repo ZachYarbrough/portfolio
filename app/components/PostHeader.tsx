@@ -7,7 +7,7 @@ import '@/app/globals.css'
 
 const PostHeader = ({ headerNumber, children }: { headerNumber: number, children: React.ReactNode }) => {
     const ref = useRef(null)
-    const header = '#' + children?.toString().replace(/\s+/g, '%20') 
+    const header = '#' + children?.toString().toLowerCase().replace(/\s+/g, '-') 
     const [showCopy, setShowCopy] = useState(false)
 
     const handleCopy = async () => {
@@ -29,7 +29,7 @@ const PostHeader = ({ headerNumber, children }: { headerNumber: number, children
 
     return (
         <div ref={ref} id={header} onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2'>
-            <h1 id={children?.toString()} className='text-primary' style={{
+            <h1 id={children?.toString().toLowerCase()} className='text-primary' style={{
                 padding: '0.5rem 0',
                 fontSize: `${headerNumber}rem`,
                 fontWeight: '700',
