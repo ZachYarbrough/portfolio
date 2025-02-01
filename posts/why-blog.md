@@ -1,5 +1,5 @@
 ---
-title: Why I Decided To Starting a Blog
+title: Why I Decided To Start a Blog
 date: 2025-01-17
 tags: [blog]
 ---

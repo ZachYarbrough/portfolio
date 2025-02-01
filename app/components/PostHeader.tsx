@@ -28,7 +28,7 @@ const PostHeader = ({ headerNumber, children }: { headerNumber: number, children
     }, [])
 
     return (
-        <div ref={ref} id={header} onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2'>
+        <div ref={ref} id={header} onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2 post-header'>
             <h1 id={children?.toString().toLowerCase()} className='text-primary' style={{
                 padding: '0.5rem 0',
                 fontSize: `${headerNumber}rem`,
