@@ -16,7 +16,7 @@ const ExternalLink = ({ href, showIcon = true, isMail = false, children }: { hre
             rel={'noopener noreferrer'}>
             <span>{children}</span>
             {showIcon && <span style={{
-                marginTop: '0.5rem',
+                marginTop: '0.4rem',
                 color: 'var(--primary)',
             }}><ExternalLinkIcon /></span>}
         </Link>

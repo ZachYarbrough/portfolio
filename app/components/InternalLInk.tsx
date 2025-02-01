@@ -10,7 +10,7 @@ const InternalLink = ({ href, children, useBubbleStyle = false, style = {} }: { 
         <>
             {useBubbleStyle ? <Link className='text-highlight cursor-pointer inline-flex font-bold'
                 style={Object.keys(style).length > 0 ? style : {
-                    padding: '0 0.4rem',
+                    padding: '2px 4px',
                     backgroundColor: 'var(--secondary-light)',
                     borderRadius: '0.4rem',
                 }}
