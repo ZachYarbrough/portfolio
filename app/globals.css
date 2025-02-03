@@ -59,8 +59,8 @@ tbody, li, p {
 }
 
 
-.tag-header:target {
-  scroll-margin-top: 5rem;
+.tag-header {
+  scroll-margin-top: 1rem;
 }
 
 @media (max-width: 1500px) {
@@ -72,8 +72,8 @@ tbody, li, p {
     scroll-margin-top: 5rem; /* Adjust this value to match the height of your navbar */
   }
 
-  .tag-header:target {
-    scroll-margin-top: 10rem;
+  .tag-header {
+    scroll-margin-top: 5rem;
   }
 }
 

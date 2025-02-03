@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { LinkIcon } from './assets/icons'
 import { copyToClipboard } from './general';
 import InternalLink from './InternalLInk';
+import '@/app/globals.css'
 
 const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string }) => {
     const ref = useRef(null)
@@ -11,7 +12,14 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
     const [showCopy, setShowCopy] = useState(false)
 
     const handleCopy = async () => {
-        await copyToClipboard(window.location.origin + window.location.pathname + header)
+        await copyToClipboard(window.location.origin + window.location.pathname + header)	
+        
+        // Scroll to the element after copying
+        const element = document.getElementById(header)
+        if (element) {
+	    element.scrollIntoView({ behavior: 'smooth' })
+	}
+
     }
 
     useEffect(() => {
@@ -26,6 +34,10 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
 	    return () => clearTimeout(timeoutId);
 	}
     }, [])
+
+    useEffect(() => {
+	console.log(ref, header)
+    }, [ref])
     
     return (
         <div ref={ref} id={header} onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2 tag-header' style={{ margin: '0.5rem auto'}}>
@@ -39,7 +51,7 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
                     >
                     <span>{children}</span>
                 </InternalLink> :
-                <h1 className='text-highlight inline-flex font-bold' style={{
+                <h1 id={children?.toString().toLowerCase()} className='text-highlight inline-flex font-bold' style={{
                     padding: '0 0.4rem',
                     backgroundColor: 'var(--secondary-light)',
                     borderRadius: '0.4rem',
