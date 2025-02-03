@@ -34,10 +34,6 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
 	    return () => clearTimeout(timeoutId);
 	}
     }, [])
-
-    useEffect(() => {
-	console.log(ref, header)
-    }, [ref])
     
     return (
         <div ref={ref} id={header} onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2 tag-header' style={{ margin: '0.5rem auto'}}>
