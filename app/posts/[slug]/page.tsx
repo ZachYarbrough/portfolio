@@ -65,13 +65,14 @@ const getPostContent = (slug: string, isRelativePost: boolean = false): any => {
   }
 } 
 
+
 const PostPage = async ({ params }: any) => {
   const slug = await params.slug
   const post: Post = getPostContent(slug)
 
   return (
     <>
-      <LeftSidebar showLatestPosts={true} />
+      <LeftSidebar />
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', maxWidth: '750px', margin: '0 auto' }}>
         <div style={{ width: '100%', margin: '0 auto' }}>
           <BreadcrumbTrail />

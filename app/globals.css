@@ -56,6 +56,11 @@ tbody, li, p {
   .sm-visible {
     visibility: hidden !important;
   }
+
+  .content-footer {
+    display: none !important;
+  }
+
 }
 
 

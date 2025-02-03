@@ -74,7 +74,7 @@ const ProjectPage = async ({ params }: any) => {
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', maxWidth: '750px', margin: '0 auto' }}>
-	<LeftSidebar showRelatedPosts={true} relatedPosts={project.related} />
+	<LeftSidebar />
         <div style={{ width: '100%', margin: '0 auto' }}>
           <BreadcrumbTrail />
           <PageHeader>{project.title}</PageHeader>

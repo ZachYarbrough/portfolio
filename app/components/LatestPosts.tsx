@@ -1,10 +1,7 @@
-import { getMetadata } from "./data"
 import DropdownList from "./DropdownList"
 import InternalLink from "./InternalLInk"
 
-const LatestPosts = () => {
-	const latestPosts = getMetadata('posts', 5)
-
+const LatestPosts = ({ latestPosts }: any) => {
 
         return (
 	<DropdownList title='Recent Posts'>
