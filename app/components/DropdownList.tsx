@@ -14,7 +14,7 @@ const DropdownList = ({ title, topOfPage = false, children }: { title: string, t
     }
 
     useEffect(() => {
-        if (ref.current) {
+        if (ref.current && ref.current.offsetHeight > 0) {
             setDropdownHeight(ref.current.clientHeight)
         }
     }, [ref]);
