@@ -16,9 +16,10 @@ import LeftSidebar from '@/app/components/LeftSidebar'
 import PageHeader from '@/app/components/PageHeader'
 import Image from '@/app/components/Image'
 import BorderLine from '@/app/components/BorderLine'
-import { Post } from '@/app/types/posts'
+import { Project } from '@/app/types/posts'
 import ContentFooter from '@/app/components/ContentFooter'
 import MarkdownRenderer from '@/app/components/MarkdownRenderer'
+import ExternalLink from '@/app/components/ExternalLink'
 /**
  * Generates static paths for all projects
  * 
@@ -35,7 +36,7 @@ export const generateStaticParams = async () => {
  * @param {string} slug - The slug of the project to retrieve
  * @returns {Post} A Post object containing the post's metadata and content
  */
-const getProjectContent = (slug: string): Post => {
+const getProjectContent = (slug: string): Project => {
   const folder = 'projects/'
   const file = `${folder}${slug}.md`
   const content = fs.readFileSync(file, 'utf8')
@@ -63,13 +64,15 @@ const getProjectContent = (slug: string): Post => {
     slug: slug,
     related: relatedPosts,
     backlinks: formattedBacklinks,
-    content: matterResult.content
+    content: matterResult.content,
+    source: matterResult.data.source,
+    live: matterResult.data.live
   }
 }
 
 const ProjectPage = async ({ params }: any) => {
   const slug = await params.slug
-  const project: Post = getProjectContent(slug)
+  const project: Project = getProjectContent(slug)
 
   return (
     <>
@@ -84,6 +87,8 @@ const ProjectPage = async ({ params }: any) => {
               <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>#{tag}</InternalLink>
             ))}
           </ul>
+	    {project?.live && <div>Live: <ExternalLink href={project.live}>{project.live}</ExternalLink></div>}
+	    {project?.source && <div>Source: <ExternalLink href={project.source}>{project.source}</ExternalLink></div>}
           <MarkdownRenderer content={project.content} />        
 	  </div>
       </div>
