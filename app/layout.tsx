@@ -4,9 +4,13 @@ import "./globals.css";
 import SearchModal from './components/SearchModal';
 import { SearchProvider } from './components/context/searchContext';
 import ThemeWrapper from './components/ThemeWrapper';
+import { getMetadata } from './components/data';
 
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
+   
+  const postMetadata = getMetadata('posts')
+  const projectMetadata = getMetadata('projects')
 
   return (
     <html lang='en' className='font-inconsolata' suppressHydrationWarning>
@@ -18,7 +22,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
               {children}
             </div>
             <Footer />
-            <SearchModal />
+            <SearchModal posts={[...postMetadata, ...projectMetadata]} />
           </SearchProvider>
         </ThemeWrapper>
       </body>

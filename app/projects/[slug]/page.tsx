@@ -87,8 +87,8 @@ const ProjectPage = async ({ params }: any) => {
               <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>#{tag}</InternalLink>
             ))}
           </ul>
-	    {project?.live && <div>Live: <ExternalLink href={project.live}>{project.live}</ExternalLink></div>}
-	    {project?.source && <div>Source: <ExternalLink href={project.source}>{project.source}</ExternalLink></div>}
+	    {project?.live && <div className='font-bold'>Live: <ExternalLink href={project.live}>{project.live}</ExternalLink></div>}
+	    {project?.source && <div className='font-bold'>Source: <ExternalLink href={project.source}>{project.source}</ExternalLink></div>}
           <MarkdownRenderer content={project.content} />        
 	  </div>
       </div>

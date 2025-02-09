@@ -3,10 +3,27 @@
 import { useCallback, useContext, useEffect, useState } from "react"
 import { SearchContext } from "./context/searchContext"
 
-const SearchModal = () => {
-    const [searchResults, setSearchResults] = useState([])
+const SearchModal = ({ posts }: { posts: any[] }) => {
+    const [searchResults, setSearchResults] = useState<any[]>([])
     const { searchToggle, toggleSearch } = useContext(SearchContext)
     const [search, setSearch] = useState('')
+
+    useEffect(() => {
+	if (search) {
+	    const searchedPosts = posts.filter((post: any) => {
+	    const lowerCaseSearch = search?.toLowerCase()
+	    return post?.description?.toLowerCase()?.includes(lowerCaseSearch) || 
+		post?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
+		post?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
+		post?.live?.toLowerCase()?.includes(lowerCaseSearch) ||
+		post?.source?.toLowerCase()?.includes(lowerCaseSearch)
+	    })
+
+	    setSearchResults(searchedPosts)
+	} else {
+	    setSearchResults([])
+	}
+    }, [search])
 
     const escFunction = useCallback((event: KeyboardEvent) => {
         if (event.key === "Escape") {
@@ -49,6 +66,8 @@ const SearchModal = () => {
                     }} />
                     {searchResults.length > 0 && <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
                     </div>}
+		    {searchResults.length === 0 && search.length > 0 && <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
+			No results to display.</div>}
                 </div>
             </div>
             }

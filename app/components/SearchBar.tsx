@@ -5,7 +5,7 @@ import { SearchIcon } from "./assets/icons"
 import { SearchContext } from "./context/searchContext"
 
 const SearchBar = () => {
-    const { searchToggle, toggleSearch } = useContext(SearchContext)
+    const { toggleSearch } = useContext(SearchContext)
 
     return (
         <>
