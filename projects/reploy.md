@@ -1,10 +1,12 @@
 ---
 title: Reploy 
-date: 2024-01-23
+date: 01-23-2024
 description: 
-tags: [freelance, react, mui, express, node, stripe, aws, multer]
+tags: [bootcamp, react, mui, express, node, stripe, aws, multer]
 source: https://github.com/
 preview: /images/reploy-preview.png
+featured: true
+published: true
 ---
 
 ## Technologies Used

@@ -26,7 +26,7 @@ const TagPage: NextPage = () => {
                 <div key={tag} style={{ marginTop: index === 0 ? '0' : '2rem' }}>
                     <TagHeader tag={tag}>#{tag}</TagHeader>
                     <ItemCount count={tagPosts.length + tagProjects.length} message='found.' />
-                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                         {tagProjects.map((project) => (
                             <ProjectPreview key={project.slug} {...project} hidePreview={true} />
                         ))}

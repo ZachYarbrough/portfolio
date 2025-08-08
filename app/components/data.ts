@@ -66,10 +66,13 @@ export const getMetadata = (folder: string = '', amount: number = 0): PostMetada
             backlinks: matterResult.data.backlinks,
             timeToRead: getTimeToRead(matterResult.content),
             slug: fileName.replace('.md', ''),
+            featured: matterResult.data.featured,
+            published: matterResult.data.published
         }
     })
 
-    const sortedPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    const publishedPosts = posts.filter((file) => file.published)
+    const sortedPosts = publishedPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
     return amount > 0 ? sortedPosts.slice(0, amount) : sortedPosts
 }

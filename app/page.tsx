@@ -14,15 +14,13 @@ const HomePage: NextPage = () => {
   
   const postMetadata = getMetadata('posts', 5)
   const projectMetadata = getMetadata('projects')
-
-  // Should this be more dynamic? It probably would be good to come back and see if this could be better?
-  const featuredProject = ['10k-cards', 'weather-dashboard', 'reploy']
+  const featuredProjectMetadata = projectMetadata.filter((project: any) => project.featured).slice(0, 3)
 
   const postPreviews = postMetadata.map((post) => (
       <PostPreview key={post.slug} {...post} />
   ))
 
-  const projectPreviews = projectMetadata.filter((project) => featuredProject.includes(project.slug)).map((project, index) => (
+  const projectPreviews = featuredProjectMetadata.map((project) => (
       <ProjectPreview key={project.slug} {...project} />
   ))
 

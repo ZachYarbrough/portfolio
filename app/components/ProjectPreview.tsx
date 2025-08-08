@@ -26,7 +26,7 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
 
     return (
         <>
-            {width >= 768 && <div style={{ border: '1px solid var(--secondary-light)', backgroundColor: 'var(--secondary-light)', borderRadius: '0.5rem', padding: '1rem', marginTop: '1rem', width: '32%' }}>
+            {width >= 768 && <div style={{ border: '1px solid var(--secondary-light)', backgroundColor: 'var(--secondary-light)', borderRadius: '0.5rem', padding: '1rem', margin: '1rem 0.3rem 0rem 0.3rem', width: '32%' }}>
                 {!hidePreview && <InternalLink href={`/projects/${slug}`}>
                     <img src={preview} alt={title} style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} loading="lazy" />
                 </InternalLink>}

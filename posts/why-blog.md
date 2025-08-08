@@ -1,12 +1,13 @@
 ---
 title: Why I Decided To Start a Blog
-date: 2025-01-17
+date: 08-08-2025
 tags: [blog]
+published: true
 ---
 
-> 'Sucking at something is the first step towards being sorta good at something.' - Jake the Dog, Adventure Time
+> 'Sucking at something is the first step towards being sorta good at something.' - Jake the Dog
 
-The quote above is one of my favorites, it perfectly encapsulates the growth mindset I am trying to embrace in my development journey. As a software developer, you have to be willing to adapt to new technologies and concepts. The field is constantly evolving, who knows maybe one day we will all be coding on quantum computers and riding around in flying Teslas, only time will tell. This is part of the reason that I decided to start this blog - to track my progress, reflect on challenges, and solidify my understanding of concepts and technologies. 
+The quote above is one of my all time favorites, it perfectly encapsulates the growth mindset I am trying to build in my coding journey. As a software developer, you have to be willing to constantly adapt to new technologies and concepts. The tech field seemingly improves with new libraries and tools daily. Who knows where innovation will take us — maybe in a few years we’ll be coding telepathically, accidentally pushing half-baked features straight from our dreams into production -- only time will tell. I'm joking obviously (or am I?), but this is part of the reason why I decided to start this blog -- to track my progress, reflect on challenges, and solidify my understanding of concepts and technologies in an ever-changing industry that is evolving at the speed of light. 
 
 Along the way, I also hope to refine my technical writing skills and streamline my learning process. I decided to make this a public blog to add a bit of accountability. While it’s primarily for my own growth, I’d love for others to find value in my posts as well!
 
@@ -22,7 +23,7 @@ Here are some examples of content I plan to make posts about. This is not an exh
 I say 'deep dive' very loosely here, I plan on writing posts about technologies and concepts that I want to learn more in depth.
 
 ### (Not So) Technical Deep Dives
-Even though posts will be technical for the most part, I still want to allow myself to go down random rabbit holes I find interesting and write about them. Again, this blog is meant to be a fun hobby, anything could ultimately become a post if I have enough interest in the topic. (I have been reading a lot about [The Condor Cluster](https://phys.org/news/2010-12-air-playstation-3s-supercomputer.html) recently which could be a good first topic)
+Even though posts will be technical for the most part, I still want to use this platform to take time and go down random rabbit holes I find interesting and write about them. Again, this blog is meant to be a fun hobby, anything could ultimately become a post if I have enough interest in the topic. (I have been reading a lot about [The Condor Cluster](https://phys.org/news/2010-12-air-playstation-3s-supercomputer.html) recently which could be a good first topic)
 
 ### Project Reviews
 After finishing a project, I think it is beneficial to take a step back and reflect on successes and lessons learned. I want to write reviews or retrospectives for my projects so I can condense my takeaways in a digestible way.

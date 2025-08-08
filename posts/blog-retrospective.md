@@ -1,7 +1,7 @@
 ---
-title: Blog Review
-date: 2025-01-19
-tags: [dev, blog, side-projects]
+title: Blog Retrospective
+date: 01-19-2025
+tags: [dev, blog, retrospective]
 ---
 
 I mentioned briefly in the [Why Blog](posts/why-blog.md) post that I was going to do a retrospective of the blog itself once I got it up and running.
