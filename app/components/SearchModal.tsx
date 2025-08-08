@@ -88,7 +88,7 @@ const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => 
                         <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
                             {searchResults.projects.map((result: any, index: number) => {
                                 return (
-                                    <PostPreview key={result.slug} hidePreview={true} {...result} minified={true} isProjectPost={true} />
+                                    <PostPreview key={result.slug} hidePreview={true} {...result} isProjectPost={true} isSearch={true} />
                                 )
                             })}
                         </div>
@@ -97,7 +97,7 @@ const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => 
                     <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
                         {searchResults.posts.map((result: any, index: number) => {
                                 return (
-                                    <PostPreview key={result.slug} hidePreview={true} {...result} />
+                                    <PostPreview key={result.slug} hidePreview={true} {...result} isSearch={true} />
                                 )
                         })}
                     </div>

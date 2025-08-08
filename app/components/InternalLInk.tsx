@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-const InternalLink = ({ href = null, children, useBubbleStyle = false, style = {} }: { href: string | null, useBubbleStyle?: boolean, children: React.ReactNode, style?: React.CSSProperties }) => {
+const InternalLink = ({ href = null, children, useBubbleStyle = false, style = {}, onClickCallback = () => {} }: { href: string | null, useBubbleStyle?: boolean, children: React.ReactNode, style?: React.CSSProperties, onClickCallback?: () => void }) => {
 
 
     const link = href !== null ? href.startsWith('/') ? href : `/${href}` : '/'
@@ -16,10 +16,14 @@ const InternalLink = ({ href = null, children, useBubbleStyle = false, style = {
                 }}
                 href={link}
             >
-                <span className='flex'>{children}</span>
+                <span className='flex' onClick={() => {
+                    onClickCallback()
+                }}>{children}</span>
             </Link> : <Link style={style} className='text-highlight cursor-pointer inline-flex font-bold' href={link}
             >
-                <span className='flex'>{children}</span>
+                <span className='flex' onClick={() => {
+                    onClickCallback()
+                }}>{children}</span>
             </Link>}
         </>
     )

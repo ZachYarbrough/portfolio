@@ -6,7 +6,7 @@ tags: [blog]
 
 > 'Sucking at something is the first step towards being sorta good at something.' - Jake the Dog, Adventure Time
 
-I love the above quote, it perfectly aligns with the growth mindset I am trying to embrace in my development journey. As a software developer, you have to be willing to adapt to new technologies and concepts. The field is constantly evolving, who knows maybe one day we will all be coding on quantum computers and riding around in flying Teslas, only time will tell. This is part of the reason that I decided to start this blog - to track my progress, reflect on challenges, and solidify my understanding of concepts and technologies. 
+The quote above is one of my favorites, it perfectly encapsulates the growth mindset I am trying to embrace in my development journey. As a software developer, you have to be willing to adapt to new technologies and concepts. The field is constantly evolving, who knows maybe one day we will all be coding on quantum computers and riding around in flying Teslas, only time will tell. This is part of the reason that I decided to start this blog - to track my progress, reflect on challenges, and solidify my understanding of concepts and technologies. 
 
 Along the way, I also hope to refine my technical writing skills and streamline my learning process. I decided to make this a public blog to add a bit of accountability. While it’s primarily for my own growth, I’d love for others to find value in my posts as well!
 
@@ -27,8 +27,8 @@ Even though posts will be technical for the most part, I still want to allow mys
 ### Project Reviews
 After finishing a project, I think it is beneficial to take a step back and reflect on successes and lessons learned. I want to write reviews or retrospectives for my projects so I can condense my takeaways in a digestible way.
 
-### Project Showcases
-I already have a dedicated [projects](/projects) section in my portfolio where I showcase my bigger projects, but I still want to make posts highlighting smaller ideas I work on. This could be anything from a random bash script that I am proud of, to a project that I posed an interesting challenge, but I never finished.
+### Showcases
+I already have a dedicated [projects](/projects) section in my portfolio where I showcase my projects, but creating smaller posts presents an opportunity for me to highlight projects I am working on that aren't big enough to have a dedicated project page. This could be anything from a random bash script that saves me time, to a project I want to talk about, but I never finished.
 
 # Further Readings
 

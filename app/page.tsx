@@ -37,8 +37,8 @@ const HomePage: NextPage = () => {
     }}>
       <PageHeader noCopy={true}>Welcome!</PageHeader>      
       <p style={{ padding: '0.5rem 0' }}>My name is Zach.</p>
-      <p style={{ padding: '0.5rem 0' }}>Currently, I am working as a <span className='font-bold'>Full-Stack Developer</span> at <ExternalLink href='https://www.ideaentity.com'>IdeaEntity</ExternalLink>.</p>
-      <p style={{ padding: '0.5rem 0' }}>I'm based out of Texas.</p>
+      <p style={{ padding: '0.5rem 0' }}>I am a <span className='font-bold'>Full-Stack Developer</span> that specializes in the <span className='font-bold'>MERN</span> stack.</p>
+      <p style={{ padding: '0.5rem 0' }}>Based out of Texas.</p>
       <p style={{ padding: '0.5rem 0' }}>Skills include:</p>
         <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', padding: '0.5rem 0' }}>
           {skills.map((skill) => (
