@@ -2,26 +2,46 @@
 
 import { useCallback, useContext, useEffect, useState } from "react"
 import { SearchContext } from "./context/searchContext"
+import ProjectPreview from "./ProjectPreview"
+import PostPreview from "./PostPreview"
 
-const SearchModal = ({ posts }: { posts: any[] }) => {
-    const [searchResults, setSearchResults] = useState<any[]>([])
+const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => {
+    const [searchResults, setSearchResults] = useState<{
+        posts: any[],
+        projects: any[]
+    }>({
+        posts: [],
+        projects:[]
+    })
     const { searchToggle, toggleSearch } = useContext(SearchContext)
     const [search, setSearch] = useState('')
 
     useEffect(() => {
 	if (search) {
-	    const searchedPosts = posts.filter((post: any) => {
-	    const lowerCaseSearch = search?.toLowerCase()
-	    return post?.description?.toLowerCase()?.includes(lowerCaseSearch) || 
-		post?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
-		post?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
-		post?.live?.toLowerCase()?.includes(lowerCaseSearch) ||
-		post?.source?.toLowerCase()?.includes(lowerCaseSearch)
+        const lowerCaseSearch = search?.toLowerCase()
+        const searchedPosts = posts.filter((post: any) => {
+            return post?.description?.toLowerCase()?.includes(lowerCaseSearch) || 
+            post?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
+            post?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
+            post?.live?.toLowerCase()?.includes(lowerCaseSearch) ||
+            post?.source?.toLowerCase()?.includes(lowerCaseSearch)
 	    })
-
-	    setSearchResults(searchedPosts)
+        const searchedProjects = projects.filter((projects: any) => {
+            return projects?.description?.toLowerCase()?.includes(lowerCaseSearch) || 
+            projects?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
+            projects?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
+            projects?.live?.toLowerCase()?.includes(lowerCaseSearch) ||
+            projects?.source?.toLowerCase()?.includes(lowerCaseSearch)
+	    })
+	    setSearchResults({
+            posts: searchedPosts,
+            projects: searchedProjects
+        })
 	} else {
-	    setSearchResults([])
+	    setSearchResults({
+            posts:[],
+            projects: []
+        })
 	}
     }, [search])
 
@@ -55,7 +75,7 @@ const SearchModal = ({ posts }: { posts: any[] }) => {
                     height: '0px',
                     margin: '0 1rem'
                 }}>
-                    <input autoFocus type='text' placeholder='Search through posts, projects, and tags' value={search} onChange={(e) => setSearch(e.target.value)} style={{
+                    <input autoFocus type='text' placeholder='Search for posts, projects, and tags' value={search} onChange={(e) => setSearch(e.target.value)} style={{
                         padding: '0.2rem 0.5rem',
                         backgroundColor: 'var(--secondary-light)',
                         borderRadius: '0.5rem',
@@ -64,10 +84,26 @@ const SearchModal = ({ posts }: { posts: any[] }) => {
                         width: '100%',
                         cursor: 'text',
                     }} />
-                    {searchResults.length > 0 && <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
-                    </div>}
-		    {searchResults.length === 0 && search.length > 0 && <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
-			No results to display.</div>}
+                    {searchResults.projects.length > 0 && 
+                        <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
+                            {searchResults.projects.map((result: any, index: number) => {
+                                return (
+                                    <PostPreview key={result.slug} hidePreview={true} {...result} minified={true} isProjectPost={true} />
+                                )
+                            })}
+                        </div>
+                    }
+                    {searchResults.posts.length > 0 && 
+                    <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
+                        {searchResults.posts.map((result: any, index: number) => {
+                                return (
+                                    <PostPreview key={result.slug} hidePreview={true} {...result} />
+                                )
+                        })}
+                    </div>
+                    }
+                    {searchResults.posts.length === 0 && searchResults.projects.length == 0 && search.length > 0 && <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
+                    No results to display.</div>}
                 </div>
             </div>
             }

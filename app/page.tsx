@@ -45,7 +45,7 @@ const HomePage: NextPage = () => {
             <InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`}>#{skill}</InternalLink>
           ))}
         </ul>
-      <p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/44439415-god-emperor-of-dune?ac=1&from_search=true&qid=ACssZpWWrk&rank=1'>God Emperor of Dune - Frank Herbert</ExternalLink></p>
+      <p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/17332218-words-of-radiance?from_search=true&from_srp=true&qid=HMqRZTCwfD&rank=1'>Words of Radiance - Brandon Sanderson</ExternalLink></p>
 
       <div className='flex justify-between'>
       </div>

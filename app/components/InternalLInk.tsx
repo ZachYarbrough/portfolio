@@ -2,10 +2,10 @@
 
 import Link from "next/link"
 
-const InternalLink = ({ href, children, useBubbleStyle = false, style = {} }: { href: string, useBubbleStyle?: boolean, children: React.ReactNode, style?: React.CSSProperties }) => {
+const InternalLink = ({ href = null, children, useBubbleStyle = false, style = {} }: { href: string | null, useBubbleStyle?: boolean, children: React.ReactNode, style?: React.CSSProperties }) => {
 
 
-    const link = href.startsWith('/') ? href : `/${href}`
+    const link = href !== null ? href.startsWith('/') ? href : `/${href}` : '/'
     return (
         <>
             {useBubbleStyle ? <Link className='text-highlight cursor-pointer inline-flex font-bold'

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { PostMetadata } from '../types/posts'
 import InternalLink from './InternalLInk'
 
-const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
+const PostPreview = ({ slug, title, date, tags, minified, isProjectPost }: any) => {
         const [width, setWidth] = useState(1501)
 
     useEffect(() => {
@@ -30,7 +30,21 @@ const PostPreview = ({ slug, title, date, tags }: PostMetadata) => {
                 </InternalLink> 
             </div>
 	    {width > 600 && <div className='flex' style={{ whiteSpace: 'nowrap', gap: '0.5rem', justifyContent: 'flex-end' }}>
-                {tags.map((tag) => (
+                {tags.slice(0, 3).map((tag: string) => {
+                    console.log(tags)
+                    return (
+                    <div key={tag}>
+                        <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}
+                        >
+                            #{tag}
+                        </InternalLink>
+                    </div>
+                )
+                })}
+                {tags.Length > 3 && <InternalLink useBubbleStyle={true}>                             
+                    {tags.Length - 4} More...
+                    </InternalLink>}
+                {tags.slice(3, tags.Length - 1).map((tag: string) => (
                     <div key={tag}>
                         <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}
                         >

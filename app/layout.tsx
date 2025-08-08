@@ -22,7 +22,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
               {children}
             </div>
             <Footer />
-            <SearchModal posts={[...postMetadata, ...projectMetadata]} />
+            <SearchModal posts={postMetadata} projects={projectMetadata} />
           </SearchProvider>
         </ThemeWrapper>
       </body>
