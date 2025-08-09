@@ -11,7 +11,7 @@ const Header = () => {
       margin: '0 auto',
       zIndex: 999
     }}>
-      <InternalLink href='/' style={{ fontSize: '2rem' }}>Zach Yarbrough</InternalLink>
+      <InternalLink href='/' style={{ fontSize: '1.5rem' }}>Zach Yarbrough</InternalLink>
       <div className='flex items-center gap-2' style={{ width: '200px' }}>
         <SearchBar />
         <DarkModeToggle />
