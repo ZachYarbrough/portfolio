@@ -44,5 +44,5 @@ TODO.md
 next-env.d.ts
 
 # drafts
-/app/posts/drafts/*
-/app/projects/drafts/*
+/posts/drafts
+/projects/drafts
