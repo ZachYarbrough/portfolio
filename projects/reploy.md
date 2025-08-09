@@ -7,7 +7,6 @@ technology_used: [react, mui, express, node, stripe, aws, multer]
 source: https://github.com/
 preview: /images/reploy-preview.png
 featured: true
-published: true
 ---
 
 ## Technologies Used

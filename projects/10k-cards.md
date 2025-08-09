@@ -10,7 +10,6 @@ live: https://10k-cards.vercel.app/
 preview: /images/10k-cards-preview.png
 related: [posts/why-blog, projects/reploy]
 featured: true
-published: true
 ---
 
 # Overview 

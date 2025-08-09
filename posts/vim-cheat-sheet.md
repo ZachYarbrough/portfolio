@@ -2,7 +2,6 @@
 title: Vim Cheat Sheet
 date: 08-10-2025
 tags: [dev, vim]
-published: true
 ---
 
 > This is a living document where I will store commands I want to memorize in vim.

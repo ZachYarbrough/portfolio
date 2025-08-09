@@ -9,7 +9,6 @@ live: https://10k-cards.vercel.app/
 preview: /images/10k-cards-preview.png
 related: [projects/10k-cards, posts/why-blog]
 featured: true  
-published: true
 ---
 
 ## Technologies Used
