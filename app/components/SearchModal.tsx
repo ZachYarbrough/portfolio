@@ -4,6 +4,7 @@ import { useCallback, useContext, useEffect, useState } from "react"
 import { SearchContext } from "./context/searchContext"
 import ProjectPreview from "./ProjectPreview"
 import PostPreview from "./PostPreview"
+import PageHeader from "./PageHeader"
 
 const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => {
     const [searchResults, setSearchResults] = useState<{
@@ -11,38 +12,35 @@ const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => 
         projects: any[]
     }>({
         posts: [],
-        projects:[]
+        projects: []
     })
     const { searchToggle, toggleSearch } = useContext(SearchContext)
     const [search, setSearch] = useState('')
 
     useEffect(() => {
-	if (search) {
-        const lowerCaseSearch = search?.toLowerCase()
-        const searchedPosts = posts.filter((post: any) => {
-            return post?.description?.toLowerCase()?.includes(lowerCaseSearch) || 
-            post?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
-            post?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
-            post?.live?.toLowerCase()?.includes(lowerCaseSearch) ||
-            post?.source?.toLowerCase()?.includes(lowerCaseSearch)
-	    })
-        const searchedProjects = projects.filter((projects: any) => {
-            return projects?.description?.toLowerCase()?.includes(lowerCaseSearch) || 
-            projects?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
-            projects?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
-            projects?.live?.toLowerCase()?.includes(lowerCaseSearch) ||
-            projects?.source?.toLowerCase()?.includes(lowerCaseSearch)
-	    })
-	    setSearchResults({
-            posts: searchedPosts,
-            projects: searchedProjects
-        })
-	} else {
-	    setSearchResults({
-            posts:[],
-            projects: []
-        })
-	}
+        if (search) {
+            const lowerCaseSearch = search?.toLowerCase()
+            const searchedPosts = posts.filter((post: any) => {
+                return post?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
+                    post?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
+                    post?.date?.toLowerCase()?.includes(lowerCaseSearch)
+            })
+            const searchedProjects = projects.filter((projects: any) => {
+                return projects?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
+		    projects?.technologyUsed?.some((technologyUsed: string) => technologyUsed?.toLowerCase().includes(lowerCaseSearch)) ||
+                    projects?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
+                    projects?.date?.toLowerCase()?.includes(lowerCaseSearch)
+            })
+            setSearchResults({
+                posts: searchedPosts,
+                projects: searchedProjects
+            })
+        } else {
+            setSearchResults({
+                posts: [],
+                projects: []
+            })
+        }
     }, [search])
 
     const escFunction = useCallback((event: KeyboardEvent) => {
@@ -84,27 +82,32 @@ const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => 
                         width: '100%',
                         cursor: 'text',
                     }} />
-                    {searchResults.projects.length > 0 && 
-                        <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
-                            {searchResults.projects.map((result: any, index: number) => {
-                                return (
-                                    <PostPreview key={result.slug} hidePreview={true} {...result} isProjectPost={true} isSearch={true} />
-                                )
-                            })}
-                        </div>
-                    }
-                    {searchResults.posts.length > 0 && 
-                    <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
-                        {searchResults.posts.map((result: any, index: number) => {
-                                return (
-                                    <PostPreview key={result.slug} hidePreview={true} {...result} isSearch={true} />
-                                )
-                        })}
+                    {search.length > 0 &&
+                    <>
+                    {(searchResults.posts.length > 0 || searchResults.projects.length > 0 )&& <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
+                        {searchResults.projects.length > 0 &&
+                            <>
+                                <h1 className='flex items-center font-bold'>Projects</h1>
+                                {searchResults.projects.map((result: any, index: number) => {
+                                    return (
+                                        <PostPreview key={result.slug} hidePreview={true} {...result} isProjectPost={true} isSearch={true} />
+                                    )
+                                })}
+                            </>}
+                        {searchResults.posts.length > 0 &&
+                            <>
+                                <h1 className='flex items-center font-bold'>Posts</h1>
+                                {searchResults.posts.map((result: any, index: number) => {
+                                    return (
+                                        <PostPreview key={result.slug} hidePreview={true} {...result} isSearch={true} />
+                                    )
+                                })}
+                            </>}
+                    </div>}
+                    {searchResults.posts.length === 0 && searchResults.projects.length == 0 && <div className='text-secondary' style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
+                        No results to display.</div>}
+                    </>}
                     </div>
-                    }
-                    {searchResults.posts.length === 0 && searchResults.projects.length == 0 && search.length > 0 && <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
-                    No results to display.</div>}
-                </div>
             </div>
             }
         </>

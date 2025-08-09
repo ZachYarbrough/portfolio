@@ -42,11 +42,11 @@ const SingleTagPage = async ({ params }: any) => {
     const postMetadata = getMetadata('posts')
     const projectMetadata = getMetadata('projects')
 
-    const filteredPosts = postMetadata.filter((data) => data.tags.length > 0 && data.tags.includes(tag)).map((post) => (
+    const filteredPosts = postMetadata.filter((data) => (data.tags.length > 0 && data.tags.includes(tag)) || (data.technologyUsed.length > 0 && data.technologyUsed.includes(tag))).map((post) => (
         <PostPreview key={post.slug} {...post} />
     ))
 
-    const filteredProjects = projectMetadata.filter((data) => data.tags.length > 0 && data.tags.includes(tag)).map((project) => (
+    const filteredProjects = projectMetadata.filter((data) => (data.tags.length > 0 && data.tags.includes(tag)) || (data.technologyUsed.length > 0 && data.technologyUsed.includes(tag))).map((project) => (
         <ProjectPreview key={project.slug} hidePreview={true} {...project} />
     ))
 
@@ -58,7 +58,7 @@ const SingleTagPage = async ({ params }: any) => {
             <div key={tag}>
                 <TagHeader>{tag}</TagHeader>
                     <ItemCount count={filteredPosts.length + filteredProjects.length} message='found.' />
-                    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                         {filteredProjects}
                         {filteredPosts}
                     </div>

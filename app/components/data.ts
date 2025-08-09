@@ -58,6 +58,8 @@ export const getMetadata = (folder: string = '', amount: number = 0): PostMetada
             title: matterResult.data.title,
             description: matterResult.data.description,
             date: formatDate(matterResult.data.date),
+	    technologyUsed: matterResult.data.technology_used || [],
+	    galleryPath: matterResult.data.gallery_path,
             source: matterResult.data.source,
             live: matterResult.data.live,
             tags: matterResult.data.tags || [],

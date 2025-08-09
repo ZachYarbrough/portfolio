@@ -2,7 +2,8 @@
 title: Reploy 
 date: 01-23-2024
 description: 
-tags: [bootcamp, react, mui, express, node, stripe, aws, multer]
+tags: [bootcamp, website]
+technology_used: [react, mui, express, node, stripe, aws, multer]
 source: https://github.com/
 preview: /images/reploy-preview.png
 featured: true

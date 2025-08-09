@@ -13,6 +13,7 @@ import projectLink from '@/app/components/PostLink'
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail'
 import RightSidebar from '@/app/components/RightSidebar'
 import LeftSidebar from '@/app/components/LeftSidebar'
+import PostHeader from '@/app/components/PostHeader'
 import PageHeader from '@/app/components/PageHeader'
 import Image from '@/app/components/Image'
 import BorderLine from '@/app/components/BorderLine'
@@ -50,7 +51,6 @@ const getProjectContent = (slug: string): Project => {
   const backlinks = (matterResult.content + '\n').match(/\]\(([^ ]+?)\.md\)/g) || []
   const formattedBacklinks = [...new Set(backlinks)].map((backlink) => getBacklink(backlink))
 
-
   const relatedPosts = matterResult.data.related ? matterResult.data.related.map((post: any) => getRelativePosts(post)) : []
 
   return {
@@ -60,6 +60,8 @@ const getProjectContent = (slug: string): Project => {
     tags: matterResult.data.tags,
     headers: headers,
     tableOfContents: tableOfContents,
+    technologyUsed: matterResult.data.technology_used || [],
+    galleryPath: matterResult.data.gallery_path,
     timeToRead: getTimeToRead(matterResult.content),
     slug: slug,
     related: relatedPosts,
@@ -89,7 +91,13 @@ const ProjectPage = async ({ params }: any) => {
           </ul>
 	    {project?.live && <div className='font-bold'>Live: <ExternalLink href={project.live}>{project.live}</ExternalLink></div>}
 	    {project?.source && <div className='font-bold'>Source: <ExternalLink href={project.source}>{project.source}</ExternalLink></div>}
-          <MarkdownRenderer content={project.content} />        
+	  <PostHeader headerNumber={1.5} >Technologies Used</PostHeader>
+          <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
+            {project.technologyUsed.map((technology: string) => (
+              <InternalLink key={technology} useBubbleStyle={true} href={`/tags/${technology}`}>#{technology}</InternalLink>
+            ))}
+          </ul>
+         <MarkdownRenderer content={project.content} />        
 	  </div>
       </div>
       <RightSidebar post={project} />

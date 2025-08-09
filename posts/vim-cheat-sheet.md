@@ -8,7 +8,7 @@ published: true
 > This is a living document where I will store commands I want to memorize in vim.
 
 A vim motion consists of three parts:
-- **command** the
+- **command** the type of action being performed (i.e. 'd', 'y')
 - **count** the number of times to perform the motion (i.e. '5', '3')
 - **motion** the type of motion (i.e. 'w', 'b')
 

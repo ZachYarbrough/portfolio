@@ -15,12 +15,12 @@ const TagPage: NextPage = () => {
     const projectMetadata = getMetadata('projects')
 
     const getTagData = (posts: any[], projects: any[]) => {
-        const tags = [...posts, ...projects].map((post) => post.tags).flat()
+        const tags = [...posts, ...projects].map((post) => [...post.tags, ...post?.technologyUsed]).flat()
         const uniqueTags = [...new Set(tags)]
 
         return uniqueTags.sort((a, b) => a.localeCompare(b)).map((tag, index) => {
             const tagPosts = posts.filter((post) => post.tags.length > 0 && post.tags.includes(tag))
-            const tagProjects = projects.filter((project) => project.tags.length > 0 && project.tags.includes(tag))
+            const tagProjects = projects.filter((project) => (project.tags.length > 0 && project.tags.includes(tag)) || (project.technologyUsed.length > 0 && project.technologyUsed.includes(tag)))
 
             return (
                 <div key={tag} style={{ marginTop: index === 0 ? '0' : '2rem' }}>

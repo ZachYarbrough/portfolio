@@ -1,8 +1,10 @@
 ---
 title: 10k Cards
 date: 01-23-2024
-description: A freelance website that allows users to build and purchase virtual business cards.
-tags: [freelance, react, mui, express, node, stripe, aws, multer]
+description: A freelance website that allows users to design and purchase virtual business cards.
+tags: [freelance, website]
+technology_used: [react, mui, express, node, stripe, aws, multer]
+gallery_path: /10k-cards/gallery
 source: https://github.com/zachyarbrough/10k-cards
 live: https://10k-cards.vercel.app/
 preview: /images/10k-cards-preview.png
@@ -11,6 +13,7 @@ featured: true
 published: true
 ---
 
-## Technologies Used
+# Overview 
+The client requested a way for users to edit and create their own virtual business cards while sticking to with a minimal and sleek design
 
-## Gallery
+# Gallery

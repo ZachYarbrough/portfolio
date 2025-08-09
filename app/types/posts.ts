@@ -10,6 +10,7 @@ export interface PostMetadata {
         text: string,
         subSections: string[]
     }>,
+    technologyUsed: string[]
     related: string[]
     backlinks: {
         title: string

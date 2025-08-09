@@ -6,7 +6,7 @@ import InternalLink from './InternalLInk'
 import { SearchContext } from './context/searchContext'
 import Link from "next/link"
 
-const PostPreview = ({ slug, title, date, tags, isProjectPost = false, isSearch = false }: any) => {
+const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = false, isSearch = false }: any) => {
     const [width, setWidth] = useState(1501)
     const [tagsExpanded, setTagsExpanded] = useState<boolean>(false)
     const { toggleSearch } = useContext(SearchContext)
@@ -26,7 +26,7 @@ const PostPreview = ({ slug, title, date, tags, isProjectPost = false, isSearch 
     }, [setWidth])
 
     return (
-        <div key={slug} style={{ display: 'grid', gridTemplateColumns: width > 600 ? '6rem 3.5fr 4fr' : '6rem 8fr', width: '100%', margin: '1rem 0' }}>
+        <div key={slug} style={{ display: 'grid', gridTemplateColumns: width > 600 ? '6rem 3.5fr 4fr' : '6rem 8fr', width: '100%', margin: isSearch ? '0' : '1rem 0' }}>
             <p className='text-secondary'>{date}</p>
             <div>
                 <InternalLink href={`/${isProjectPost ? 'projects' : 'posts'}/${slug}`} onClickCallback={() => toggleSearch(false)}>
@@ -34,7 +34,7 @@ const PostPreview = ({ slug, title, date, tags, isProjectPost = false, isSearch 
                 </InternalLink> 
             </div>
 	    {width > 600 && <div className='flex' style={{ whiteSpace: 'nowrap', gap: '0.5rem', justifyContent: 'flex-end' }}>
-                {tags.slice(0, 3).map((tag: string) => {
+                {[...tags, ...technologyUsed].slice(0, 3).map((tag: string) => {
                     return (
                     <div key={tag}>
                         <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)}
