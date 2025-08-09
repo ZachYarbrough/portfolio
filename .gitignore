@@ -42,3 +42,7 @@ TODO.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# drafts
+/app/posts/drafts
+/app/projects/drafts

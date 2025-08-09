@@ -10,6 +10,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
     const [width, setWidth] = useState(1501)
     const [tagsExpanded, setTagsExpanded] = useState<boolean>(false)
     const { toggleSearch } = useContext(SearchContext)
+    const tagsAndTech = [...tags, ...technologyUsed]
 
     useEffect(() => {
         function handleResize() {
@@ -33,8 +34,8 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                     <h2 className='text-highlight font-bold' style={{ paddingLeft: '1rem' }}>{title}</h2>
                 </InternalLink> 
             </div>
-	    {width > 600 && <div className='flex' style={{ whiteSpace: 'nowrap', gap: '0.5rem', justifyContent: 'flex-end' }}>
-                {[...tags, ...technologyUsed].slice(0, 3).map((tag: string) => {
+	    {width > 600 && <div className='flex flex-wrap' style={{ whiteSpace: 'nowrap', gap: '0.5rem', justifyContent: 'flex-end' }}>
+                {tagsAndTech.slice(0, 3).map((tag: string) => {
                     return (
                     <div key={tag}>
                         <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)}
@@ -44,7 +45,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                     </div>
                 )
                 })}
-                {!tagsExpanded && tags.length - 1 > 3 && <div className='text-highlight cursor-pointer inline-flex font-bold'
+                {!tagsExpanded && tagsAndTech.length - 1 > 3 && <div className='text-highlight cursor-pointer inline-flex font-bold'
                     style={{
                         padding: '2px 4px',
                         backgroundColor: 'var(--secondary-light)',
@@ -54,10 +55,10 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                     <span className='flex' onClick={() => {
                         setTagsExpanded(true)
                     }}>
-                        {tags.slice(3).length} More...
+                        {tagsAndTech.slice(3).length} More...
                     </span>
                 </div>}
-                {tagsExpanded && tags.slice(3).map((tag: string) => (
+                {tagsExpanded && tagsAndTech.slice(3).map((tag: string) => (
                     <div key={tag}>
                         <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)}
                         >
