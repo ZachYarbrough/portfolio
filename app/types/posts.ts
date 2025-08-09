@@ -27,4 +27,5 @@ export interface Project extends PostMetadata {
     source: string
     live: string
     preview: string
+    galleryPath: string
 }

@@ -61,6 +61,7 @@ const getProjectContent = (slug: string): Project => {
     headers: headers,
     tableOfContents: tableOfContents,
     technologyUsed: matterResult.data.technology_used || [],
+    preview: matterResult.data.preview,	
     galleryPath: matterResult.data.gallery_path,
     timeToRead: getTimeToRead(matterResult.content),
     slug: slug,
