@@ -5,7 +5,7 @@ description:
 tags: [bootcamp, website]
 technology_used: [react, mui, express, node, stripe, aws, multer]
 source: https://github.com/
-preview: /images/reploy-preview.png
+preview: /images/reploy-preview.jpg
 featured: true
 ---
 

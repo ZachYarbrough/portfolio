@@ -7,7 +7,7 @@ technology_used: [react, mui, express, node, stripe, aws, multer]
 gallery_path: /10k-cards/gallery
 source: https://github.com/zachyarbrough/10k-cards
 live: https://10k-cards.vercel.app/
-preview: /images/10k-cards-preview.png
+preview: /images/10k-cards-preview.jpg
 related: [posts/why-blog, projects/reploy]
 featured: true
 ---
