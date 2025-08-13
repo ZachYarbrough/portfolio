@@ -5,7 +5,7 @@ import { LinkIcon } from './assets/icons'
 import { copyToClipboard } from './general';
 import '@/app/globals.css'
 
-const PostHeader = ({ headerNumber, children }: { headerNumber: number, children: React.ReactNode }) => {
+const PostHeader = ({ headerNumber, noCopy = false, children }: { headerNumber: number, noCopy?: boolean, children: React.ReactNode }) => {
     const ref = useRef(null)
     const header = '#' + children?.toString().toLowerCase().replace(/\s+/g, '-') 
     const [showCopy, setShowCopy] = useState(false)
@@ -30,11 +30,11 @@ const PostHeader = ({ headerNumber, children }: { headerNumber: number, children
     return (
         <div ref={ref} id={header} onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2 post-header'>
             <h1 id={children?.toString().toLowerCase()} className='text-primary' style={{
-                padding: '0.5rem 0',
+                padding: !noCopy ? '0.5rem 0' : '0',
                 fontSize: `${headerNumber}rem`,
                 fontWeight: '700',
             }}>{children}</h1>
-            {showCopy && <a onClick={handleCopy} href={header} className='cursor-pointer hover:text-highlight'><LinkIcon /></a>}
+            {showCopy && !noCopy && <a onClick={handleCopy} href={header} className='cursor-pointer hover:text-highlight'><LinkIcon /></a>}
         </div>
     )
 }

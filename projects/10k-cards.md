@@ -14,5 +14,3 @@ featured: true
 
 # Overview 
 The client requested a way for users to edit and create their own virtual business cards while sticking to with a minimal and sleek design
-
-# Gallery
