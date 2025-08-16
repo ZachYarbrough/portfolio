@@ -3,6 +3,8 @@ import Footer from './components/Footer';
 import "./globals.css";
 import SearchModal from './components/SearchModal';
 import { SearchProvider } from './components/context/searchContext';
+import ImageModal from './components/imageModal';
+import { ModalProvider } from './components/context/modalContext';
 import ThemeWrapper from './components/ThemeWrapper';
 import { getMetadata } from './components/data';
 
@@ -17,11 +19,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body className={`bg-background text-primary mx-4`}>
         <ThemeWrapper>
           <SearchProvider>
-            <Header />
-            <div>
-              {children}
-            </div>
-            <Footer />
+	    <ModalProvider>
+		<Header />
+		<div>
+		{children}
+		</div>
+		<Footer />
+		<ImageModal />
+	    </ModalProvider>
             <SearchModal posts={postMetadata} projects={projectMetadata} />
           </SearchProvider>
         </ThemeWrapper>

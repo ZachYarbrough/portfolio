@@ -108,11 +108,16 @@ const ProjectPage = async ({ params }: any) => {
 	<MarkdownRenderer content={project.content} />        
 	{project?.gallery?.length > 0 && 
 	    <div>
-		<PostHeader headerNumber={1.5}> Gallery </PostHeader>
-		{project.gallery.map((imagePath: string) => {
-		    return <img key={imagePath} src={project.gallery_path.split('public')[1] + imagePath} alt={imagePath} style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} loading="lazy" />
-		})}
-	    </div>
+	<PostHeader headerNumber={1.5}> Gallery </PostHeader>
+	<div style={{ display: 'flex', flexWrap: 'wrap' }}>
+	{project.gallery.map((imagePath: string) => {
+	    return <Image key={imagePath} src={project.gallery_path.split('public')[1] + imagePath} alt={imagePath} className='sm-display-none' style={{ width: '45%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)', margin: '0.5rem' }} />
+	})}	
+	{project.gallery.map((imagePath: string) => {
+	    return <Image key={imagePath} src={project.gallery_path.split('public')[1] + imagePath} alt={imagePath} className='sm-display' style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)', margin: '0.5rem 0 0.5rem 0' }} hideModal={false} />
+	})}
+	</div>
+	</div>
 	}
 	</div>
 	</div>

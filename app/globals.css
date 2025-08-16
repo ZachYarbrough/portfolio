@@ -57,7 +57,8 @@ tbody, li, p {
     visibility: hidden !important;
   }
 
-  .content-footer {
+  .content-footer,
+  .sm-display {
     display: none !important;
   }
 
@@ -79,6 +80,9 @@ tbody, li, p {
 
   .tag-header {
     scroll-margin-top: 5rem;
+  }
+  .sm-display-none {
+    display: none !important;
   }
 }
 
