@@ -6,7 +6,7 @@ tags: [bootcamp, website, api]
 technology_used: [react]
 source: https://github.com/zachyarbrough/10k-cards
 live: https://10k-cards.vercel.app/
-preview: /images/10k-cards-preview.png
+preview: /images/10k-cards-preview.jpg
 related: [projects/10k-cards, posts/why-blog]
 featured: true  
 ---
