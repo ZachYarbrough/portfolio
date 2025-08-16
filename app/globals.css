@@ -74,7 +74,7 @@ tbody, li, p {
     visibility: hidden !important;
   }
 
-  .post-header:target {
+  .post-header {
     scroll-margin-top: 5rem; /* Adjust this value to match the height of your navbar */
   }
 

@@ -6,16 +6,16 @@ const TableOfContentsLink = ({ section, tableOfContents }: { section: string, ta
     const [isPastMain, setIsPastMain] = useState(false);
 
     useEffect(() => {
-        const sectionElement = document.getElementById(section);
+        const sectionElement = document.getElementById(section.toLowerCase().split(' ').join('-'));
         if (!sectionElement) return;
-
+	console.log(section, sectionElement)
         const observer = new IntersectionObserver(
             ([entry]) => {
                 // Add some offset to trigger slightly before the section reaches the top
                 setIsPastMain(entry.isIntersecting);
             },
             {
-                rootMargin: '10000px 0px 0px 0px', // Triggers when section enters from bottom of viewport
+		rootMargin: '10000px 0px 0px 0px', // section is active when it's within top 10% of viewport
                 threshold: 0
             }
         );
@@ -25,7 +25,7 @@ const TableOfContentsLink = ({ section, tableOfContents }: { section: string, ta
     }, [section])
 
     return (
-        <a href={`#${section}`} className={`${isPastMain ? 'text-primary font-bold' : 'text-secondary'} transition-colors duration-200`}>
+        <a href={`#${section.toLowerCase().split(' ').join('-')}`} className={`${isPastMain ? 'text-primary font-bold' : 'text-secondary'} transition-colors duration-200`}>
             <span>{tableOfContents[section] !== undefined ? tableOfContents[section].text : section}</span>
         </a>
     )

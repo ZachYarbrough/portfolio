@@ -26,7 +26,6 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
 	    src: src || '',
 	    alt: alt || ''
 	})
-	console.log(src)
     }
 
     return (

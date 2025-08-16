@@ -1,7 +1,7 @@
 ---
 title: 10k Cards
 date: 01-23-2024
-description: A freelance website that allows users to design and purchase virtual business cards.
+description: Digital Business Cards for Professionals 
 tags: [freelance, website]
 technology_used: [react, mui, express, node, stripe, aws, multer]
 gallery_path: public/images/10k-cards/gallery/
@@ -13,4 +13,4 @@ featured: true
 ---
 
 # Overview 
-The client requested a way for users to edit and create their own virtual business cards while sticking to with a minimal and sleek design
+A freelance website that allows users to design and purchase virtual business cards. The client requested a way for users to edit and create their own virtual business cards while sticking to with a minimal and sleek design

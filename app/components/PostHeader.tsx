@@ -11,7 +11,7 @@ const PostHeader = ({ headerNumber, noCopy = false, children }: { headerNumber: 
     const [showCopy, setShowCopy] = useState(false)
 
     const handleCopy = async () => {
-        await copyToClipboard(window.location.origin + window.location.pathname + header)
+	await copyToClipboard(window.location.origin + window.location.pathname + header)
     }
 
     useEffect(() => {
@@ -28,14 +28,32 @@ const PostHeader = ({ headerNumber, noCopy = false, children }: { headerNumber: 
     }, [])
 
     return (
-        <div ref={ref} id={header} onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2 post-header'>
-            <h1 id={children?.toString().toLowerCase()} className='text-primary' style={{
-                padding: !noCopy ? '0.5rem 0' : '0',
-                fontSize: `${headerNumber}rem`,
-                fontWeight: '700',
-            }}>{children}</h1>
-            {showCopy && !noCopy && <a onClick={handleCopy} href={header} className='cursor-pointer hover:text-highlight'><LinkIcon /></a>}
-        </div>
+	<div ref={ref} id={header} onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2 post-header'>
+	<h1 id={children?.toString().toLowerCase().split(' ').join('-')} className='text-primary' style={{
+	    padding: !noCopy ? '0.5rem 0' : '0',
+	    fontSize: `${headerNumber}rem`,
+	    fontWeight: '700',
+	}}>{children}</h1>
+	{showCopy && !noCopy && <a onClick={(e) => {
+	    e.preventDefault()
+	    handleCopy()
+
+	    const element = document.getElementById(header)
+	    if (!element) return;
+
+	    if (window.innerWidth < 1500) {
+		// small screens: scroll smoothly to the element (CSS scroll-margin-top will handle offset)
+		element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	    } else {
+		// large screens: scroll to top (or flush to element)
+		const elementPosition = element.getBoundingClientRect().top + window.scrollY
+		window.scrollTo({ top: elementPosition, behavior: 'smooth' })
+	    }
+
+	    // update the URL hash manually
+	    window.history.pushState(null, '', `#${header}`)
+	}} href={header} className='cursor-pointer hover:text-highlight'><LinkIcon /></a>}
+	</div>
     )
 }
 
