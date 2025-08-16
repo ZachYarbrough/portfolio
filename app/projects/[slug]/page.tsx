@@ -76,8 +76,8 @@ const getProjectContent = (slug: string): Project => {
 
 const getGalleryImages = (path: string) => {
     const files = fs.readdirSync(path)
-
-    return files
+    const imageFiles = files.filter((file) => file.endsWith('.jpg') || file.endsWith('jpeg') || file.endsWith('png'))
+    return imageFiles
 }
 
 const ProjectPage = async ({ params }: any) => {
