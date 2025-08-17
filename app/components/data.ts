@@ -69,6 +69,7 @@ export const getMetadata = (folder: string = '', amount: number = 0): PostMetada
             timeToRead: getTimeToRead(matterResult.content),
             slug: fileName.replace('.md', ''),
             featured: matterResult.data.featured,
+	    type: folder
         }
     })
 

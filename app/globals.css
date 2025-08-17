@@ -17,6 +17,7 @@ tbody, li, p {
   --primary: #4E4E4E;
   --secondary: #B8B8B8;
   --secondary-light: hsl(151, 0%, 92%);
+  --secondary-lighter: #F5F5F5; 
   --note: rgb(129, 173, 250);
   --notebg: rgb(129, 173, 250, 0.1);
   --warning: rgb(252, 149, 158); 
@@ -33,6 +34,7 @@ tbody, li, p {
   --primary: #D4D4D4;
   --secondary: #B8B8B8;
   --secondary-light: #383639;
+  --secondary-lighter: #6E6D6C;
   --note: rgb(129, 173, 250);
   --notebg: rgb(129, 173, 250, 0.1);
   --warning: rgb(252, 149, 158); 

@@ -67,7 +67,7 @@ const getPostContent = (slug: string, isRelativePost: boolean = false): any => {
 
 
 const PostPage = async ({ params }: any) => {
-  const slug = await params.slug
+  const { slug } = await params
   const post: Post = getPostContent(slug)
 
   return (

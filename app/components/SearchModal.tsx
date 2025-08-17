@@ -2,115 +2,142 @@
 
 import { useCallback, useContext, useEffect, useState } from "react"
 import { SearchContext } from "./context/searchContext"
-import ProjectPreview from "./ProjectPreview"
 import PostPreview from "./PostPreview"
-import PageHeader from "./PageHeader"
+import { useRouter } from 'next/navigation'
 
 const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => {
+    const router = useRouter()
+
     const [searchResults, setSearchResults] = useState<{
-        posts: any[],
-        projects: any[]
+	posts: any[],
+	projects: any[]
     }>({
-        posts: [],
-        projects: []
+	posts: [],
+	projects: []
     })
-    const { searchToggle, toggleSearch } = useContext(SearchContext)
+    const { searchToggle, toggleSearch, highlightedIndex, setHighlightedIndex } = useContext(SearchContext)
     const [search, setSearch] = useState('')
 
     useEffect(() => {
-        if (search) {
-            const lowerCaseSearch = search?.toLowerCase()
-            const searchedPosts = posts.filter((post: any) => {
-                return post?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
-                    post?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
-                    post?.date?.toLowerCase()?.includes(lowerCaseSearch)
-            })
-            const searchedProjects = projects.filter((projects: any) => {
-                return projects?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
+	if (search) {
+	    const lowerCaseSearch = search?.toLowerCase()
+	    const searchedPosts = posts.filter((post: any) => {
+		return post?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
+		    post?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
+		    post?.date?.toLowerCase()?.includes(lowerCaseSearch)
+	    })
+	    const searchedProjects = projects.filter((projects: any) => {
+		return projects?.tags?.some((tag: string) => tag?.toLowerCase().includes(lowerCaseSearch)) ||
 		    projects?.technologyUsed?.some((technologyUsed: string) => technologyUsed?.toLowerCase().includes(lowerCaseSearch)) ||
-                    projects?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
-                    projects?.date?.toLowerCase()?.includes(lowerCaseSearch)
-            })
-            setSearchResults({
-                posts: searchedPosts,
-                projects: searchedProjects
-            })
-        } else {
-            setSearchResults({
-                posts: [],
-                projects: []
-            })
-        }
+		    projects?.title?.toLowerCase()?.includes(lowerCaseSearch) ||
+		    projects?.date?.toLowerCase()?.includes(lowerCaseSearch)
+	    })
+	    setSearchResults({
+		posts: searchedPosts,
+		projects: searchedProjects
+	    })
+	} else {
+	    setSearchResults({
+		posts: [],
+		projects: []
+	    })
+	}
     }, [search])
 
     const escFunction = useCallback((event: KeyboardEvent) => {
-        if (event.key === "Escape") {
-            toggleSearch(false)
-        }
+	if (event.key === "Escape") {
+	    toggleSearch()
+	}
     }, []);
 
     useEffect(() => {
-        document.addEventListener("keydown", escFunction, false);
+	document.addEventListener("keydown", escFunction, false);
 
-        return () => {
-            document.removeEventListener("keydown", escFunction, false);
-        };
+	return () => {
+	    document.removeEventListener("keydown", escFunction, false);
+	};
     }, [escFunction]);
 
     useEffect(() => {
-        if (searchToggle === false) {
-            setSearch('')
-        }
+	if (searchToggle === false) {
+	    setSearch('')
+	}
     }, [searchToggle])
 
+    // Keyboard navigation handler
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+	if (!searchResults.posts.length && !searchResults.projects.length) return
+
+	const allResults = [...searchResults.projects, ... searchResults.posts]
+
+	if (e.key === 'ArrowDown') {
+	    e.preventDefault()
+	    setHighlightedIndex((prev) => (prev + 1) % allResults.length)
+	}
+	if (e.key === 'ArrowUp') {
+	    e.preventDefault()
+	    setHighlightedIndex((prev) => (prev - 1 + allResults.length) % allResults.length)
+	}
+	if (e.key === 'Enter') {
+	    e.preventDefault()
+	    const selected = allResults[highlightedIndex]
+	    if (selected) {
+		router.push(`/${selected.type}/${selected.slug}`)
+		toggleSearch()
+	    }
+	}
+
+	console.log(allResults)
+    }
+
     return (
-        <>
-            {searchToggle && <div style={{ zIndex: 1000, width: '100vw', height: '100vh', position: 'fixed', display: 'flex', justifyContent: 'center', alignItems: 'top', top: 0, left: 0 }}>
-                <div style={{ position: 'absolute', width: '100vw', height: '100vh', backgroundColor: 'black', opacity: 0.3, cursor: 'pointer' }} onClick={() => toggleSearch(false)} />
-                <div style={{
-                    zIndex: 1001,
-                    width: '750px',
-                    height: '0px',
-                    margin: '0 1rem'
-                }}>
-                    <input autoFocus type='text' placeholder='Search for posts, projects, and tags' value={search} onChange={(e) => setSearch(e.target.value)} style={{
-                        padding: '0.2rem 0.5rem',
-                        backgroundColor: 'var(--secondary-light)',
-                        borderRadius: '0.5rem',
-                        maxWidth: '750px',
-                        margin: '6.6rem auto 0 auto',
-                        width: '100%',
-                        cursor: 'text',
-                    }} />
-                    {search.length > 0 &&
-                    <>
-                    {(searchResults.posts.length > 0 || searchResults.projects.length > 0 )&& <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
-                        {searchResults.projects.length > 0 &&
-                            <>
-                                <h1 className='flex items-center font-bold'>Projects</h1>
-                                {searchResults.projects.map((result: any, index: number) => {
-                                    return (
-                                        <PostPreview key={result.slug} hidePreview={true} {...result} isProjectPost={true} isSearch={true} />
-                                    )
-                                })}
-                            </>}
-                        {searchResults.posts.length > 0 &&
-                            <>
-                                <h1 className='flex items-center font-bold'>Posts</h1>
-                                {searchResults.posts.map((result: any, index: number) => {
-                                    return (
-                                        <PostPreview key={result.slug} hidePreview={true} {...result} isSearch={true} />
-                                    )
-                                })}
-                            </>}
-                    </div>}
-                    {searchResults.posts.length === 0 && searchResults.projects.length == 0 && <div className='text-secondary' style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '1rem', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
-                        No results to display.</div>}
-                    </>}
-                    </div>
-            </div>
-            }
-        </>
+	<>
+	{searchToggle && <div style={{ zIndex: 1000, width: '100vw', height: '100vh', position: 'fixed', display: 'flex', justifyContent: 'center', alignItems: 'top', top: 0, left: 0 }}>
+	    <div style={{ position: 'absolute', width: '100vw', height: '100vh', backgroundColor: 'black', opacity: 0.3, cursor: 'pointer' }} onClick={() => toggleSearch()} />
+	    <div style={{
+		zIndex: 1001,
+		width: '750px',
+		height: '0px',
+		margin: '0 1rem'
+	    }}>
+	    <input autoFocus type='text' placeholder='Search for posts, projects, and tags' value={search} onChange={(e) => setSearch(e.target.value)} style={{
+		padding: '0.2rem 0.5rem',
+		backgroundColor: 'var(--secondary-light)',
+		borderRadius: '0.5rem',
+		maxWidth: '750px',
+		margin: '6.6rem auto 0 auto',
+		width: '100%',
+		cursor: 'text',
+	    }} onKeyDown={handleKeyDown} />
+	    {search.length > 0 &&
+		<>
+	    {(searchResults.posts.length > 0 || searchResults.projects.length > 0 )&& <div style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '0', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
+		{searchResults.projects.length > 0 &&
+		    <>
+		<h1 className='flex items-center font-bold'>Projects</h1>
+		{searchResults.projects.map((result: any, index: number) => {
+		    return (
+			<PostPreview key={result.slug} hidePreview={true} {...result} isProjectPost={true} isSearch={true} index={index} highlightedIndex={highlightedIndex} />
+		    )
+		})}
+		</>}
+		{searchResults.posts.length > 0 &&
+		    <>
+		<h1 className='flex items-center font-bold'>Posts</h1>
+		{searchResults.posts.map((result: any, index: number) => {
+		    return (
+			<PostPreview key={result.slug} hidePreview={true} {...result} isSearch={true} index={index} highlightedIndex={highlightedIndex - searchResults.projects.length} />
+		    )
+		})}
+		</>}
+		</div>}
+		{searchResults.posts.length === 0 && searchResults.projects.length == 0 && <div className='text-secondary' style={{ display: 'flex', backgroundColor: 'var(--background)', flexDirection: 'column', gap: '0', padding: '2rem 0.5rem 1rem 0.5rem', margin: '-1rem 0 0 0', borderRadius: '0.5rem' }}>
+		    No results to display.</div>}
+		    </>}
+		    </div>
+		    </div>
+	}
+	</>
     )
 }
 

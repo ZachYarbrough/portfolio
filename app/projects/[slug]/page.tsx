@@ -81,7 +81,7 @@ const getGalleryImages = (path: string) => {
 }
 
 const ProjectPage = async ({ params }: any) => {
-    const slug = await params.slug
+    const { slug } = await params
     const project: Project = getProjectContent(slug)
 
     return (

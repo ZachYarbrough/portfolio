@@ -6,7 +6,7 @@ import InternalLink from './InternalLInk'
 import { SearchContext } from './context/searchContext'
 import Link from "next/link"
 
-const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = false, isSearch = false }: any) => {
+const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = false, isSearch = false, index = -1, highlightedIndex = -1 }: any) => {
     const [width, setWidth] = useState(1501)
     const [tagsExpanded, setTagsExpanded] = useState<boolean>(false)
     const { toggleSearch } = useContext(SearchContext)
@@ -27,7 +27,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
     }, [setWidth])
 
     return (
-        <div key={slug} style={{ display: 'grid', gridTemplateColumns: width > 600 ? '6rem 3.5fr 4fr' : '6rem 8fr', width: '100%', margin: isSearch ? '0' : '1rem 0' }}>
+        <div key={slug} style={{ display: 'grid', gridTemplateColumns: width > 600 ? '6rem 3.5fr 4fr' : '6rem 8fr', width: '100%', alignItems: 'center', margin: isSearch ? '0' : '1rem 0', padding: isSearch ? '0.3rem' : '', backgroundColor: index != -1 && highlightedIndex === index ? 'var(--secondary-light)' : '', borderRadius: '0.5rem' }}>
             <p className='text-secondary'>{date}</p>
             <div>
                 <InternalLink href={`/${isProjectPost ? 'projects' : 'posts'}/${slug}`} onClickCallback={() => toggleSearch(false)}>
@@ -38,7 +38,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                 {tagsAndTech.slice(0, 3).map((tag: string) => {
                     return (
                     <div key={tag}>
-                        <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)}
+                        <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)} isHighlighted={index != -1 && highlightedIndex === index}
                         >
                             #{tag}
                         </InternalLink>
@@ -48,7 +48,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                 {!tagsExpanded && tagsAndTech.length - 1 > 3 && <div className='text-highlight cursor-pointer inline-flex font-bold'
                     style={{
                         padding: '2px 4px',
-                        backgroundColor: 'var(--secondary-light)',
+                        backgroundColor: index != 1 && highlightedIndex === index ? 'var(--secondary-lighter)' : 'var(--secondary-light)',
                         borderRadius: '0.4rem',
                     }}
                 >
@@ -60,7 +60,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                 </div>}
                 {tagsExpanded && tagsAndTech.slice(3).map((tag: string) => (
                     <div key={tag}>
-                        <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)}
+                        <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)} isHighlighted={index != -1 && highlightedIndex === index}
                         >
                             #{tag}
                         </InternalLink>
