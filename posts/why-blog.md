@@ -22,7 +22,7 @@ Here are some examples of the kind of posts I plan to write. This isn’t an exh
 I say 'deep dive' very loosely here. These posts will explore technologies and concepts I want to understand in more depth.
 
 ### Project Reviews
-After finishing a project, I find it helpful to step back and reflect. I’ll write reviews or retrospectives to distill lessons learned and highlight successes.
+After finishing a project, I find it helpful to step back and reflect. I’ll write reviews or retrospectives to distill lessons learned and highlight successes during development.
 
 ### Showcases
 While there is already a dedicated [projects](/projects) section in my portfolio, smaller posts give me a chance to showcase work that isn’t big enough for its own page. This could be anything from a handy bash script that saves me time, to a half-finished side project I want to talk about.

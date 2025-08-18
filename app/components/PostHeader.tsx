@@ -8,6 +8,7 @@ import '@/app/globals.css'
 const PostHeader = ({ headerNumber, noCopy = false, children }: { headerNumber: number, noCopy?: boolean, children: React.ReactNode }) => {
     const ref = useRef(null)
     const header = '#' + children?.toString().toLowerCase().replace(/\s+/g, '-') 
+    console.log(header)
     const [showCopy, setShowCopy] = useState(false)
 
     const handleCopy = async () => {
@@ -51,7 +52,7 @@ const PostHeader = ({ headerNumber, noCopy = false, children }: { headerNumber: 
 	    }
 
 	    // update the URL hash manually
-	    window.history.pushState(null, '', `#${header}`)
+	    window.history.pushState(null, '', header)
 	}} href={header} className='cursor-pointer hover:text-highlight'><LinkIcon /></a>}
 	</div>
     )
