@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext } from "react"
+import { useContext, useRef } from "react"
 import { SearchIcon } from "./assets/icons"
 import { SearchContext } from "./context/searchContext"
 

@@ -1,11 +1,12 @@
 'use client'
 
-import { useCallback, useContext, useEffect, useState } from "react"
+import { useCallback, useContext, useEffect, useState, useRef } from "react"
 import { SearchContext } from "./context/searchContext"
 import PostPreview from "./PostPreview"
 import { useRouter } from 'next/navigation'
 
 const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => {
+    const inputRef = useRef<HTMLInputElement | null>(null)
     const router = useRouter()
 
     const [searchResults, setSearchResults] = useState<{
@@ -17,6 +18,12 @@ const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => 
     })
     const { searchToggle, toggleSearch, highlightedIndex, setHighlightedIndex } = useContext(SearchContext)
     const [search, setSearch] = useState('')
+
+    const { registerSearchRef } = useContext(SearchContext)
+
+    useEffect(() => {
+	if (registerSearchRef) registerSearchRef(inputRef)
+    }, [registerSearchRef])
 
     useEffect(() => {
 	if (search) {
@@ -100,7 +107,7 @@ const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => 
 		height: '0px',
 		margin: '0 1rem'
 	    }}>
-	    <input autoFocus type='text' placeholder='Search for posts, projects, and tags' value={search} onChange={(e) => setSearch(e.target.value)} style={{
+	    <input autoFocus ref={inputRef} type='text' placeholder='Search for posts, projects, and tags' value={search} onChange={(e) => setSearch(e.target.value)} style={{
 		padding: '0.2rem 0.5rem',
 		backgroundColor: 'var(--secondary-light)',
 		borderRadius: '0.5rem',
