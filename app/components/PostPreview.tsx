@@ -9,7 +9,7 @@ import Link from "next/link"
 const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = false, isSearch = false, index = -1, highlightedIndex = -1 }: any) => {
     const [width, setWidth] = useState(1501)
     const [tagsExpanded, setTagsExpanded] = useState<boolean>(false)
-    const { toggleSearch, searchRef } = useContext(SearchContext)
+    const { toggleSearch } = useContext(SearchContext)
     const tagsAndTech = [...tags, ...technologyUsed]
 
     useEffect(() => {
@@ -21,7 +21,6 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
 
         handleResize()
 
-	console.log(index, highlightedIndex)
         return () => {
             window.removeEventListener("resize", handleResize)
         }
@@ -55,7 +54,6 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                 >
                     <span className='flex' onClick={(e) => {
 			e.preventDefault()
-			if (isSearch) searchRef?.current?.focus()
                         setTagsExpanded(true)
                     }}>
                         {tagsAndTech.slice(3).length} More...

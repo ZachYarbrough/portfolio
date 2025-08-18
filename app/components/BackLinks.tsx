@@ -18,4 +18,4 @@ const BackLinks = ({ backlinks }: { backlinks: { title: string, backlink: string
     )
 }
 
-export default BackLinks   
+export default BackLinks

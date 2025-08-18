@@ -16,7 +16,7 @@ const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => 
 	posts: [],
 	projects: []
     })
-    const { searchToggle, toggleSearch, highlightedIndex, setHighlightedIndex } = useContext(SearchContext)
+    const { searchToggle, toggleSearch, searchRef, highlightedIndex, setHighlightedIndex } = useContext(SearchContext)
     const [search, setSearch] = useState('')
 
     const { registerSearchRef } = useContext(SearchContext)
@@ -93,15 +93,15 @@ const SearchModal = ({ posts, projects }: { posts: any[], projects: any[] }) => 
 		toggleSearch()
 	    }
 	}
-
-	console.log(allResults)
     }
 
     return (
 	<>
 	{searchToggle && <div style={{ zIndex: 1000, width: '100vw', height: '100vh', position: 'fixed', display: 'flex', justifyContent: 'center', alignItems: 'top', top: 0, left: 0 }}>
 	    <div style={{ position: 'absolute', width: '100vw', height: '100vh', backgroundColor: 'black', opacity: 0.3, cursor: 'pointer' }} onClick={() => toggleSearch()} />
-	    <div style={{
+	    <div onClick={() => {
+	   	searchRef?.current?.focus() 
+	    }} style={{
 		zIndex: 1001,
 		width: '750px',
 		height: '0px',

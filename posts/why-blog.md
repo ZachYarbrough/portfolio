@@ -2,6 +2,7 @@
 title: Why I Decided To Start a Blog
 date: 08-08-2025
 tags: [blog]
+related: [portfolio-retrospective]
 ---
 
 > 'Sucking at something is the first step towards being sorta good at something.' - Jake the Dog

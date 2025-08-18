@@ -13,7 +13,7 @@ const Header = () => {
       zIndex: 999
     }}>
     <div>
-      <InternalLink href='/' style={{ fontSize: '1.5rem' }}>Zach Yarbrough</InternalLink>
+      <InternalLink href='/' style={{ fontSize: '1.5rem', marginBottom: '-1rem' }}>Zach Yarbrough</InternalLink>
       <PostHeader headerNumber={1.1} noCopy={true} >Software Developer</PostHeader>  
     </div>
       <div className='flex items-center gap-2 w-[200px] max-[450px]:w-[150px]'>

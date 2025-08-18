@@ -8,7 +8,7 @@ const TableOfContentsLink = ({ section, tableOfContents }: { section: string, ta
     useEffect(() => {
         const sectionElement = document.getElementById(section.toLowerCase().split(' ').join('-'));
         if (!sectionElement) return;
-	console.log(section, sectionElement)
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 // Add some offset to trigger slightly before the section reaches the top

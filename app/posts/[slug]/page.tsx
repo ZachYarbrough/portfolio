@@ -37,16 +37,13 @@ const getPostContent = (slug: string, isRelativePost: boolean = false): any => {
 
   if (isRelativePost) return {
     title: matterResult.data.title,
-    slug: slug
+    slug: slug,
+    folder: 'posts'
   }
 
   // Get headers with regex that matches the format '# Header', '## Header', etc.
   const headers = (matterResult.content + '\n').match(/(#+ .*\n)/g) || []
   const tableOfContents = getTableOfContents(headers)
-
-  // Get backlinks with regex that matches the format '](link.md)'
-  const backlinks = (matterResult.content + '\n').match(/\]\(([^ ]+?)\.md\)/g) || []
-  const formattedBacklinks = [...new Set(backlinks)].map((backlink) => getBacklink(backlink))
 
   const relatedPosts = matterResult.data.related ? matterResult.data.related.map((post: any) => getPostContent(post, true)) : []
 
@@ -59,7 +56,6 @@ const getPostContent = (slug: string, isRelativePost: boolean = false): any => {
     tableOfContents: tableOfContents,
     timeToRead: getTimeToRead(matterResult.content),
     slug: slug,
-    backlinks: formattedBacklinks,
     related: relatedPosts,
     content: matterResult.content
   }

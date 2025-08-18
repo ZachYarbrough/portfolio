@@ -27,7 +27,7 @@ export const copyToClipboard = async (text: string) => {
  * @param {string[]} headers - An array of headers
  * @returns {any} A table of contents
  */
-export const getTableOfContents = (headers: string[]) => {
+export const getTableOfContents = (headers: string[], isProject: boolean = false) => {
     if (headers.length === 0) return []
     
     const tableOfContents: any = {}
@@ -37,8 +37,15 @@ export const getTableOfContents = (headers: string[]) => {
         subSections: []
     }
 
+    if (isProject) {
+	tableOfContents['Technologies Used'] = {
+	    text: 'Technologies Used',
+	    subSections: []
+	}
+    }
+
     headers.forEach((header, index) => {
-        if (index === 0) return
+        if (index === 0 && !isProject) return
         const headerText = header.replace(/#+/g, '').trim()
         const headerLevel = header.match(/#/g)?.length || 0
 
@@ -66,6 +73,13 @@ export const getTableOfContents = (headers: string[]) => {
             }
         }
     })
+
+    if (isProject) {
+	tableOfContents['Gallery'] = {
+	    text: 'Gallery',
+	    subSections: []
+	}
+    }
 
     return tableOfContents
 }

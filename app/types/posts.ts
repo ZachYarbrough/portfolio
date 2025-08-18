@@ -12,10 +12,6 @@ export interface PostMetadata {
     }>,
     technologyUsed: string[]
     related: string[]
-    backlinks: {
-        title: string
-        backlink: string
-    }[]
 }
 
 export interface Post extends PostMetadata {

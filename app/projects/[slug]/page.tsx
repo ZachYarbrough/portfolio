@@ -45,11 +45,7 @@ const getProjectContent = (slug: string): Project => {
 
     // Get headers with regex that matches the format '# Header', '## Header', etc.
     const headers = (matterResult.content + '\n').match(/(#+ .*\n)/g) || []
-    const tableOfContents = getTableOfContents(headers)
-
-    // Get backlinks with regex that matches the format '](link.md)'
-    const backlinks = (matterResult.content + '\n').match(/\]\(([^ ]+?)\.md\)/g) || []
-    const formattedBacklinks = [...new Set(backlinks)].map((backlink) => getBacklink(backlink))
+    const tableOfContents = getTableOfContents(headers, true)
 
     const relatedPosts = matterResult.data.related ? matterResult.data.related.map((post: any) => getRelativePosts(post)) : []
 
@@ -67,7 +63,6 @@ const getProjectContent = (slug: string): Project => {
 	timeToRead: getTimeToRead(matterResult.content),
 	slug: slug,
 	related: relatedPosts,
-	backlinks: formattedBacklinks,
 	content: matterResult.content,
 	source: matterResult.data.source,
 	live: matterResult.data.live
@@ -98,7 +93,7 @@ const ProjectPage = async ({ params }: any) => {
 	))}
 	</ul>
 	{project?.live && <div className='font-bold'>Live: <ExternalLink href={project.live}>{project.live}</ExternalLink></div>}
-	{project?.source && <div className='font-bold'>Source: <ExternalLink href={project.source}>{project.source}</ExternalLink></div>}
+	{project?.source && <div className='font-bold'>Repository: <ExternalLink href={project.source}>{project.source}</ExternalLink></div>}
 	<PostHeader headerNumber={1.5} >Technologies Used</PostHeader>
 	<ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
 	{project.technologyUsed.map((technology: string) => (
@@ -108,7 +103,7 @@ const ProjectPage = async ({ params }: any) => {
 	<MarkdownRenderer content={project.content} />        
 	{project?.gallery?.length > 0 && 
 	    <div>
-	<PostHeader headerNumber={1.5}> Gallery </PostHeader>
+	<PostHeader headerNumber={1.5}>Gallery</PostHeader>
 	<div style={{ display: 'flex', flexWrap: 'wrap' }}>
 	{project.gallery.map((imagePath: string) => {
 	    return <Image key={imagePath} src={project.gallery_path.split('public')[1] + imagePath} alt={imagePath} className='sm-display-none' style={{ width: '45%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)', margin: '0.5rem' }} />

@@ -8,7 +8,7 @@ import '@/app/globals.css'
 const PostHeader = ({ headerNumber, noCopy = false, children }: { headerNumber: number, noCopy?: boolean, children: React.ReactNode }) => {
     const ref = useRef(null)
     const header = '#' + children?.toString().toLowerCase().replace(/\s+/g, '-') 
-    console.log(header)
+
     const [showCopy, setShowCopy] = useState(false)
 
     const handleCopy = async () => {
