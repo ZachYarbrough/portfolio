@@ -9,6 +9,13 @@ import BorderLine from '../components/BorderLine';
 import ProjectPreview from '../components/ProjectPreview';
 import LeftSidebar from '../components/LeftSidebar';
 
+export async function generateMetadata() {
+  return {
+    title: 'Tag Index | Zach Yarbrough',
+    description: 'Browse all tags for projects and blog posts.',
+  }
+}
+
 const TagPage: NextPage = () => {
 
     const postMetadata = getMetadata('posts')

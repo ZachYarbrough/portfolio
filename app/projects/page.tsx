@@ -7,6 +7,13 @@ import BorderLine from '../components/BorderLine';
 import ProjectPreview from '../components/ProjectPreview';
 import LeftSidebar from '../components/LeftSidebar';
 
+export async function generateMetadata() {
+  return {
+    title: 'Projects | Zach Yarbrough',
+    description: 'A collection of personal projects and demos.',
+  }
+}
+
 const ProjectPage: NextPage = () => {
 
     const postMetadata = getMetadata('projects')

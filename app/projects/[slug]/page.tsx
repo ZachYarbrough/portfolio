@@ -31,6 +31,14 @@ export const generateStaticParams = async () => {
     return projects.map((project: any) => ({ slug: project.slug }))
 }
 
+export async function generateMetadata({ params }: any) {
+  const post = getProjectContent(params.slug)
+  return {
+    title: post.title + ' | Zach Yarbrough',
+    description: post.description,
+  }
+}
+
 /**
     * Retrieves the content of a project from a markdown file in the project directory
 * 

@@ -10,6 +10,13 @@ import { skills } from './config';
 import ProjectPreview from './components/ProjectPreview';
 import LeftSidebar from './components/LeftSidebar';
 
+export async function generateMetadata() {
+  return {
+    title: 'Zach Yarbrough | Software Developer',
+    description: 'Full stack engineer with expertise in React, TypeScript, and cloud-native applications. Zachary Yarbrough has delivered mission-critical solutions for government and enterprise clients, combining technical depth with a focus on performance and maintainability.',
+  }
+}
+
 const HomePage: NextPage = () => {
   
   const postMetadata = getMetadata('posts', 5)

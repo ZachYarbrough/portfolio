@@ -12,6 +12,7 @@ import PageHeader from '@/app/components/PageHeader'
 import BorderLine from '@/app/components/BorderLine'
 import ContentFooter from '@/app/components/ContentFooter'
 import MarkdownRenderer from '@/app/components/MarkdownRenderer'
+import Head from 'next/head'
 
 /**
  * Generates static paths for all posts
@@ -21,6 +22,14 @@ import MarkdownRenderer from '@/app/components/MarkdownRenderer'
 export const generateStaticParams = async () => {
   const posts = getMetadata('posts')
   return posts.map((post) => ({ slug: post.slug }))
+}
+
+export async function generateMetadata({ params }: any) {
+  const post = getPostContent(params.slug)
+  return {
+    title: post.title + ' | Zach Yarbrough',
+    description: post.description || '',
+  }
 }
 
 /**
@@ -68,6 +77,9 @@ const PostPage = async ({ params }: any) => {
 
   return (
     <>
+      <Head>
+	<title>{post.title}</title>
+      </Head>
       <LeftSidebar />
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem', maxWidth: '750px', margin: '0 auto' }}>
         <div style={{ width: '100%', margin: '0 auto' }}>

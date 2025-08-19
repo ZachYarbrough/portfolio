@@ -7,6 +7,13 @@ import PageHeader from '../components/PageHeader';
 import BorderLine from '../components/BorderLine';
 import LeftSidebar from '../components/LeftSidebar';
 
+export async function generateMetadata() {
+  return {
+    title: 'Posts | Zach Yarbrough',
+    description: 'A collection of articles and technical deep-dives.',
+  }
+}
+
 const BlogPage: NextPage = () => {
 
     const postMetadata = getMetadata('posts')

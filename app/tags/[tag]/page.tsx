@@ -47,6 +47,14 @@ export const generateStaticParams = async () => {
     return [...new Set(tags)].map((tag) => ({ tag }))
 }
 
+
+export async function generateMetadata({ params }: any) {
+  return {
+    title: 'Tag Index: #' + params.tag + ' | Zach Yarbrough',
+    description: `Browse all blog posts tagged with #${params.tag}`,
+  }
+}
+
 const SingleTagPage = async ({ params }: any) => {
     const { tag } = await params
 
