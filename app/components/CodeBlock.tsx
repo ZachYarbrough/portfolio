@@ -1,58 +1,76 @@
+
 'use client'
 
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
-import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
-import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
-import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
-import { useEffect, useState } from 'react';
-import { copyToClipboard } from './general';
-import { CopyIcon, PasteIcon } from './assets/icons';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { useEffect, useState } from 'react'
+import { copyToClipboard } from './general'
+import { CopyIcon, PasteIcon } from './assets/icons'
+import { createStarryNight, common } from '@wooorm/starry-night'
+import { toJsxRuntime,  } from 'hast-util-to-jsx-runtime'
+import * as runtime from 'react/jsx-runtime'
 
-// Register languages for syntax highlighting
-SyntaxHighlighter.registerLanguage("tsx", tsx);
-SyntaxHighlighter.registerLanguage("python", python);
-SyntaxHighlighter.registerLanguage("bash", bash);
+// Preload starry-night grammars
+let starryNightPromise: ReturnType<typeof createStarryNight> | null = null
+function getStarryNight() {
+    if (!starryNightPromise) {
+	starryNightPromise = createStarryNight(common)
+    }
+    return starryNightPromise
+}
 
 const CodeBlock = ({ className, children }: { className: string, children: string }) => {
     const [copied, setCopied] = useState(false)
+    const [highlighted, setHighlighted] = useState<Element | null>(null)
 
-    const language = className ? className.replace('lang-', '') : 'text';
+    const language = className ? className.replace('lang-', '') : 'text'
 
     const handleCopy = async () => {
-        await copyToClipboard(children)
-        setCopied(true)
-        setTimeout(() => {
-            setCopied(false)
-        }, 2000)
+	await copyToClipboard(children)
+	setCopied(true)
+	setTimeout(() => setCopied(false), 2000)
     }
 
+    useEffect(() => {
+	const highlight = async () => {
+	    const sn = await getStarryNight()
+	    const scope = sn.flagToScope(language) ?? 'source.tsx' // fallback
+	    const tree = sn.highlight(children, scope)
+
+	    const hast = {
+		type: 'element',
+		tagName: 'pre',
+		properties: { className: ['code-block', `language-${language}`] },
+		children: [
+		    {
+			type: 'element',
+			tagName: 'code',
+			properties: { className: [`language-${language}`] },
+			children: tree.children,
+		    },
+		],
+	    }
+
+	    const jsx = toJsxRuntime(hast, { Fragment: runtime.Fragment, jsx: runtime.jsx, jsxs: runtime.jsxs })
+	    setHighlighted(jsx)
+	}
+
+	highlight()
+    }, [children, language])
+
     return (
-        <div className='group relative'>
-            <button onClick={handleCopy} className='absolute z-5 text-gray-500 hover:text-gray-700 
-                opacity-0 group-hover:opacity-100 transition-opacity ease-out duration-300 text-secondary' style={{
-                    background: 'transparent',
-                    top: '0.5rem',
-                    right: '0.5rem'
-                }}>
-                {copied ? <PasteIcon /> : <CopyIcon />}
-            </button>
-            <SyntaxHighlighter
-                style={oneDark}
-                className='syntax-highlighter'
-                language={language.toLowerCase()}
-                showLineNumbers
-                lineNumberStyle={{
-                    minWidth: '0.5rem',
-                    paddingLeft: '0.5rem',
-                }}
-                wrapLines={true}
-                codeTagProps={{ style: { fontFamily: "inherit" } }} // inherit font family from parent
-            >
-                {children}
-            </SyntaxHighlighter>
-        </div>
+	<div className="group relative" style={{ borderRadius: '5px', border: '1px solid #d1d5db', padding: '0.5rem', margin: '1rem 0rem' }}>
+	<button
+	onClick={handleCopy}
+	className="absolute z-5 text-gray-500 hover:text-gray-700 
+	opacity-0 group-hover:opacity-100 transition-opacity ease-out duration-300 text-secondary"
+	style={{ background: 'transparent', top: '0.5rem', right: '0.5rem' }}
+	>
+	{copied ? <PasteIcon /> : <CopyIcon />}
+	</button>
+
+	{highlighted}
+	</div>
     )
 }
 
 export default CodeBlock
+

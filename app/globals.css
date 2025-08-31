@@ -4,88 +4,90 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 tbody, li, p {
-  line-height: 19.5px;
+    line-height: 19.5px;
 }
 
 .light {
-  --highlight: #46B47F;
-  --primary: #4E4E4E;
-  --secondary: #B8B8B8;
-  --secondary-light: hsl(151, 0%, 92%);
-  --secondary-lighter: #F5F5F5; 
-  --note: rgb(129, 173, 250);
-  --notebg: rgb(129, 173, 250, 0.1);
-  --warning: rgb(252, 149, 158); 
-  --warningbg: rgb(252, 149, 158, 0.1);
-  --caution: rgb(255, 164, 120);
-  --cautionbg: rgb(255, 164, 120, 0.1);
-  --tip: rgb(243, 211, 152);
-  --tipbg: rgb(243, 211, 152, 0.1);
-  --background: hsl(151, 99%, 99%);
+    --highlight: #46B47F;
+    --primary: #4E4E4E;
+    --secondary: #999999;
+    --secondary-light: hsl(151, 0%, 92%);
+    --secondary-lighter: #F5F5F5; 
+    --note: rgb(129, 173, 250);
+    --notebg: rgb(129, 173, 250, 0.1);
+    --warning: rgb(252, 149, 158); 
+    --warningbg: rgb(252, 149, 158, 0.1);
+    --caution: rgb(255, 164, 120);
+    --cautionbg: rgb(255, 164, 120, 0.1);
+    --tip: rgb(243, 211, 152);
+    --tipbg: rgb(243, 211, 152, 0.1);
+    --background: hsl(151, 99%, 99%);
 }
 
 .dark {
-  --highlight: #98fbcb;
-  --primary: #D4D4D4;
-  --secondary: #B8B8B8;
-  --secondary-light: #383639;
-  --secondary-lighter: #6E6D6C;
-  --note: rgb(129, 173, 250);
-  --notebg: rgb(129, 173, 250, 0.1);
-  --warning: rgb(252, 149, 158); 
-  --warningbg: rgb(252, 149, 158, 0.1);
-  --caution: rgb(255, 164, 120);
-  --cautionbg: rgb(255, 164, 120, 0.1);
-  --tip: rgb(243, 211, 152);
-  --tipbg: rgb(243, 211, 152, 0.1);
-  --background: #202020;
+    --highlight: #98fbcb;
+    --blue-highlight: #7AA6DA;
+    --primary: #D4D4D4;
+    --secondary: #B8B8B8;
+    --secondary-light: #383639;
+    --secondary-lighter: #6E6D6C;
+    --note: rgb(129, 173, 250);
+    --notebg: rgb(129, 173, 250, 0.1);
+    --warning: rgb(252, 149, 158); 
+    --warningbg: rgb(252, 149, 158, 0.1);
+    --caution: rgb(255, 164, 120);
+    --cautionbg: rgb(255, 164, 120, 0.1);
+    --tip: rgb(243, 211, 152);
+    --tipbg: rgb(243, 211, 152, 0.1);
+    --background: #202020;
 }
 
 .collapse-list {
-  max-height: 0 !important;
+    max-height: 0 !important;
 }
 
 @media (min-width: 1500px) {
-  .header {
-    background: transparent !important;
-  }
+    .header {
+	background: transparent !important;
+    }
 
-  .sm-visible {
-    visibility: hidden !important;
-  }
+    .sm-visible {
+	visibility: hidden !important;
+    }
 
-  .content-footer,
-  .sm-display {
-    display: none !important;
-  }
+    .content-footer,
+    .sm-display {
+	display: none !important;
+    }
 
 }
 
 
 .tag-header {
-  scroll-margin-top: 1rem;
+    scroll-margin-top: 1rem;
 }
 
 @media (max-width: 1500px) {
-  .sm-hidden {
-    visibility: hidden !important;
-  }
+    .sm-hidden {
+	visibility: hidden !important;
+    }
 
-  .post-header {
-    scroll-margin-top: 5rem; /* Adjust this value to match the height of your navbar */
-  }
+    .post-header {
+	scroll-margin-top: 5rem; /* Adjust this value to match the height of your navbar */
+    }
 
-  .tag-header {
-    scroll-margin-top: 5rem;
-  }
-  .sm-display-none {
-    display: none !important;
-  }
+    .tag-header {
+	scroll-margin-top: 5rem;
+    }
+    .sm-display-none {
+	display: none !important;
+    }
 }
 
 .syntax-highlighter {
@@ -97,5 +99,73 @@ tbody, li, p {
     padding: 0.5rem !important;
     min-height: 3rem !important;
     align-items: center !important;
-  }
+}
 
+.code-block {
+    font-size: 14px !important;
+}
+
+.light .code-block {
+    color: var(--primary);
+}
+
+.light .code-block span {
+    color: var(--highlight);
+}
+
+.light .code-block .pl-c {
+    color: var(--secondary);
+}
+
+.light .code-block .pl-k {
+    color: var(--primary);
+}
+.light .code-block span,
+.light .code-block .pl-v {
+    color: #4F78A3;
+}
+
+.light .code-block .pl-s,
+.light .code-block .pl-pds {
+    color: #C68900;
+}
+
+.light .code-block .pl-smi,
+.light .code-block .pl-c1 {
+    color: #D9534F;
+}
+
+.light .code-block .pl-c {
+    color: var(--secondary);
+}
+
+.light .code-block .pl-k {
+    color: var(--primary);
+}
+
+.dark .code-block {
+    color: var(--primary);
+}
+
+.dark .code-block span,
+.dark .code-block .pl-v {
+    color: #7AA6DA;
+}
+
+.dark .code-block .pl-s,
+.dark .code-block .pl-pds {
+    color: #FFD580;
+}
+
+.dark .code-block .pl-smi,
+.dark .code-block .pl-c1 {
+    color: #FF6B6B;
+}
+
+.dark .code-block .pl-c {
+    color: var(--secondary);
+}
+
+.dark .code-block .pl-k {
+    color: var(--primary);
+}

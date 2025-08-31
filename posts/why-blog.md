@@ -11,7 +11,7 @@ This quote has stuck with me since I first heard it as a kid. It’s the perfect
 
 Keeping track of what I’m learning and the challenges I face has always helped me improve, which is part of why I decided to start this blog. It’s a space for me to track my progress, reflect on lessons learned, and solidify my understanding of concepts and technologies in an ever-changing industry that moves at lightning speed. Along the way, I also hope to sharpen my technical writing skills and make my learning process more efficient. I’ve made this blog public for a bit of accountability, and while it’s primarily for my own growth, I’d love for others to find value in my posts as well.
 
-I’m not setting a strict posting schedule. The moment blogging feels like a chore, I know I’ll lose motivation. How often I post will depend on my free time, my day job, and whatever projects I’m working on. Some months will be busy; others, I might get lost in a video game or binge a TV show.
+I’m not setting a strict posting schedule. The moment blogging feels like a chore, I know I’ll lose motivation. How often I post will depend on my free time, my day job, and whatever projects I’m working on. Some months will be busy, while others I might get lost in a video game or binge a TV show. 
 
 Ultimately, I see this blog as a fun space to reflect on challenges, explore interesting topics, and occasionally dive down rabbit holes.
 
