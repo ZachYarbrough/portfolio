@@ -19,7 +19,7 @@ function getStarryNight() {
 
 const CodeBlock = ({ className, children }: { className: string, children: string }) => {
     const [copied, setCopied] = useState(false)
-    const [highlighted, setHighlighted] = useState<Element | null>(null)
+    const [highlighted, setHighlighted] = useState<any>(null)
 
     const language = className ? className.replace('lang-', '') : 'text'
 
@@ -35,7 +35,7 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
 	    const scope = sn.flagToScope(language) ?? 'source.tsx' // fallback
 	    const tree = sn.highlight(children, scope)
 
-	    const hast = {
+	    const hast: any = {
 		type: 'element',
 		tagName: 'pre',
 		properties: { className: ['code-block', `language-${language}`] },
