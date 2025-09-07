@@ -15,10 +15,11 @@ tbody, li, p {
 
 .light {
     --highlight: #46B47F;
+    --highlight-light: #3EA06F;
     --primary: #4E4E4E;
     --secondary: #999999;
     --secondary-light: hsl(151, 0%, 92%);
-    --secondary-lighter: #F5F5F5; 
+    --secondary-lighter: #e6e6e6; 
     --note: rgb(129, 173, 250);
     --notebg: rgb(129, 173, 250, 0.1);
     --warning: rgb(252, 149, 158); 
@@ -32,11 +33,12 @@ tbody, li, p {
 
 .dark {
     --highlight: #98fbcb;
+    --highlight-light: #bdfcda;
     --blue-highlight: #7AA6DA;
     --primary: #D4D4D4;
     --secondary: #B8B8B8;
     --secondary-light: #383639;
-    --secondary-lighter: #6E6D6C;
+    --secondary-lighter: #4D4D4D;
     --note: rgb(129, 173, 250);
     --notebg: rgb(129, 173, 250, 0.1);
     --warning: rgb(252, 149, 158); 
@@ -50,6 +52,45 @@ tbody, li, p {
 
 .collapse-list {
     max-height: 0 !important;
+}
+
+.table-of-content-text:hover {
+    color: var(--highlight) !important;
+    transition: none !important;
+}
+
+.scale-image {
+  transition: transform 0.1s ease;
+}
+
+.scale-image:hover {
+    transform: scale(1.02);
+}
+
+.highlight-text {
+    color: var(--highlight)
+}
+
+
+.highlight-text:hover {
+    color: var(--highlight-light);
+}
+
+.secondary-link-color {
+    background: var(--secondary-light)
+}
+
+
+.secondary-link-color:hover {
+    background: var(--secondary-lighter);
+}
+
+.secondary-color {
+  color: var(--secondary);
+}
+
+.secondary-color:hover {
+  color: var(--primary);
 }
 
 @media (min-width: 1500px) {

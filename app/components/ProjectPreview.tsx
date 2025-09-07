@@ -28,11 +28,11 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
         <>
             {width >= 768 && <div style={{ border: '1px solid var(--secondary-light)', backgroundColor: 'var(--secondary-light)', borderRadius: '0.5rem', padding: '1rem', margin: '1rem 0.3rem 0rem 0.3rem', width: '32%' }}>
                 {!hidePreview && <InternalLink href={`/projects/${slug}`}>
-                    <img src={preview} alt={title} style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} loading="lazy" />
+                    <img src={preview} alt={title} className="scale-image" style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} loading="lazy" />
                 </InternalLink>}
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <InternalLink href={`/projects/${slug}`}>
-                        <h2 className='text-highlight font-bold'>{title}</h2>
+                        <h2 className='highlight-text font-bold'>{title}</h2>
                     </InternalLink>
                     <div>
 			{live && <ExternalLink showIcon={false} href={live}>
@@ -50,14 +50,14 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
                     {!hidePreview &&
                         <div style={{ width: '40%', marginRight: '1rem' }}>
                             <InternalLink href={`/projects/${slug}`}>
-                                <img src={preview} alt={title} style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} />
+                                <img src={preview} alt={title} className="scale-image" style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} />
                             </InternalLink>
                         </div>
                     }
                     <div style={{ width: '100%' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', textAlign: 'right' }}>
                             <InternalLink href={`/projects/${slug}`}>
-                                <h2 className='text-highlight font-bold'>{title}</h2>
+                                <h2 className='highlight-text font-bold'>{title}</h2>
                             </InternalLink>
                             <div>
 			    {live && <ExternalLink showIcon={false} href={live}>

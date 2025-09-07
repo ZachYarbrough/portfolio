@@ -20,7 +20,7 @@ const Image = (props: ImageProps) => {
       title={title || ''}
       className={className}
       style={{ ...style, cursor: !hideModal ? 'pointer' : 'default' }}
-      width={600}
+      width={800}
       height={400}
       onClick={onClick}
       loading="lazy"

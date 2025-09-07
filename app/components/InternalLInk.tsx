@@ -8,10 +8,9 @@ const InternalLink = ({ href = null, children, useBubbleStyle = false, style = {
     const link = href !== null ? href.startsWith('/') ? href : `/${href}` : '/'
     return (
         <>
-            {useBubbleStyle ? <Link className='text-highlight cursor-pointer inline-flex font-bold'
+            {useBubbleStyle ? <Link className='text-highlight cursor-pointer inline-flex font-bold secondary-link-color'
                 style={Object.keys(style).length > 0 ? style : {
                     padding: '2px 4px',
-                    backgroundColor: isHighlighted ? 'var(--secondary-lighter)' : 'var(--secondary-light)',
                     borderRadius: '0.4rem',
                 }}
                 href={link}
@@ -19,7 +18,7 @@ const InternalLink = ({ href = null, children, useBubbleStyle = false, style = {
                 <span className='flex' onClick={() => {
                     onClickCallback()
                 }}>{children}</span>
-            </Link> : <Link style={style} className='text-highlight cursor-pointer inline-flex font-bold' href={link}
+            </Link> : <Link style={style} className='highlight-text cursor-pointer inline-flex font-bold' href={link}
             >
                 <span className='flex' onClick={() => {
                     onClickCallback()

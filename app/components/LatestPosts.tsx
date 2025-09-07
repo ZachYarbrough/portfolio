@@ -6,7 +6,7 @@ const LatestPosts = ({ latestPosts }: any) => {
         return (
 	<DropdownList title='Recent Posts'>
             {latestPosts && latestPosts.length > 0 ? latestPosts.map((post: any) => (
-                <div key={post.slug} className='text-highlight font-bold'>
+                <div key={post.slug} className='highlight-text font-bold'>
                     <InternalLink href={`/posts/${post.slug}`}>{post.title}</InternalLink>
                 </div>
             )) :

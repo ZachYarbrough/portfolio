@@ -31,7 +31,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
             <p className='text-secondary' style={{ marginTop: '0.2rem' }}>{date}</p>
             <div>
                 <InternalLink href={`/${isProjectPost ? 'projects' : 'posts'}/${slug}`} style={{ marginTop: '0.1rem' }} onClickCallback={() => toggleSearch(false)}>
-                    <h2 className='text-highlight font-bold' style={{ paddingLeft: '1rem' }}>{title}</h2>
+                    <h2 className='highlight-text font-bold' style={{ paddingLeft: '1rem' }}>{title}</h2>
                 </InternalLink> 
             </div>
 	    {width > 600 && <div className='flex flex-wrap' style={{ whiteSpace: 'nowrap', gap: '0.5rem', justifyContent: 'flex-end' }}>
@@ -45,10 +45,9 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                     </div>
                 )
                 })}
-                {!tagsExpanded && tagsAndTech.length - 1 > 3 && <div className='text-highlight cursor-pointer inline-flex font-bold'
+                {!tagsExpanded && tagsAndTech.length - 1 > 3 && <div className='text-highlight cursor-pointer inline-flex font-bold secondary-link-color'
                     style={{
                         padding: '2px 4px',
-                        backgroundColor: index != -1 && highlightedIndex === index ? 'var(--secondary-lighter)' : 'var(--secondary-light)',
                         borderRadius: '0.4rem',
                     }}
                 >
