@@ -29,7 +29,7 @@ const ProjectPage: NextPage = () => {
             <BreadcrumbTrail />
             <PageHeader>Projects</PageHeader>
             <ItemCount count={postPreviews.length} message='found.' />
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>{postPreviews}</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>{postPreviews}</div>
             <BorderLine />
         </div>
 	</>

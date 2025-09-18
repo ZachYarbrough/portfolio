@@ -35,7 +35,22 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                 </InternalLink> 
             </div>
 	    {width > 600 && <div className='flex flex-wrap' style={{ whiteSpace: 'nowrap', gap: '0.5rem', justifyContent: 'flex-end' }}>
-                {tagsAndTech.slice(0, 3).map((tag: string) => {
+		{tagsAndTech.length <= 4 ?
+		    <>
+		    {tagsAndTech.slice(0, 4).map((tag: string) => {
+                    return (
+                    <div key={tag}>
+                        <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)} isHighlighted={index != -1 && highlightedIndex === index}
+                        >
+                            #{tag}
+                        </InternalLink>
+                    </div>
+                )
+                })}
+		    </>
+		:
+		<>
+		{tagsAndTech.slice(0, 3).map((tag: string) => {
                     return (
                     <div key={tag}>
                         <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)} isHighlighted={index != -1 && highlightedIndex === index}
@@ -66,7 +81,9 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                         </InternalLink>
                     </div>
                 ))}
-            </div>}
+
+		</>}
+		</div>}
         </div>
     )
 }

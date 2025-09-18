@@ -47,6 +47,7 @@ const ImageModal = () => {
 		<div style={{
                     zIndex: 1001,
                     width: '80%',
+		    maxWidth: '1280px', 
 		    maxHeight: '80%',
                     margin: 'auto',
 		    display: 'flex'

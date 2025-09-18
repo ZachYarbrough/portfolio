@@ -56,7 +56,7 @@ const HomePage: NextPage = () => {
       </div>
       <div style={{ margin: '1rem 0', width: '100%' }}>
         <PageHeader noCopy={true}>Featured Projects</PageHeader>
-        <ul style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+        <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
           {projectPreviews}
         </ul>
           <InternalLink style={{ marginTop: '1rem' }} href='/projects'>View More Projects <ArrowRightIcon /></InternalLink>

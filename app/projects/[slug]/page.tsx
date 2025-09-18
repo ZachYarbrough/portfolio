@@ -39,6 +39,19 @@ export async function generateMetadata({ params }: any) {
   }
 }
 
+const getRelativePostContent = (slug: string): any => {
+  const folder = 'posts/'
+  const file = `${folder}${slug}.md`
+  const content = fs.readFileSync(file, 'utf8')
+  const matterResult = matter(content)
+
+  return {
+    title: matterResult.data.title,
+    slug: slug,
+    folder: 'posts'
+  }
+} 
+
 /**
     * Retrieves the content of a project from a markdown file in the project directory
 * 
@@ -55,7 +68,7 @@ const getProjectContent = (slug: string): Project => {
     const headers = (matterResult.content + '\n').match(/(#+ .*\n)/g) || []
     const tableOfContents = getTableOfContents(headers, true)
 
-    const relatedPosts = matterResult.data.related ? matterResult.data.related.map((post: any) => getRelativePosts(post)) : []
+    const relatedPosts = matterResult.data.related ? matterResult.data.related.map((post: any) => getRelativePostContent(post)) : []
 
     return {
 	title: matterResult.data.title,
