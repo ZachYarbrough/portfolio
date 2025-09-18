@@ -42,8 +42,9 @@ const HomePage: NextPage = () => {
     }}>
       <PageHeader noCopy={true}>Welcome!</PageHeader>      
       <p style={{ padding: '0.5rem 0' }}>My name is Zach.</p>
-      <p style={{ padding: '0.5rem 0' }}>I am a <span className='font-bold'>Full-Stack Developer</span> that specializes in the <span className='font-bold'>MERN</span> stack.</p>
-      <p style={{ padding: '0.5rem 0' }}>Based out of Texas.</p>
+      <p style={{ padding: '0.5rem 0' }}>I am a <span className='font-bold'>Full-Stack Developer</span> specializing in the <span className='font-bold'>MERN</span> stack. I'm currently pursuing my <span className='font-bold'>Masters of Computer Science </span> 
+  at <span className="font-bold">Rice University</span> and am based out of <span className="font-bold">Texas</span>.</p>
+      <p style={{ padding: '0.5rem 0' }}>Check out my personal setup and workflow in my <ExternalLink href='https://github.com/ZachYarbrough/dotfiles'>dotfiles</ExternalLink> repo.</p>
       <p style={{ padding: '0.5rem 0' }}>Skills include:</p>
         <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', padding: '0.5rem 0' }}>
           {skills.map((skill) => (
