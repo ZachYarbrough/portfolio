@@ -29,6 +29,7 @@ tbody, li, p {
     --tip: rgb(243, 211, 152);
     --tipbg: rgb(243, 211, 152, 0.1);
     --background: hsl(151, 99%, 99%);
+    --background-light: hsl(0, 0%, 97%);
 }
 
 .dark {
@@ -48,6 +49,7 @@ tbody, li, p {
     --tip: rgb(243, 211, 152);
     --tipbg: rgb(243, 211, 152, 0.1);
     --background: #202020;
+    --background-light: #2a2a2a;
 }
 
 .collapse-list {
@@ -209,6 +211,32 @@ tbody, li, p {
 
 .dark .code-block .pl-k {
     color: var(--primary);
+}
+
+/* Card styles */
+.experience-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;                  /* start invisible */
+  transform: translateY(20px); /* start slightly below */
+  animation: fadeUp 0.3s forwards; /* run fadeUp animation */
+}
+
+/* Stagger animation with nth-child */
+.experience-card:nth-child(1) { animation-delay: 0.1s; }
+.experience-card:nth-child(2) { animation-delay: 0.2s; }
+.experience-card:nth-child(3) { animation-delay: 0.3s; }
+.experience-card:nth-child(4) { animation-delay: 0.4s; }
+.experience-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Keyframes */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .wave {

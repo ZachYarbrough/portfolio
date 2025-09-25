@@ -9,6 +9,7 @@ import BorderLine from './components/BorderLine';
 import { skills } from './config';
 import ProjectPreview from './components/ProjectPreview';
 import LeftSidebar from './components/LeftSidebar';
+import Experience from './components/Experience';
 // import EmojiWave from './components/emoji-wave';
 
 export async function generateMetadata() {
@@ -62,6 +63,10 @@ const HomePage: NextPage = () => {
           {projectPreviews}
         </ul>
           <InternalLink style={{ marginTop: '1rem' }} href='/projects'>View More Projects <ArrowRightIcon /></InternalLink>
+      </div>
+      <div style={{ margin: '1rem 0' }}> 
+        <PageHeader noCopy={true} >Experience</PageHeader>
+        <Experience />
       </div>
       <div style={{margin: '1rem 0'}}>
         <PageHeader noCopy={true}>Recent Posts</PageHeader>
