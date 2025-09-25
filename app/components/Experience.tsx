@@ -8,7 +8,6 @@ const Experience = () => {
 
   return (
     <div style={{ marginTop: '1rem' }}>
-      {/* Toggle buttons */}
       <div style={{           
 	  marginTop: '1rem 0',
 	  position: 'relative',
@@ -16,9 +15,8 @@ const Experience = () => {
 	  width: '15rem',
 	  padding: '2px 4px',
           borderRadius: '0.4rem',
-          overflow: 'hidden',
-          cursor: 'pointer',}}>
-              {/* Sliding Background */}
+          overflow: 'hidden' }}>
+        {/* Sliding Background */}
         <div
           style={{
             position: 'absolute',
@@ -37,15 +35,22 @@ const Experience = () => {
           style={{
             fontWeight: toggle === 'work' ? 'bold' : 'normal',
 	    width: '50%',
-	    zIndex: 1
+	    height: '100%',
+	    zIndex: 1,
+	    cursor: 'pointer'
           }}
         >
           Work
         </button>
         <button
           onClick={() => setToggle('education')}
-          style={{ fontWeight: toggle === 'education' ? 'bold' : 'normal', width: '50%', zIndex: 1 }}
-        >
+          style={{
+            fontWeight: toggle === 'education' ? 'bold' : 'normal',
+	    width: '50%',
+	    height: '100%',
+	    zIndex: 1,
+	    cursor: 'pointer'
+          }}        >
           Education
         </button>
       </div>
@@ -59,8 +64,8 @@ const Experience = () => {
         <div>
         <div>
 	  <ExperiencePreview preview='/images/experience-logos/rice_logo.jpg' title="Master's in Computer Science" company='Rice University' time='Jan 2026 - Present' />
-	  <ExperiencePreview preview='/images/experience-logos/ut_logo.jpg' title='Full-Stack Coding Bootcamp' company='The University of Texas at Austin' time='June 2021 - Dec 2021' />
-	  <ExperiencePreview preview='/images/experience-logos/ut_logo.jpg' title='BSA in Arts and Entertainment Technologies' company='The University of Texas at Austin' time='Aug 2017 - May 2021' />
+	  <ExperiencePreview preview='/images/experience-logos/ut_logo.jpg' title='Full-Stack Coding Bootcamp' company='The University of Texas' time='June 2021 - Dec 2021' />
+	  <ExperiencePreview preview='/images/experience-logos/ut_logo.jpg' title='BSA in Arts and Entertainment Technologies' company='The University of Texas' time='Aug 2017 - May 2021' />
         </div>
         </div>
       )}

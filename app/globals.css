@@ -239,6 +239,10 @@ tbody, li, p {
   }
 }
 
+a[title] span {
+    display: inline-block;
+}
+
 .wave {
   animation-fill-mode: forwards;
 }

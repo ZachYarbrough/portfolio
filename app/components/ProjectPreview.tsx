@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { Project } from '../types/posts'
 import { CodeBracketIcon, GlobeIcon } from './assets/icons'
 import ExternalLink from './ExternalLink'
 import InternalLink from './InternalLInk'
@@ -35,10 +34,10 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
                         <h2 className='highlight-text font-bold'>{title}</h2>
                     </InternalLink>
                     <div>
-			{live && <ExternalLink showIcon={false} href={live}>
+			{live && <ExternalLink tooltip='Live Demo' showIcon={false} href={live}>
 			    <GlobeIcon />
 			</ExternalLink>}
-			{source && <ExternalLink showIcon={false} href={source}>
+			{source && <ExternalLink tooltip='Source Code' showIcon={false} href={source}>
 			    <CodeBracketIcon />
 			</ExternalLink>}
                     </div>
@@ -60,10 +59,10 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
                                 <h2 className='highlight-text font-bold'>{title}</h2>
                             </InternalLink>
                             <div style={{ width: '5rem', textAlign: 'right' }}>
-			    {live && <ExternalLink showIcon={false} href={live}>
-                                    <GlobeIcon />
+			    {live && <ExternalLink tooltip='Live Demo' showIcon={false} href={live}>
+                                   <GlobeIcon />
                                 </ExternalLink>}
-                            {source && <ExternalLink showIcon={false} href={source}>
+                            {source && <ExternalLink tooltip='Source Code' showIcon={false} href={source}>
                                     <CodeBracketIcon />
                                 </ExternalLink>}
                             </div>

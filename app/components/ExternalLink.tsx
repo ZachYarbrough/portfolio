@@ -3,10 +3,11 @@
 import { ExternalLinkIcon } from "./assets/icons"
 import Link from "next/link"
 
-const ExternalLink = ({ href, showIcon = true, isMail = false, children }: { href: string, showIcon?: boolean, isMail?: boolean, children: React.ReactNode }) => {
+const ExternalLink = ({ tooltip = '', href, showIcon = true, isMail = false, children }: { tooltip: string, href: string, showIcon?: boolean, isMail?: boolean, children: React.ReactNode }) => {
 
     return (
         <Link className='highlight-text cursor-pointer inline-flex font-bold'
+	    title={tooltip}
             style={{
                 padding: '0',
                 backgroundColor: 'transparent',
