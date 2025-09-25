@@ -210,3 +210,27 @@ tbody, li, p {
 .dark .code-block .pl-k {
     color: var(--primary);
 }
+
+.wave {
+  animation-fill-mode: forwards;
+}
+
+.wave:hover {
+  animation: wave-animation 1s ease-in-out forwards;
+}
+
+.wave {
+  display: inline-block; /* 🔑 allows rotation */
+  transform-origin: 70% 70%; /* 🔑 pivot point near bottom-left of hand */
+}
+
+/* Keyframes that rotate the emoji back and forth */
+@keyframes wave-animation {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(14deg); }
+  30%  { transform: rotate(-8deg); }
+  45%  { transform: rotate(14deg); }
+  60%  { transform: rotate(-4deg); }
+  75%  { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
