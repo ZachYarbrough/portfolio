@@ -9,7 +9,7 @@ import BorderLine from './components/BorderLine';
 import { skills } from './config';
 import ProjectPreview from './components/ProjectPreview';
 import LeftSidebar from './components/LeftSidebar';
-import EmojiWave from './components/emoji-wave';
+// import EmojiWave from './components/emoji-wave';
 
 export async function generateMetadata() {
   return {
@@ -41,7 +41,7 @@ const HomePage: NextPage = () => {
       flexDirection: 'column',
       margin: '0 auto'
     }}>
-      <PageHeader noCopy={true}>Welcome! <EmojiWave /></PageHeader>      
+      <PageHeader noCopy={true}>Welcome!</PageHeader>      
       <p style={{ padding: '0.5rem 0' }}>My name is Zach.</p>
       <p style={{ padding: '0.5rem 0' }}>I am a <span className='font-bold'>Full-Stack Developer</span> specializing in the <span className='font-bold'>MERN</span> stack. I'm currently pursuing my <span className='font-bold'>Masters of Computer Science </span> 
   at <span className="font-bold">Rice University</span> and am based out of <span className="font-bold">Texas</span>.</p>
