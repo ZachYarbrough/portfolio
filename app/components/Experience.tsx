@@ -53,7 +53,7 @@ const Experience = () => {
       {/* Conditional content */}
       {toggle === 'work' ? (
         <div>
-	  <ExperiencePreview preview='/images/experience-logos/ideaentity_logo.jpg' title='Full-Stack Developer' company='Idea Entity' time='August 2022 - August 2025' />
+	  <ExperiencePreview preview='/images/experience-logos/ideaentity_logo.jpg' title='Full-Stack Developer' company='Idea Entity' time='Aug 2022 - Aug 2025' />
         </div>
       ) : (
         <div>
