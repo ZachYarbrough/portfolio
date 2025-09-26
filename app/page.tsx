@@ -3,6 +3,7 @@ import ExternalLink from './components/ExternalLink';
 import { getMetadata } from './components/data';
 import PostPreview from './components/PostPreview';
 import PageHeader from './components/PageHeader';
+import PostHeader from './components/PostHeader';
 import InternalLink from './components/InternalLInk';
 import { ArrowRightIcon } from './components/assets/icons';
 import BorderLine from './components/BorderLine';
@@ -69,18 +70,18 @@ const HomePage: NextPage = () => {
       <div className='flex justify-between'>
       </div>
       <div style={{ margin: '1rem 0', width: '100%' }}>
-        <PageHeader noCopy={true}>Featured Projects</PageHeader>
+        <PostHeader headerNumber={1.5} noCopy={true}>Featured Projects</PostHeader>
         <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
           {projectPreviews}
         </ul>
           <InternalLink style={{ marginTop: '1rem' }} href='/projects'>View More Projects <ArrowRightIcon /></InternalLink>
       </div>
       <div style={{ margin: '1rem 0' }}> 
-        <PageHeader noCopy={true} >Experience</PageHeader>
+        <PostHeader headerNumber={1.5} noCopy={true}>Experience</PostHeader>
         <Experience />
       </div>
       <div style={{margin: '1rem 0'}}>
-        <PageHeader noCopy={true}>Recent Posts</PageHeader>
+        <PostHeader headerNumber={1.5} noCopy={true}>Recent Posts</PostHeader>
         <ul>
           {postPreviews}
           <InternalLink href='/posts'>View More Posts <ArrowRightIcon /></InternalLink>
