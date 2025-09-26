@@ -92,7 +92,7 @@ const getProjectContent = (slug: string): Project => {
 
 const getGalleryImages = (path: string) => {
     const files = fs.readdirSync(path)
-    const imageFiles = files.filter((file) => file.endsWith('.jpg') || file.endsWith('jpeg') || file.endsWith('png'))
+    const imageFiles = files.filter((file) => file.endsWith('.jpg') || file.endsWith('webp') || file.endsWith('jpeg') || file.endsWith('png'))
     return imageFiles
 }
 

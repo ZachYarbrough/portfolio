@@ -7,7 +7,7 @@ technology_used: [react, node, tailwind]
 gallery_path: public/images/sorting-visualizer/gallery/
 source: https://github.com/zachyarbrough/sorting-visualizer
 live: https://sorting-visualizer-m8cx.vercel.app
-preview: /images/sorting-visualizer/sorting-visualizer-preview.jpg
+preview: /images/sorting-visualizer/sorting-visualizer-preview.webp
 related: [sorting-visualizer-retrospective]
 featured: true
 ---

@@ -58,14 +58,14 @@ const Experience = () => {
       {/* Conditional content */}
       {toggle === 'work' ? (
         <div>
-	  <ExperiencePreview preview='/images/experience-logos/ideaentity_logo.jpg' title='Full-Stack Developer' company='Idea Entity' time='Aug 2022 - Aug 2025' />
+	  <ExperiencePreview preview='/images/experience-logos/ideaentity_logo.webp' title='Full-Stack Developer' company='Idea Entity' time='Aug 2022 - Aug 2025' />
         </div>
       ) : (
         <div>
         <div>
-	  <ExperiencePreview preview='/images/experience-logos/rice_logo.jpg' title="Master's in Computer Science" company='Rice University' time='Jan 2026 - Present' />
-	  <ExperiencePreview preview='/images/experience-logos/ut_logo.jpg' title='Full-Stack Coding Bootcamp' company='The University of Texas' time='June 2021 - Dec 2021' />
-	  <ExperiencePreview preview='/images/experience-logos/ut_logo.jpg' title='BSA in Arts and Entertainment Technologies' company='The University of Texas' time='Aug 2017 - May 2021' />
+	  <ExperiencePreview preview='/images/experience-logos/rice_logo.webp' title="Master's in Computer Science" company='Rice University' time='Jan 2026 - Present' />
+	  <ExperiencePreview preview='/images/experience-logos/ut_logo.webp' title='Full-Stack Coding Bootcamp' company='The University of Texas' time='June 2021 - Dec 2021' />
+	  <ExperiencePreview preview='/images/experience-logos/ut_logo.webp' title='BSA in Arts and Entertainment Technologies' company='The University of Texas' time='Aug 2017 - May 2021' />
         </div>
         </div>
       )}
