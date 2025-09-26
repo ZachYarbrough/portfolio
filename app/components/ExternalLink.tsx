@@ -17,7 +17,7 @@ const ExternalLink = ({ tooltip = '', href, showIcon = true, isMail = false, chi
             rel={'noopener noreferrer'}>
             <span>{children}</span>
             {showIcon && <span style={{
-                marginTop: '0.4rem',
+                marginTop: '0.3rem',
                 color: 'var(--primary)',
             }}><ExternalLinkIcon /></span>}
         </Link>

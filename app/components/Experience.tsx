@@ -34,10 +34,10 @@ const Experience = () => {
           onClick={() => setToggle('work')}
           style={{
             fontWeight: toggle === 'work' ? 'bold' : 'normal',
+	    cursor: toggle === 'work' ? 'text' : 'pointer',
 	    width: '50%',
 	    height: '100%',
 	    zIndex: 1,
-	    cursor: 'pointer'
           }}
         >
           Work
@@ -46,10 +46,10 @@ const Experience = () => {
           onClick={() => setToggle('education')}
           style={{
             fontWeight: toggle === 'education' ? 'bold' : 'normal',
+	    cursor: toggle === 'education' ? 'text' : 'pointer',
 	    width: '50%',
 	    height: '100%',
 	    zIndex: 1,
-	    cursor: 'pointer'
           }}        >
           Education
         </button>
