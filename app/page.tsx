@@ -10,7 +10,9 @@ import { skills } from './config';
 import ProjectPreview from './components/ProjectPreview';
 import LeftSidebar from './components/LeftSidebar';
 import Experience from './components/Experience';
-// import EmojiWave from './components/emoji-wave';
+import { email, githubUrl, linkedInUrl } from './config'
+import { LocationPinIcon } from './components/assets/icons';
+import EmojiWave from './components/emoji-wave';
 
 export async function generateMetadata() {
   return {
@@ -42,10 +44,19 @@ const HomePage: NextPage = () => {
       flexDirection: 'column',
       margin: '0 auto'
     }}>
-      <PageHeader noCopy={true}>Welcome!</PageHeader>      
-      <p style={{ padding: '0.5rem 0' }}>My name is Zach.</p>
-      <p style={{ padding: '0.5rem 0' }}>I am a <span className='font-bold'>Full-Stack Developer</span> specializing in the <span className='font-bold'>MERN</span> stack. I'm currently pursuing my <span className='font-bold'>Masters of Computer Science </span> 
-  at <span className="font-bold">Rice University</span> and am based out of <span className="font-bold">Texas</span>.</p>
+      <div> <PageHeader noCopy={true}>Welcome! <EmojiWave /></PageHeader></div>
+	<div style={{ margin: '1rem 0', padding: '1rem', borderRadius: '0.5rem', backgroundColor: 'var(--secondary-light)', width: '100%' }}>
+	<p style={{ padding: '0 0 0.5rem 0 ' }}>
+	    I am a <span className='font-bold'>Full-Stack Developer</span> specializing in the MERN stack. I'm currently pursuing my <span className='font-bold'>Masters of Computer Science</span> at <span className='font-bold'>Rice University</span>.	
+	</p>
+	<p style={{display: 'flex', verticalAlign: 'start', padding: '0.5rem 0' }}><LocationPinIcon /> <span>Based out of Texas</span></p>
+          <ul className='flex' style={{ gap: '1rem', padding: '0.5rem 0 0 0' }}>
+	    <li>Contact Me:</li>
+            <li><ExternalLink href={linkedInUrl}>LinkedIn</ExternalLink></li>
+            <li><ExternalLink href={githubUrl}>Github</ExternalLink></li>
+	    <li><ExternalLink isMail={true} href={email}>Email</ExternalLink></li>
+        </ul>
+      </div>
       <p style={{ padding: '0.5rem 0' }}>Check out my personal setup and workflow in my <ExternalLink href='https://github.com/ZachYarbrough/dotfiles'>dotfiles</ExternalLink> repo.</p>
       <p style={{ padding: '0.5rem 0' }}>Skills include:</p>
         <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', padding: '0.5rem 0' }}>

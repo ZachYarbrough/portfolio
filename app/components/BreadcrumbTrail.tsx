@@ -11,7 +11,8 @@ const BreadcrumbTrail = ({ isTag }: { isTag?: boolean }) => {
 
     return (
         <div className='flex items-center gap-1 font-bold' style={{
-            marginBottom: '2rem'
+            marginTop: '0.5rem',
+	    marginBottom: '2rem'
         }}>
             <InternalLink href='/'>
                 Home

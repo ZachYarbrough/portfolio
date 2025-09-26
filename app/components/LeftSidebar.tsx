@@ -12,7 +12,7 @@ const LeftSidebar = () => {
     return (
 	<div className='sm-hidden' style={{ position: 'fixed', top: '5rem', left: 'calc(50vw - 700px)', width: '250px', display: 'flex',flexDirection: 'column' }}>
 	<div style={{ padding: '0 0px 0.5rem 0' }}>
-	    <InternalLink href='/' style={{ fontSize: '2rem', marginBottom: '-1rem' }}>Zach Yarbrough</InternalLink>
+	    <InternalLink href='/' style={{ fontSize: '2rem' }}>Zach Yarbrough</InternalLink>
 	    <PostHeader headerNumber={1.1} noCopy={true} >Software Developer</PostHeader>  
 	</div>
 	<div className='flex justify-between items-center' style={{ margin: '0.5rem 0 1rem 0' }}>

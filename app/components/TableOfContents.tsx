@@ -1,15 +1,13 @@
 'use client'
 
-import { useEffect, useRef, useState } from "react"
 import TableOfContentsLink from "./TableOfContentsLink"
-import { ArrowRightIcon } from "./assets/icons"
 import DropdownList from "./DropdownList"
 
 const TableOfContent = ({ tableOfContents }: { tableOfContents: Record<string, { text: string, subSections: string[] }> }) => {
 
     return (
-
-        <DropdownList title='Table of Contents' topOfPage={true}>
+	<div style={{ marginTop: '0.5rem' }}>
+	<DropdownList title='Table of Contents' topOfPage={true}>
                 {Object.keys(tableOfContents).map((section: any) => (
                     <div key={section}>
                         <TableOfContentsLink section={section} tableOfContents={tableOfContents}/>
@@ -25,6 +23,7 @@ const TableOfContent = ({ tableOfContents }: { tableOfContents: Record<string, {
                     </div>
                 ))}
         </DropdownList>
+	</div>
     )
 }
 
