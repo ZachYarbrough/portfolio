@@ -145,6 +145,8 @@ tbody, li, p {
 }
 
 .code-block {
+    overflow: auto;
+    padding-bottom: 0.5rem;
     font-size: 14px !important;
 }
 
@@ -265,4 +267,43 @@ a[title] span {
   60%  { transform: rotate(-4deg); }
   75%  { transform: rotate(10deg); }
   100% { transform: rotate(0deg); }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+.dark ::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+  background: var(--background-light);  
+}
+
+/* Handle */
+.dark ::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background: var(--secondary-lighter);
+}
+
+/* Track */
+.light ::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+  background: var(--secondary);
+}
+
+/* Handle */
+.light ::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background: var(--background-light);
+}
+
+/* Handle on hover */
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Handle on hover */
+.light ::-webkit-scrollbar-thumb:hover {
+  background: var(--background);
 }
