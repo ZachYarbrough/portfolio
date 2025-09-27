@@ -21,16 +21,17 @@ import { notFound } from 'next/navigation'
  * @returns {Array<{ slug: string }>} An array of objects with the slug of each post
  */
 export const generateStaticParams = async () => {
-  const posts = getMetadata('posts') || []
+  const posts = getMetadata('posts')
   if (!posts) notFound()
   return posts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: any) {
   const post = getPostContent(params.slug)
+
   return {
-    title: post.title || params.slug + ' | Zach Yarbrough',
-    description: post.description || '',
+    title: post?.title || '404 - Not Found' + ' | Zach Yarbrough',
+    description: post?.description || '',
   }
 }
 

@@ -1,11 +1,14 @@
 
-import { NextPage } from 'next';
+import { NextPage, Metadata } from 'next';
 import PageHeader from './components/PageHeader';
 import InternalLink from './components/InternalLInk';
 import BorderLine from './components/BorderLine';
 import LeftSidebar from './components/LeftSidebar';
 import SearchBar from './components/SearchBar';
 
+export const metadata: Metadata = {
+  title: '404 - Not Found | Zach Yarbrough', // <- This sets the page title
+};
 const NotFound: NextPage = () => {
     return (
 	<>
