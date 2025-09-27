@@ -6,7 +6,7 @@ import LatestPosts from "./LatestPosts"
 
 const ContentFooter = ({ post }: { post: Post }) => {
 
-    const latestPosts = getMetadata('posts', 5)
+    const latestPosts = getMetadata('posts', 5) || []
 
     return (
 	<div className='content-footer' style={{ display: 'flex', justifyContent: 'space-between', margin: '1rem auto 0 auto', maxWidth: '750px' }}>

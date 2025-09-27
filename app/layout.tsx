@@ -11,8 +11,8 @@ import { getMetadata } from './components/data';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
    
-  const postMetadata = getMetadata('posts')
-  const projectMetadata = getMetadata('projects')
+  const postMetadata = getMetadata('posts') || []
+  const projectMetadata = getMetadata('projects') || []
 
   return (
     <html lang='en' className='font-inconsolata' suppressHydrationWarning>

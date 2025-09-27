@@ -14,8 +14,8 @@ import LeftSidebar from '@/app/components/LeftSidebar';
     * @returns {Array<{ tag: string }>} An array of objects with the tags of each post
 */
 export const generateStaticParams = async () => {
-    const posts: any[] = getMetadata('posts')
-    const projects: any[] = getMetadata('projects')
+    const posts: any[] = getMetadata('posts') || []
+    const projects: any[] = getMetadata('projects') || []
 
     const tags: string[] = []
 
@@ -58,8 +58,8 @@ export async function generateMetadata({ params }: any) {
 const SingleTagPage = async ({ params }: any) => {
     const { tag } = await params
 
-    const postMetadata = getMetadata('posts')
-    const projectMetadata = getMetadata('projects')
+    const postMetadata = getMetadata('posts') || []
+    const projectMetadata = getMetadata('projects') || [] 
 
     const filteredPosts = postMetadata.filter((data) => (data.tags.length > 0 && data.tags.includes(tag)) || (data.technologyUsed.length > 0 && data.technologyUsed.includes(tag))).map((post) => (
 	<PostPreview key={post.slug} {...post} />

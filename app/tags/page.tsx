@@ -18,8 +18,8 @@ export async function generateMetadata() {
 
 const TagPage: NextPage = () => {
 
-    const postMetadata = getMetadata('posts')
-    const projectMetadata = getMetadata('projects')
+    const postMetadata = getMetadata('posts') || []
+    const projectMetadata = getMetadata('projects') || []
 
     const getTagData = (posts: any[], projects: any[]) => {
         const tags = [...posts, ...projects].map((post) => [...post.tags, ...post?.technologyUsed]).flat()

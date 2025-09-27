@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar"
 import PostHeader from '@/app/components/PostHeader'
 
 const LeftSidebar = () => {
-    const latestPosts = getMetadata('posts', 5)
+    const latestPosts = getMetadata('posts', 5) || []
 
     return (
 	<div className='sm-hidden' style={{ position: 'fixed', top: '5rem', left: 'calc(50vw - 700px)', width: '250px', display: 'flex',flexDirection: 'column' }}>

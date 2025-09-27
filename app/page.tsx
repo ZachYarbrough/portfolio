@@ -24,8 +24,8 @@ export async function generateMetadata() {
 
 const HomePage: NextPage = () => {
   
-  const postMetadata = getMetadata('posts', 5)
-  const projectMetadata = getMetadata('projects')
+  const postMetadata = getMetadata('posts', 5) || []
+  const projectMetadata = getMetadata('projects') || []
   const featuredProjectMetadata = projectMetadata.filter((project: any) => project.featured).slice(0, 3)
 
   const postPreviews = postMetadata.map((post) => (

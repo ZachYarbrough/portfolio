@@ -17,7 +17,7 @@ export async function generateMetadata() {
 
 const BlogPage: NextPage = () => {
 
-    const postMetadata = getMetadata('posts')
+    const postMetadata = getMetadata('posts') || []
     const postPreviewsByYear: any = {} 
 
     const postPreviews = postMetadata.map((post) => (

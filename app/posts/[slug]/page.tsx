@@ -21,7 +21,7 @@ import { notFound } from 'next/navigation'
  * @returns {Array<{ slug: string }>} An array of objects with the slug of each post
  */
 export const generateStaticParams = async () => {
-  const posts = getMetadata('posts')
+  const posts = getMetadata('posts') || []
   return posts.map((post) => ({ slug: post.slug }))
 }
 

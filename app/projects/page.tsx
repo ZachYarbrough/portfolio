@@ -16,7 +16,7 @@ export async function generateMetadata() {
 
 const ProjectPage: NextPage = () => {
 
-    const postMetadata = getMetadata('projects')
+    const postMetadata = getMetadata('projects') || []
 
     const postPreviews = postMetadata.map((post) => (
         <ProjectPreview key={post.slug} {...post} />

@@ -28,7 +28,7 @@ import { notFound } from 'next/navigation'
     * @returns {Array<{ slug: string }>} An array of objects with the slug of each project
 */
 export const generateStaticParams = async () => {
-    const projects = getMetadata('projects')
+    const projects = getMetadata('projects') || []
     if (!projects) return notFound()
     return projects.map((project: any) => ({ slug: project.slug }))
 }
