@@ -300,7 +300,7 @@ a[title] span {
 
 /* Handle on hover */
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary);
+  background: #868686;
 }
 
 /* Handle on hover */
