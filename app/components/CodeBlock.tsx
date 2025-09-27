@@ -60,7 +60,7 @@ const CodeBlock = ({ className, children }: { className: string; children: strin
 	    <button
 		onClick={handleCopy}
 		className="absolute z-5 opacity-0 group-hover:opacity-100 transition-opacity ease-out secondary-color duration-300"
-		style={{ top: '0.5rem', right: '0.5rem' }}
+		style={{ top: '0.5rem', right: '0.5rem', backgroundColor: 'var(--secondary-light)' }}
 	    >
 		{copied ? <PasteIcon /> : <CopyIcon />}
 	    </button>
