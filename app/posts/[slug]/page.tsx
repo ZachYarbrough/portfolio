@@ -86,11 +86,11 @@ const PostPage = async ({ params }: any) => {
           <BreadcrumbTrail />
           <PageHeader>{post.title}</PageHeader>
           <p style={{ color: 'var(--secondary)' }}>{post.date} <span style={{ fontWeight: 'bolder'}}>∙</span> {post.timeToRead} min read</p>
-          <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
             {post.tags.map((tag) => (
               <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>#{tag}</InternalLink>
             ))}
-          </ul>
+          </div>
           <MarkdownRenderer content={post.content} />        
 	  </div>
       </div>

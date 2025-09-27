@@ -19,10 +19,10 @@ const LeftSidebar = () => {
 	<SearchBar />
 	<DarkModeToggle />  
 	</div>
-	<ul className='flex flex-col highlight-text font-bold' style={{ gap: '0.5rem', margin: '0 0 1rem 0' }}>
-	<InternalLink href='/posts'>Posts</InternalLink>
-	<InternalLink href='/projects'>Projects</InternalLink>
-	</ul>
+	<div className='flex flex-col highlight-text font-bold' style={{ gap: '0.5rem', margin: '0 0 1rem 0' }}>
+	    <InternalLink href='/posts'>Posts</InternalLink>
+	    <InternalLink href='/projects'>Projects</InternalLink>
+	</div>
 	<LatestPosts latestPosts={latestPosts} />
 	</div>
     )

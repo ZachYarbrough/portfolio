@@ -35,13 +35,13 @@ const DropdownList = ({ title, topOfPage = false, children }: { title: string, t
                 transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
                 transition: 'transform 0.3s ease-in-out',
             }}><ArrowRightIcon /></span></h1>
-            <ul ref={ref} className={`flex flex-col gap-2`} style={{
+            <div ref={ref} className={`flex flex-col gap-2`} style={{
                 maxHeight: isExpanded ? `${dropdownHeight}px` : '0',
                 overflow: 'hidden',
                 transition: 'max-height 0.3s ease-in-out',
             }}>
                 {children}
-            </ul>
+            </div>
         </div>
     )
 }

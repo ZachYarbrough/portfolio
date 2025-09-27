@@ -108,19 +108,19 @@ const ProjectPage = async ({ params }: any) => {
 	<BreadcrumbTrail />
 	<PageHeader>{project.title}</PageHeader>
 	<p style={{ color: 'var(--secondary)' }}>{project.date}</p>
-	<ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
+	<div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
 	{project.tags.map((tag: string) => (
 	    <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>#{tag}</InternalLink>
 	))}
-	</ul>
+	</div>
 	{project?.live && <div className='font-bold'>Live: <ExternalLink href={project.live}>{project.live}</ExternalLink></div>}
 	{project?.source && <div className='font-bold'>Repository: <ExternalLink href={project.source}>{project.source}</ExternalLink></div>}
 	<PostHeader headerNumber={1.5} >Technologies Used</PostHeader>
-	<ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
+	<div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
 	{project.technologyUsed.map((technology: string) => (
 	    <InternalLink key={technology} useBubbleStyle={true} href={`/tags/${technology}`}>#{technology}</InternalLink>
 	))}
-	</ul>
+	</div>
 	<MarkdownRenderer content={project.content} />        
 	{project?.gallery?.length > 0 && 
 	    <div>

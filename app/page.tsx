@@ -60,20 +60,20 @@ const HomePage: NextPage = () => {
       </div>
       <p style={{ padding: '0.5rem 0' }}>Check out my personal setup and workflow in my <ExternalLink href='https://github.com/ZachYarbrough/dotfiles'>dotfiles</ExternalLink> repo.</p>
       <p style={{ padding: '0.5rem 0' }}>Skills include:</p>
-        <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', padding: '0.5rem 0' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', padding: '0.5rem 0' }}>
           {skills.map((skill) => (
             <InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`}>#{skill}</InternalLink>
           ))}
-        </ul>
+        </div>
       <p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/17332218-words-of-radiance?from_search=true&from_srp=true&qid=HMqRZTCwfD&rank=1'>Words of Radiance - Brandon Sanderson</ExternalLink></p>
 
       <div className='flex justify-between'>
       </div>
       <div style={{ margin: '1rem 0', width: '100%' }}>
         <PostHeader headerNumber={1.5} noCopy={true}>Featured Projects</PostHeader>
-        <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {projectPreviews}
-        </ul>
+        </div>
           <InternalLink style={{ marginTop: '1rem' }} href='/projects'>View More Projects <ArrowRightIcon /></InternalLink>
       </div>
       <div style={{ margin: '1rem 0' }}> 
@@ -82,10 +82,10 @@ const HomePage: NextPage = () => {
       </div>
       <div style={{margin: '1rem 0'}}>
         <PostHeader headerNumber={1.5} noCopy={true}>Recent Posts</PostHeader>
-        <ul>
+        <div>
           {postPreviews}
           <InternalLink href='/posts'>View More Posts <ArrowRightIcon /></InternalLink>
-        </ul>
+        </div>
       </div>
     </div>
       <BorderLine />
