@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: any) {
     const post = getProjectContent(params.slug)
 
     return {
-	title: post?.title + ' | Zach Yarbrough',
+	title: post?.title || params.slug + ' | Zach Yarbrough',
 	description: post?.description,
     }
 }

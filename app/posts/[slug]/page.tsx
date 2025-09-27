@@ -2,7 +2,7 @@ import { Post } from '@/app/types/posts'
 
 import fs from 'fs'
 import matter from 'gray-matter'
-import { getBacklink, getMetadata, getTimeToRead } from '@/app/components/data'
+import { getMetadata, getTimeToRead } from '@/app/components/data'
 import { formatDate, getTableOfContents } from '@/app/components/general'
 import InternalLink from '@/app/components/InternalLInk'
 import BreadcrumbTrail from '@/app/components/BreadcrumbTrail'
@@ -22,13 +22,14 @@ import { notFound } from 'next/navigation'
  */
 export const generateStaticParams = async () => {
   const posts = getMetadata('posts') || []
+  if (!posts) notFound()
   return posts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: any) {
   const post = getPostContent(params.slug)
   return {
-    title: post.title + ' | Zach Yarbrough',
+    title: post.title || params.slug + ' | Zach Yarbrough',
     description: post.description || '',
   }
 }
