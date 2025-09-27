@@ -1,7 +1,11 @@
-import type { NextConfig } from 'next';
+import { NextConfig } from 'next';
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const nextConfig: NextConfig = {
-    // Add configs here
+  swcMinify: true,
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
