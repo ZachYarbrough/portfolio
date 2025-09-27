@@ -148,61 +148,69 @@ tbody, li, p {
     font-size: 14px !important;
 }
 
-.light .code-block {
+.code-block {
     color: var(--primary);
 }
 
-.light .code-block span {
-    color: var(--highlight);
+.code-block .comment {
+    color: var(--secondary) !important;
 }
 
-.light .code-block .pl-c {
-    color: var(--secondary);
+.code-block .punctuation {
+    color: var(--primary) !important;
 }
 
-.light .code-block .pl-k {
-    color: var(--primary);
-}
-.light .code-block span,
-.light .code-block .pl-v {
-    color: #4F78A3;
+
+.dark .code-block .builtin {
+  color: #ff7b86 !important; /* Soft cherry pink/red on dark */
 }
 
-.light .code-block .pl-s,
-.light .code-block .pl-pds {
-    color: #C68900;
+.dark .code-block .keyword {
+  color: #ff6375 !important; /* Bright coral red */
 }
 
-.light .code-block .pl-smi,
-.light .code-block .pl-c1 {
-    color: #D9534F;
+.dark .code-block .operator,
+.dark .code-block .string,
+.dark .code-block .string-property,
+.dark .code-block .property {
+  color: #66b2ff !important; /* Clear sky blue */
 }
 
-.dark .code-block {
-    color: var(--primary);
+
+.dark .code-block .class-name {
+  color: #ff964d !important; /* Orange pop */
 }
 
-.dark .code-block span,
-.dark .code-block .pl-v {
-    color: #7AA6DA;
+.dark .code-block .function {
+  color: #c99eff !important; /* Lilac-purple for visibility */
 }
 
-.dark .code-block .pl-s,
-.dark .code-block .pl-pds {
-    color: #FFD580;
+.light .code-block .builtin {
+  color: #a62639 !important; /* A deep red to contrast on light background */
 }
 
-.dark .code-block .pl-smi,
-.dark .code-block .pl-c1 {
-    color: #FF6B6B;
+.light .code-block .keyword {
+  color: #d73a49 !important; /* A strong reddish keyword for visibility */
 }
 
-.dark .code-block .pl-c {
-    color: var(--secondary);
+.light .code-block .operator,
+.light .code-block .string,
+.light .code-block .string-property,
+.light .code-block .property {
+  color: #0366d6 !important; /* Deep readable blue for strings */
 }
 
-.dark .code-block .pl-k {
-    color: var(--primary);
+.light .code-block .class-name {
+  color: #e36209 !important; /* Orange-y tone for operators/classes */
+}
+
+.light .code-block .function {
+  color: #6f42c1 !important; /* Purple tone for functions */
+}
+
+.code-block .comment {
+  color: var(--secondary) !important;
+  font-style: italic;
 }
 
 /* Card styles */

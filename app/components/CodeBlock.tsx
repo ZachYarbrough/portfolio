@@ -3,24 +3,36 @@
 import { useEffect, useState } from 'react'
 import { copyToClipboard } from './general'
 import { CopyIcon, PasteIcon } from './assets/icons'
-import { createStarryNight, common } from '@wooorm/starry-night'
-import { toJsxRuntime,  } from 'hast-util-to-jsx-runtime'
-import * as runtime from 'react/jsx-runtime'
+import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
+import {Fragment, jsxs, jsx} from 'react/jsx-runtime'
 
-// Preload starry-night grammars
-let starryNightPromise: ReturnType<typeof createStarryNight> | null = null
-function getStarryNight() {
-    if (!starryNightPromise) {
-	starryNightPromise = createStarryNight(common)
-    }
-    return starryNightPromise
-}
+import {refractor} from 'refractor/core'
 
-const CodeBlock = ({ className, children }: { className: string, children: string }) => {
+import markdown from 'refractor/markdown'
+import typescript from 'refractor/typescript';
+import javascript from 'refractor/javascript';
+import bash from 'refractor/bash';
+
+refractor.register(typescript);
+refractor.register(javascript);
+refractor.register(bash);
+refractor.register(markdown)
+
+
+const CodeBlock = ({ className, children }: { className: string; children: string }) => {
     const [copied, setCopied] = useState(false)
     const [highlighted, setHighlighted] = useState<any>(null)
 
-    const language = className ? className.replace('lang-', '') : 'text'
+    const languageMap: Record<string, string> = {
+	ts: 'typescript',
+	js: 'javascript',
+	sh: 'bash',
+	shell: 'bash',
+	md: 'markdown',
+    };
+
+    const rawLang = className?.replace('lang-', '') || 'text';
+    const language = languageMap[rawLang] || rawLang;
 
     const handleCopy = async () => {
 	await copyToClipboard(children)
@@ -28,45 +40,31 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
 	setTimeout(() => setCopied(false), 2000)
     }
 
+
     useEffect(() => {
-	const highlight = async () => {
-	    const sn = await getStarryNight()
-	    const scope = sn.flagToScope(language) ?? 'source.tsx' // fallback
-	    const tree = sn.highlight(children, scope)
+	const tree = refractor.highlight(children, language)
 
-	    const hast: any = {
-		type: 'element',
-		tagName: 'pre',
-		properties: { className: ['code-block', `language-${language}`] },
-		children: [
-		    {
-			type: 'element',
-			tagName: 'code',
-			properties: { className: [`language-${language}`] },
-			children: tree.children,
-		    },
-		],
-	    }
-
-	    const jsx = toJsxRuntime(hast, { Fragment: runtime.Fragment, jsx: runtime.jsx, jsxs: runtime.jsxs })
-	    setHighlighted(jsx)
-	}
-
-	highlight()
-    }, [children, language])
+	setHighlighted(toJsxRuntime(tree, {Fragment, jsxs, jsx}))
+    }, [children, language]);
 
     return (
-	<div className="group relative" style={{ borderRadius: '0.5rem', backgroundColor: 'var(--secondary-light)',  padding: '1rem', margin: '1rem 0rem' }}>
-	<button
-	onClick={handleCopy}
-	className="absolute z-5
-	opacity-0 group-hover:opacity-100 transition-opacity ease-out secondary-color duration-300"
-	style={{ top: '0.5rem', right: '0.5rem' }}
+	<div
+	    className="group relative"
+	    style={{
+		borderRadius: '0.5rem',
+		backgroundColor: 'var(--secondary-light)',
+		padding: '1rem',
+		margin: '1rem 0rem',
+	    }}
 	>
-	{copied ? <PasteIcon /> : <CopyIcon />}
-	</button>
-
-	{highlighted}
+	    <button
+		onClick={handleCopy}
+		className="absolute z-5 opacity-0 group-hover:opacity-100 transition-opacity ease-out secondary-color duration-300"
+		style={{ top: '0.5rem', right: '0.5rem' }}
+	    >
+		{copied ? <PasteIcon /> : <CopyIcon />}
+	    </button>
+	    <div className='code-block'>{highlighted ? highlighted : <pre><code>{children}</code></pre>}</div>
 	</div>
     )
 }
