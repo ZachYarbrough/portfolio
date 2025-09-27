@@ -1,10 +1,10 @@
 'use client'
 
-import { useContext, useRef } from "react"
+import { useContext } from "react"
 import { SearchIcon } from "./assets/icons"
 import { SearchContext } from "./context/searchContext"
 
-const SearchBar = ({ width='85%'}: {width: string})  => {
+const SearchBar = ({ width='85%'}: {width?: string})  => {
     const { toggleSearch } = useContext(SearchContext)
 
     return (
