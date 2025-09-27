@@ -41,7 +41,8 @@ export const getRelativePosts = (post: string) => {
  * @param {number} amount - Optional limit on number of posts to return (0 returns all)
  * @returns {PostMetadata[]} Array of post metadata objects containing title, description, date, tags, etc
  */
-export const getMetadata = (folder: string = '', amount: number = 0): PostMetadata[] => {
+export const getMetadata = (folder: string = '', amount: number = 0): PostMetadata[] | null => {
+    try {
     const files = fs.readdirSync(folder)
     const markdownPosts = files.filter((file) => file.endsWith('.md'))
 
@@ -75,6 +76,10 @@ export const getMetadata = (folder: string = '', amount: number = 0): PostMetada
     const sortedPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
     return amount > 0 ? sortedPosts.slice(0, amount) : sortedPosts
+    } catch (err) {
+	console.log(err)
+	return null
+    }
 }
 
 /**

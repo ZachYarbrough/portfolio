@@ -29,11 +29,13 @@ import { notFound } from 'next/navigation'
 */
 export const generateStaticParams = async () => {
     const projects = getMetadata('projects')
+    if (!projects) return notFound()
     return projects.map((project: any) => ({ slug: project.slug }))
 }
 
 export async function generateMetadata({ params }: any) {
     const post = getProjectContent(params.slug)
+
     return {
 	title: post?.title + ' | Zach Yarbrough',
 	description: post?.description,
