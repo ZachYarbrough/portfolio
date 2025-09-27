@@ -57,12 +57,12 @@ const CodeBlock = ({ className, children }: { className: string, children: strin
     }, [children, language])
 
     return (
-	<div className="group relative" style={{ borderRadius: '5px', border: '1px solid #d1d5db', padding: '0.5rem', margin: '1rem 0rem' }}>
+	<div className="group relative" style={{ borderRadius: '0.5rem', backgroundColor: 'var(--secondary-light)',  padding: '1rem', margin: '1rem 0rem' }}>
 	<button
 	onClick={handleCopy}
 	className="absolute z-5
 	opacity-0 group-hover:opacity-100 transition-opacity ease-out secondary-color duration-300"
-	style={{ background: 'transparent', top: '0.5rem', right: '0.5rem' }}
+	style={{ top: '0.5rem', right: '0.5rem' }}
 	>
 	{copied ? <PasteIcon /> : <CopyIcon />}
 	</button>

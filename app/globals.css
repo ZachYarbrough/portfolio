@@ -92,7 +92,7 @@ tbody, li, p {
 }
 
 .secondary-color:hover {
-  color: var(--primary);
+  color: var(--highlight);
 }
 
 @media (min-width: 1500px) {
@@ -176,14 +176,6 @@ tbody, li, p {
 .light .code-block .pl-smi,
 .light .code-block .pl-c1 {
     color: #D9534F;
-}
-
-.light .code-block .pl-c {
-    color: var(--secondary);
-}
-
-.light .code-block .pl-k {
-    color: var(--primary);
 }
 
 .dark .code-block {
