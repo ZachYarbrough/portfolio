@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: any) {
 }
 
 const getRelativePostContent = (slug: string): any => {
+    try {
     const folder = 'posts/'
     const file = `${folder}${slug}.md`
     const content = fs.readFileSync(file, 'utf8')
@@ -50,6 +51,10 @@ const getRelativePostContent = (slug: string): any => {
 	title: matterResult.data.title,
 	slug: slug,
 	folder: 'posts'
+    }
+    } catch(err) {
+	console.log(err)
+	return null
     }
 } 
 
@@ -106,7 +111,7 @@ const ProjectPage = async ({ params }: any) => {
     const { slug } = await params
     const project: Project | null = getProjectContent(slug)
 
-    if (!project) return { notFound: true }
+    if (!project) return notFound()
 
     return (
 	<>
