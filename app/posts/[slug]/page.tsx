@@ -13,6 +13,7 @@ import BorderLine from '@/app/components/BorderLine'
 import ContentFooter from '@/app/components/ContentFooter'
 import MarkdownRenderer from '@/app/components/MarkdownRenderer'
 import Head from 'next/head'
+import { notFound } from 'next/navigation'
 
 /**
  * Generates static paths for all posts
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: any) {
  * @returns {Post} A Post object containing the post's metadata and content
  */
 const getPostContent = (slug: string, isRelativePost: boolean = false): any => {
+    try {
   const folder = 'posts/'
   const file = `${folder}${slug}.md`
   const content = fs.readFileSync(file, 'utf8')
@@ -68,6 +70,10 @@ const getPostContent = (slug: string, isRelativePost: boolean = false): any => {
     related: relatedPosts,
     content: matterResult.content
   }
+    } catch (err) {
+	console.log(err)
+	notFound()
+    }
 } 
 
 

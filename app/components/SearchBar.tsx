@@ -4,7 +4,7 @@ import { useContext, useRef } from "react"
 import { SearchIcon } from "./assets/icons"
 import { SearchContext } from "./context/searchContext"
 
-const SearchBar = () => {
+const SearchBar = ({ width='85%'}: {width: string})  => {
     const { toggleSearch } = useContext(SearchContext)
 
     return (
@@ -13,7 +13,7 @@ const SearchBar = () => {
 	    padding: '0.2rem 0.5rem',
 	    backgroundColor: 'var(--secondary-light)',
 	    borderRadius: '0.5rem',
-	    width: '85%',
+	    width: width,
 	    cursor: 'text'
 	}} onClick={() => toggleSearch(true)}>
 	<p>Search</p>

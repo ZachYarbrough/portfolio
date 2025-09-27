@@ -21,6 +21,7 @@ import { Project } from '@/app/types/posts'
 import ContentFooter from '@/app/components/ContentFooter'
 import MarkdownRenderer from '@/app/components/MarkdownRenderer'
 import ExternalLink from '@/app/components/ExternalLink'
+import { notFound } from 'next/navigation'
 /**
     * Generates static paths for all projects
 * 
@@ -59,6 +60,7 @@ const getRelativePostContent = (slug: string): any => {
 * @returns {Post} A Post object containing the post's metadata and content
 */
 const getProjectContent = (slug: string): Project => {
+    try {
     const folder = 'projects/'
     const file = `${folder}${slug}.md`
     const content = fs.readFileSync(file, 'utf8')
@@ -87,6 +89,10 @@ const getProjectContent = (slug: string): Project => {
 	content: matterResult.content,
 	source: matterResult.data.source,
 	live: matterResult.data.live
+    }
+    } catch (err) {
+	console.log(err)
+	notFound()
     }
 }
 
