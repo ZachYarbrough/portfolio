@@ -72,14 +72,16 @@ const getPostContent = (slug: string, isRelativePost: boolean = false): any => {
   }
     } catch (err) {
 	console.log(err)
-	notFound()
+	return null
     }
 } 
 
 
 const PostPage = async ({ params }: any) => {
   const { slug } = await params
-  const post: Post = getPostContent(slug)
+  const post: Post | null = getPostContent(slug)
+
+  if (!post) notFound()
 
   return (
     <>

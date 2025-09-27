@@ -59,7 +59,7 @@ const getRelativePostContent = (slug: string): any => {
     * @param {string} slug - The slug of the project to retrieve
 * @returns {Post} A Post object containing the post's metadata and content
 */
-const getProjectContent = (slug: string): Project => {
+const getProjectContent = (slug: string): Project | null => {
     try {
     const folder = 'projects/'
     const file = `${folder}${slug}.md`
@@ -92,7 +92,7 @@ const getProjectContent = (slug: string): Project => {
     }
     } catch (err) {
 	console.log(err)
-	notFound()
+	return null	
     }
 }
 
@@ -104,7 +104,9 @@ const getGalleryImages = (path: string) => {
 
 const ProjectPage = async ({ params }: any) => {
     const { slug } = await params
-    const project: Project = getProjectContent(slug)
+    const project: Project | null = getProjectContent(slug)
+
+    if (!project) notFound()
 
     return (
 	<>
