@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: any) {
   const post = getPostContent(params.slug)
 
   return {
-    title: post?.title || '404 - Not Found' + ' | Zach Yarbrough',
+    title: (post?.title || '404 - Not Found') + ' | Zach Yarbrough',
     description: post?.description || '',
   }
 }
