@@ -59,11 +59,12 @@ const HomePage: NextPage = () => {
 			<li><ExternalLink isMail={true} href={email}>Email</ExternalLink></li>
 		    </ul>
 		    <DropdownList startExpanded={false} title="Extras" style={{ margin: '1rem 0 0 0' }}>
-			<p style={{ paddingTop: '0.5rem' }}>Check out my personal setup and workflow in my <ExternalLink href='https://github.com/ZachYarbrough/dotfiles'>dotfiles</ExternalLink> repo.</p>
+			<p style={{ paddingTop: '1rem' }}>Check out my personal setup and workflow in my <ExternalLink href='https://github.com/ZachYarbrough/dotfiles'>dotfiles</ExternalLink> repo.</p>
 			<p style={{ paddingTop: '0.5rem' }}>Skills include:</p>
 			<div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', paddingTop: '0.5rem' }}>
 			    {skills.map((skill) => (
-				<InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`}>#{skill}</InternalLink>
+				<InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`} style={{ backgroundColor: 'var(--secondary-lighter)', padding: '2px 4px',
+		    borderRadius: '0.4rem' }}>#{skill}</InternalLink>
 			    ))}
 			</div>
 			<p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/17332218-words-of-radiance?from_search=true&from_srp=true&qid=HMqRZTCwfD&rank=1'>Words of Radiance - Brandon Sanderson</ExternalLink></p>

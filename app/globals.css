@@ -19,7 +19,7 @@ tbody, li, p {
     --primary: #4E4E4E;
     --secondary: #999999;
     --secondary-light: hsl(151, 0%, 92%);
-    --secondary-lighter: #e6e6e6; 
+    --secondary-lighter: hsl(151, 20%, 95%); /* lighter, subtle hint of green */
     --note: rgb(129, 173, 250);
     --notebg: rgb(129, 173, 250, 0.1);
     --warning: rgb(252, 149, 158); 
