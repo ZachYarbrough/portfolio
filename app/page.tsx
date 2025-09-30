@@ -58,7 +58,7 @@ const HomePage: NextPage = () => {
 			<li><ExternalLink href={githubUrl}>Github</ExternalLink></li>
 			<li><ExternalLink isMail={true} href={email}>Email</ExternalLink></li>
 		    </ul>
-		    <DropdownList startExpanded={false} title="Extras" style={{ margin: '1rem 0 0 0' }}>
+		    <DropdownList startExpanded={false} title="More Info" style={{ margin: '1rem 0 0 0' }}>
 			<p style={{ paddingTop: '1rem' }}>Check out my personal setup and workflow in my <ExternalLink href='https://github.com/ZachYarbrough/dotfiles'>dotfiles</ExternalLink> repo.</p>
 			<p style={{ paddingTop: '0.5rem' }}>Skills include:</p>
 			<div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', paddingTop: '0.5rem' }}>
