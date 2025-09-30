@@ -307,3 +307,20 @@ a[title] span {
 .light ::-webkit-scrollbar-thumb:hover {
   background: var(--background);
 }
+
+
+.arrow-link .arrow {
+  display: inline-block;     /* Needed for transform */
+  transition: transform 0.3s ease-in-out; /* Smooth animation for the arrow */
+}
+
+.arrow-link:hover .arrow {
+  transform: translateX(4px); /* Arrow slides to the right */
+}
+
+.dropdown-content {
+  background-color: rgba(56, 54, 57, 0.8); /* dark tag color with alpha */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(4px); /* optional, softens overlapping content */
+}
