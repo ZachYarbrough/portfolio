@@ -1,7 +1,7 @@
 import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  swcMinify: true,
+    // add configs here
 };
 
 export default nextConfig;
