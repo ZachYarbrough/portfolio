@@ -8,7 +8,7 @@ const DarkModeToggle = () => {
     const currentTheme = theme === 'system' ? systemTheme : theme;
 
     return (
-        <button className='cursor-pointer' title='dark-mode-toggle' onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}>
+        <button className='theme-toggle' title='dark-mode-toggle' onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}>
             { currentTheme === 'dark' ? <MoonIcon /> : <SunIcon /> }
         </button>
     )

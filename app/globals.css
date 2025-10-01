@@ -324,3 +324,21 @@ a[title] span {
   border-radius: 0.5rem;
   backdrop-filter: blur(4px); /* optional, softens overlapping content */
 }
+
+/* Base styles */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease; /* smooth for subtle effects */
+}
+
+/* Hover: subtle spin */
+.theme-toggle:hover {
+  transform: rotate(20deg); /* small rotation */
+}
+
