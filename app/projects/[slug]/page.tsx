@@ -105,7 +105,7 @@ const getProjectContent = (slug: string): Project | null => {
 
 const getGalleryImages = (path: string) => {
     const files = fs.readdirSync(path)
-    const imageFiles = files.filter((file) => file.endsWith('.jpg') || file.endsWith('webp') || file.endsWith('jpeg') || file.endsWith('png'))
+    const imageFiles = files.filter((file) => !file.includes('_blurred') && (file.endsWith('.jpg') || file.endsWith('webp') || file.endsWith('jpeg') || file.endsWith('png')))
     return imageFiles
 }
 
