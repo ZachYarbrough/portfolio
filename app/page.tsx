@@ -63,8 +63,7 @@ const HomePage: NextPage = () => {
 			<p style={{ paddingTop: '0.5rem' }}>Skills include:</p>
 			<div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', paddingTop: '0.5rem' }}>
 			    {skills.map((skill) => (
-				<InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`} style={{ backgroundColor: 'var(--secondary-lighter)', padding: '2px 4px',
-		    borderRadius: '0.4rem' }}>#{skill}</InternalLink>
+				<InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`} parentClass='more-info-tag-color'>#{skill}</InternalLink>
 			    ))}
 			</div>
 			<p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/17332218-words-of-radiance?from_search=true&from_srp=true&qid=HMqRZTCwfD&rank=1'>Words of Radiance - Brandon Sanderson</ExternalLink></p>

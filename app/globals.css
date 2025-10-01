@@ -19,7 +19,8 @@ tbody, li, p {
     --primary: #4E4E4E;
     --secondary: #999999;
     --secondary-light: hsl(151, 0%, 92%);
-    --secondary-lighter: hsl(151, 20%, 95%); /* lighter, subtle hint of green */
+    --secondary-lighter: hsl(151, 0%, 87%); /* lighter, subtle hint of green */
+    --secondary-lightest: hsl(151, 0%, 80%); /* lighter, subtle hint of green */
     --note: rgb(129, 173, 250);
     --notebg: rgb(129, 173, 250, 0.1);
     --warning: rgb(252, 149, 158); 
@@ -40,6 +41,7 @@ tbody, li, p {
     --secondary: #B8B8B8;
     --secondary-light: #383639;
     --secondary-lighter: #4D4D4D;
+    --secondary-lightest: #5D5D5D; 
     --note: rgb(129, 173, 250);
     --notebg: rgb(129, 173, 250, 0.1);
     --warning: rgb(252, 149, 158); 
@@ -85,6 +87,14 @@ tbody, li, p {
 
 .secondary-link-color:hover {
     background: var(--secondary-lighter);
+}
+
+.more-info-tag-color {
+    background: var(--secondary-lighter) !important;
+}
+
+.more-info-tag-color:hover {
+    background: var(--secondary-lightest) !important;
 }
 
 .secondary-color {
