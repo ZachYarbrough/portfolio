@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { CodeBracketIcon, GlobeIcon } from './assets/icons'
 import ExternalLink from './ExternalLink'
 import InternalLink from './InternalLInk'
+import Image from './Image'
 
 const ProjectPreview = ({ slug, title, source, live, description, preview, hidePreview = false }: any) => {
     const [width, setWidth] = useState(0)
@@ -27,7 +28,7 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
         <>
             {width >= 768 && <div style={{ border: '1px solid var(--secondary-light)', backgroundColor: 'var(--secondary-light)', borderRadius: '0.5rem', padding: '1rem', margin: '1rem 0.3rem 0rem 0.3rem', width: '32%' }}>
                 {!hidePreview && <InternalLink href={`/projects/${slug}`}>
-                    <img src={preview} alt={title} className="scale-image" style={{ width: '206px', height: '115px', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} loading="lazy" />
+                    <Image src={preview} alt={title} className="scale-image" imgStyle={{ width: '206px', height: '115px', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} hideModal={true} />
                 </InternalLink>}
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <InternalLink href={`/projects/${slug}`}>
@@ -49,7 +50,7 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
                     {!hidePreview &&
                         <div style={{ width: '206px', marginRight: '1rem' }}>
                             <InternalLink href={`/projects/${slug}`}>
-                                <img src={preview} alt={title} className="scale-image" style={{ width: '100%', height: '100%', maxWidth: '206px', maxHeight: '115px', objectFit: 'contain', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} />
+				<Image src={preview} alt={title} className="scale-image" imgStyle={{ width: '206px', hieght: '1rem', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} hideModal={true} />
                             </InternalLink>
                         </div>
                     }
