@@ -44,16 +44,16 @@ export async function generateMetadata({ params }: any) {
 
 const getRelativePostContent = (slug: string): any => {
     try {
-    const folder = 'posts/'
-    const file = `${folder}${slug}.md`
-    const content = fs.readFileSync(file, 'utf8')
-    const matterResult = matter(content)
+	const folder = 'posts/'
+	const file = `${folder}${slug}.md`
+	const content = fs.readFileSync(file, 'utf8')
+	const matterResult = matter(content)
 
-    return {
-	title: matterResult.data.title,
-	slug: slug,
-	folder: 'posts'
-    }
+	return {
+	    title: matterResult.data.title,
+	    slug: slug,
+	    folder: 'posts'
+	}
     } catch(err) {
 	console.log(err)
 	return null
@@ -142,10 +142,14 @@ const ProjectPage = async ({ params }: any) => {
 			    <PostHeader headerNumber={1.5}>Gallery</PostHeader>
 			    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
 				{project.gallery.map((imagePath: string) => {
-				    return <Image key={imagePath} src={project.gallery_path.split('public')[1] + imagePath} alt={imagePath} className='sm-display-none scale-image' style={{ width: '45%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)', margin: '0.5rem' }} />
+				    return <div key={imagePath} style={{ margin: '0.5rem', width: '45%', height: 'auto' }}>
+					<Image src={project.gallery_path.split('public')[1] + imagePath} alt={imagePath} className='sm-display-none scale-image' imgStyle={{ width: '100%', height: '100%', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} />
+				    </div>
 				})}	
 				{project.gallery.map((imagePath: string) => {
-				    return <Image key={imagePath} src={project.gallery_path.split('public')[1] + imagePath} alt={imagePath} className='sm-display' style={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)', margin: '0.5rem 0 0.5rem 0' }} hideModal={true} />
+				    return <div key={imagePath} style={{ margin: '0.5rem 0', width: '100%', height: 'auto' }}>
+					<Image src={project.gallery_path.split('public')[1] + imagePath} alt={imagePath} className='sm-display' imgStyle={{ width: '100%', height: 'auto', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} hideModal={true} />
+				    </div>
 				})}
 			    </div>
 			</div>

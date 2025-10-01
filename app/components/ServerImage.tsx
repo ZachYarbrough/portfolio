@@ -36,7 +36,7 @@ const Image = (props: ImageProps) => {
     }, [src])
 
     const blurredSrc = src ? `${src.split('.webp')[0]}_blurred.webp` : ''
-
+    console.log(imgStyle)
     return (
 	<div
 	    ref={containerRef}
@@ -53,10 +53,9 @@ const Image = (props: ImageProps) => {
 		src={src}
 		style={{ ...imgStyle }}
 		alt={alt}
-		width={800}
-		height={400}
-		loading="lazy"
-		priority={false}
+		width={8000}
+		height={4000}
+		priority
 	    />
 	</div>
     )
