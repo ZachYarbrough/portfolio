@@ -7,7 +7,7 @@ related: []
 
 ![todo-list-demo](/images/posts/todo-list-demo.gif)
 
-One of the things I love most about using Neovim is how personal it can become. It’s not just a text editor, it’s a toolbox you can shape to fit exactly how you work. Plugins play a huge role in that, and with Lua as the configuration language, it’s surprisingly approachable to write your own.
+One of the things I love most about using Neovim is how personalized you can make it. It’s not just a simple text editor, it’s a toolbox you can shape to fit exactly how you work. Plugins play a huge role in that, and with Lua as the configuration language, it’s surprisingly approachable to write your own.
 Recently, I decided to try my hand at it and write my very first Neovim plugin: [todo-list.nvim](https://github.com/ZachYarbrough/todo-list.nvim).
 # Idea
 Like many developers, I rely on TODO, FIXME, and BUG comments in my code to track small tasks or problem areas. I’ve been using [todo-comments.nvim](https://github.com/folke/todo-comments.nvim/tree/main) for a bit, and it’s a fantastic plugin with tons of features.
