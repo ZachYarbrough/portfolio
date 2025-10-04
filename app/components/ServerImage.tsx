@@ -35,7 +35,7 @@ const Image = (props: ImageProps) => {
 	}
     }, [src])
 
-    const blurredSrc = src ? `${src.split('.webp')[0]}_blurred.webp` : ''
+    const blurredSrc = src ? `${src.replace(/\.[^.]+$/, '')}_blurred.webp` : ''
     console.log(imgStyle)
     return (
 	<div
