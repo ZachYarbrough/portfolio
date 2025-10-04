@@ -35,7 +35,7 @@ const PostHeader = ({ headerNumber, noCopy = false, children }: { headerNumber: 
 	    fontSize: `${headerNumber}rem`,
 	    fontWeight: '700',
 	}}>{children}</h1>
-	{showCopy && !noCopy && <a onClick={(e) => {
+	{(showCopy && !noCopy) ? <a onClick={(e) => {
 	    e.preventDefault()
 	    handleCopy()
 
@@ -53,7 +53,7 @@ const PostHeader = ({ headerNumber, noCopy = false, children }: { headerNumber: 
 
 	    // update the URL hash manually
 	    window.history.pushState(null, '', header)
-	}} href={header} className='cursor-pointer hover:text-highlight'><LinkIcon /></a>}
+	}} href={header} className='cursor-pointer hover:text-highlight'><LinkIcon /></a> : <span className='size-6'></span>}
 	</div>
     )
 }

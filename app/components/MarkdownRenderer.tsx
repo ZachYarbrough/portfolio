@@ -22,7 +22,7 @@ const MarkdownRenderer = ({ content }: { content: string }) => {
                 h4: { component: PostHeader, props: { headerNumber: 1 } },
                 blockquote: { component: BlockQuote },
                 ul: { component: BulletLists },
-                img: { component: Image }
+                img: { component: (props) => <Image src={props.src} alt={props.alt} imgStyle={{ width: '100%', height: '100%', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} /> }
             }
         }}>
             {content}
