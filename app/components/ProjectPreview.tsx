@@ -50,7 +50,7 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, hideP
                     {!hidePreview &&
                         <div style={{ width: '206px', marginRight: '1rem' }}>
                             <InternalLink href={`/projects/${slug}`}>
-				<Image src={preview} alt={title} className="scale-image" imgStyle={{ cursor: 'pointer', width: '206px', height: '115px', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} hideModal={true} />
+				<Image src={preview} alt={title} className="scale-image" imgStyle={{ cursor: 'pointer', width: '155px', height: '90px', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} hideModal={true} />
                             </InternalLink>
                         </div>
                     }
