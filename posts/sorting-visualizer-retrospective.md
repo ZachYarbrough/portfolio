@@ -8,7 +8,7 @@ related: []
 # Goals
 My main goal for this project was to gain a deeper understanding of sorting algorithms. I’ve always found that visualizing complex concepts helps me learn more effectively, so I wanted to create an interactive way to explore how these algorithms work in practice. Building a visualization tool gave me the chance to study the algorithms closely while also sharpening my frontend development skills.
 # What Went Well
-I’m especially proud of how the site’s visual style turned out. I used Edwin’s article, [Retro CRT terminal screen in CSS + JS](https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh), as inspiration to give the site a mock-CRT aesthetic. This retro look gives the project a unique personality and makes the experience more engaging.
+I’m especially proud of how the site’s visual style turned out. I used Edwin’s article, [Retro CRT terminal screen in CSS + JS](https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh), as inspiration to give the site a mock CRT aesthetic. This retro look gives the project a unique personality and makes the experience more engaging.
 
 On the functional side, I’m happy with how responsive the chart feels. Adjusting the speed mid-simulation works seamlessly, and the visualization updates immediately without breaking. Additionally, clicking any control button resets the graph smoothly, which makes it easy to restart and experiment with different algorithms without hassle.
 # Challenges

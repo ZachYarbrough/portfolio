@@ -17,7 +17,7 @@ The plugin is straightforward.
 It runs ripgrep under the hood to scan through your project and find any TODO, FIXME, or BUG comments.
 It then aggregates those results into a clean list.
 Finally, it opens the list in a floating window buffer right inside Neovim. You can then select the TODO you want to look at or update jump to it with ease.
-It’s minimal by design: no highlights, no extra integrations—just a searchable, interactive list that gets out of your way when you don’t need it.
+It’s minimal by design: no highlights, no extra integrations, just a searchable, interactive list that gets out of your way when you don’t need it.
 # Why This Matters
 **todo-list.nvim** is simple, nothing fancy. I mostly built it to get some hands-on experience writing a Neovim plugin while experimenting with Lua. And honestly, it wasn’t as intimidating as I expected. Lua is easy to read and write, and Neovim’s API makes it possible to do powerful things with just a few lines of code.
 This project reminded me why I love Neovim: you’re not locked into someone else’s vision of how things “should” work. You can pick and choose, and even build your own tools when you want something different.
