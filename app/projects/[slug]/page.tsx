@@ -34,7 +34,8 @@ export const generateStaticParams = async () => {
 }
 
 export async function generateMetadata({ params }: any) {
-    const post = getProjectContent(await params.slug)
+    const data = await params
+    const post = getProjectContent(data.slug)
 
     return {
 	title: (post?.title || '404 - Not Found') + ' | Zach Yarbrough',

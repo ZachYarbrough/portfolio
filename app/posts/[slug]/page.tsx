@@ -27,7 +27,8 @@ export const generateStaticParams = async () => {
 }
 
 export async function generateMetadata({ params }: any) {
-  const post = getPostContent(await params.slug)
+  const data = await params
+  const post = getPostContent(data.slug)
 
   if (!post) {
     notFound()
