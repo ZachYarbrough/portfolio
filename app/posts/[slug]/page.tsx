@@ -29,8 +29,12 @@ export const generateStaticParams = async () => {
 export async function generateMetadata({ params }: any) {
   const post = getPostContent(params.slug)
 
+  if (!post) {
+    notFound()
+  }
+
   return {
-    title: (post?.title || '404 - Not Found') + ' | Zach Yarbrough',
+    title: post?.title + ' | Zach Yarbrough',
     description: post?.description || '',
   }
 }
