@@ -49,6 +49,6 @@ zach.greet();
 Finally, I had to be intentional about not over-engineering the project. It was tempting to add more features than necessary, but maintaining focus ensured the site stayed lightweight, maintainable, and user-friendly.
 
 # Lessons Learned
-This project reinforced the value of simplicity. By keeping the tech stack focused and relying on markdown for content, I built a system that’s easy to maintain and extend in the future. I also learned more about the practical trade-offs of working with Next.js — what it simplifies, and where you need to dig deeper.
+This project reinforced the value of simplicity. By keeping the tech stack focused and relying on markdown for content, I built a system that’s easy to maintain and extend in the future. I also learned more about the practical trade-offs of working with Next.js, what it simplifies, and where you need to dig deeper.
 
 **Repository:** [https://github.com/ZachYarbrough/portfolio](https://github.com/ZachYarbrough/portfolio)
