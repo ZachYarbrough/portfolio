@@ -4,7 +4,7 @@ import ExperiencePreview from './ExperiencePreview'
 
 
 const Experience = () => {
-  const [toggle, setToggle] = useState<'work' | 'education'>('work')
+  const [toggle, setToggle] = useState<'work' | 'education'>('education')
 
   return (
     <div style={{ marginTop: '1rem' }}>
@@ -30,6 +30,17 @@ const Experience = () => {
             zIndex: 0,
           }}
         ></div>
+	<button
+          onClick={() => setToggle('education')}
+          style={{
+            fontWeight: toggle === 'education' ? 'bold' : 'normal',
+	    cursor: toggle === 'education' ? 'text' : 'pointer',
+	    width: '50%',
+	    height: '100%',
+	    zIndex: 1,
+          }}        >
+          Education
+        </button>
         <button
           onClick={() => setToggle('work')}
           style={{
@@ -41,17 +52,6 @@ const Experience = () => {
           }}
         >
           Work
-        </button>
-        <button
-          onClick={() => setToggle('education')}
-          style={{
-            fontWeight: toggle === 'education' ? 'bold' : 'normal',
-	    cursor: toggle === 'education' ? 'text' : 'pointer',
-	    width: '50%',
-	    height: '100%',
-	    zIndex: 1,
-          }}        >
-          Education
         </button>
       </div>
 
