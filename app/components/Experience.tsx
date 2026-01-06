@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import ExperiencePreview from './ExperiencePreview'
 
-
+// TODO: Add a More Info section to Work/Education entries for more context
 const Experience = () => {
   const [toggle, setToggle] = useState<'work' | 'education'>('education')
 
