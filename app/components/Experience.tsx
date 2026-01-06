@@ -21,7 +21,7 @@ const Experience = () => {
           style={{
             position: 'absolute',
             top: 0,
-            left: toggle === 'work' ? '0%' : '50%',
+            left: toggle === 'work' ? '50%' : '0%', // change if education/work order need to be swapped
             width: '50%',
             height: '100%',
             backgroundColor: 'var(--secondary-light)',
