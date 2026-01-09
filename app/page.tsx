@@ -66,7 +66,7 @@ const HomePage: NextPage = () => {
 				<InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`} parentClass='more-info-tag-color'>#{skill}</InternalLink>
 			    ))}
 			</div>
-			<p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/17332218-words-of-radiance?from_search=true&from_srp=true&qid=HMqRZTCwfD&rank=1'>Words of Radiance - Brandon Sanderson</ExternalLink></p>
+			<p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/44492287-heretics-of-dune'>Heretics of Dune - Frank Herbert</ExternalLink></p>
 		    </DropdownList>
 		</div>
 		<div className='flex justify-between'>
