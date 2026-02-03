@@ -2,4 +2,4 @@ export const linkedInUrl = 'https://www.linkedin.com/in/zachary-yarbrough-751835
 export const githubUrl = 'https://github.com/ZachYarbrough'
 export const email = 'zacharyarbro@gmail.com'
 
-export const skills = ['react', 'nextjs', 'javascript', 'typescript', 'nodejs', 'expressjs', 'python', 'django',  'tailwind', 'css', 'sql', 'nosql', 'git']
+export const skills = ['typescript', 'react', 'nextjs', 'tailwind', 'postgres', 'mongodb', 'python', 'git']
