@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 
+// TODO - Add a color option for specific tags (languages and technologies)
 const InternalLink = ({ href = null, children, useBubbleStyle = false, style = {}, parentClass = '', onClickCallback = () => {}, isHighlighted = false }: { href: string | null, useBubbleStyle?: boolean, children: React.ReactNode, style?: React.CSSProperties, parentClass?: string, onClickCallback?: () => void, isHighlighted?: boolean }) => {
 
 

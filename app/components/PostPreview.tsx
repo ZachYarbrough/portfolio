@@ -42,7 +42,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                     <div key={tag}>
                         <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)} isHighlighted={index != -1 && highlightedIndex === index}
                         >
-                            #{tag}
+                            {tag}
                         </InternalLink>
                     </div>
                 )
@@ -55,7 +55,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                     <div key={tag}>
                         <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)} isHighlighted={index != -1 && highlightedIndex === index}
                         >
-                            #{tag}
+                            {tag}
                         </InternalLink>
                     </div>
                 )
@@ -77,7 +77,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                     <div key={tag}>
                         <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} onClickCallback={() => toggleSearch(false)} isHighlighted={index != -1 && highlightedIndex === index}
                         >
-                            #{tag}
+                            {tag}
                         </InternalLink>
                     </div>
                 ))}

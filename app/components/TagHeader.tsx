@@ -51,7 +51,7 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
                     padding: '0 0.4rem',
                     backgroundColor: 'var(--secondary-light)',
                     borderRadius: '0.4rem',
-                }}>#{children}</h1>}
+                }}>{children}</h1>}
             {showCopy && tag ? <a href={header} onClick={handleCopy} className='cursor-pointer hover:text-highlight'><LinkIcon /></a> : 
 		showCopy && <span onClick={handleCopy} className='cursor-pointer hover:text-highlight'><LinkIcon /></span>}
         </div>

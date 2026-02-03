@@ -23,7 +23,7 @@ const BreadcrumbTrail = ({ isTag }: { isTag?: boolean }) => {
                 const formattedPath = path.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
                 return (
                     <InternalLink key={index} href={currentPath}>
-                        {isTag && index + 1 === pathnameArray.length ? '#' + path : formattedPath}
+                        {isTag && index + 1 === pathnameArray.length ? path : formattedPath}
                         {index !== pathnameArray.length - 1 && <span className='text-primary'><ArrowRightIcon /></span>}
                     </InternalLink>
                 )

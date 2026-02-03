@@ -5,7 +5,6 @@ import PostPreview from './components/PostPreview';
 import PageHeader from './components/PageHeader';
 import PostHeader from './components/PostHeader';
 import InternalLink from './components/InternalLInk';
-import { ArrowRightIcon, NavArrowRightIcon } from './components/assets/icons';
 import BorderLine from './components/BorderLine';
 import { skills } from './config';
 import ProjectPreview from './components/ProjectPreview';
@@ -51,7 +50,7 @@ const HomePage: NextPage = () => {
 		    <p style={{ padding: '0 0 0.5rem 0 ' }}>
 			I am a <span className='font-bold'>Full-Stack Developer</span> specializing in the MERN stack. I'm currently pursuing my <span className='font-bold'>Masters of Computer Science</span> at <span className='font-bold'>Rice University</span>.	
 		    </p>
-		    <p style={{display: 'flex', verticalAlign: 'start', padding: '0.5rem 0' }}><LocationPinIcon /> <span>Based out of Texas</span></p>
+		    <p style={{display: 'flex', verticalAlign: 'start', padding: '0.5rem 0' }}><LocationPinIcon /> <span>Houston, Texas</span></p>
 		    <ul className='flex' style={{ gap: '1rem', padding: '0.5rem 0 0 0' }}>
 			<li>Contact Me:</li>
 			<li><ExternalLink href={linkedInUrl}>LinkedIn</ExternalLink></li>
@@ -63,7 +62,7 @@ const HomePage: NextPage = () => {
 			<p style={{ paddingTop: '0.5rem' }}>Skills include:</p>
 			<div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', paddingTop: '0.5rem' }}>
 			    {skills.map((skill) => (
-				<InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`} parentClass='more-info-tag-color'>#{skill}</InternalLink>
+				<InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`} parentClass='more-info-tag-color'>{skill}</InternalLink>
 			    ))}
 			</div>
 			<p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/44492287-heretics-of-dune'>Heretics of Dune - Frank Herbert</ExternalLink></p>
@@ -76,7 +75,7 @@ const HomePage: NextPage = () => {
 		    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
 			{projectPreviews}
 		    </div>
-		    <InternalLink parentClass='arrow-link' style={{ marginTop: '1rem' }} href='/projects'>View More Projects <span className='arrow' style={{ marginLeft: '0.5rem'}}>→</span></InternalLink>
+		    {projectPreviews.length > 3 && <InternalLink parentClass='arrow-link' style={{ marginTop: '1rem' }} href='/projects'>View More Projects <span className='arrow' style={{ marginLeft: '0.5rem'}}>→</span></InternalLink>}
 		</div>
 		<div style={{ margin: '1rem 0' }}> 
 		    <PostHeader headerNumber={1.5} noCopy={true}>Experience</PostHeader>
@@ -86,7 +85,7 @@ const HomePage: NextPage = () => {
 		    <PostHeader headerNumber={1.5} noCopy={true}>Recent Posts</PostHeader>
 		    <div>
 			{postPreviews}
-			<InternalLink parentClass='arrow-link' href='/posts'>View More Posts <span className='arrow' style={{ marginLeft: '0.5rem' }}>→</span></InternalLink>
+			{postPreviews.length > 5 && <InternalLink parentClass='arrow-link' href='/posts'>View More Posts <span className='arrow' style={{ marginLeft: '0.5rem' }}>→</span></InternalLink>}
 		    </div>
 		</div>
 	    </div>

@@ -7,6 +7,7 @@ import ExternalLink from './ExternalLink'
 import InternalLink from './InternalLInk'
 import Image from './Image'
 
+// TODO - Add tags to the bottom and possibly bigger description
 const ProjectPreview = ({ slug, title, source, live, description, preview, hidePreview = false }: any) => {
     const [width, setWidth] = useState(0)
 

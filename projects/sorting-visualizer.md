@@ -3,7 +3,7 @@ title: Sorting Visualizer
 date: 09-16-2025
 description: Simulate Sorting Algorithms 
 tags: [sorting, algorithms, website]
-technology_used: [typescript, react, node, tailwind]
+technology_used: [typescript, react, nodejs, tailwind]
 gallery_path: public/images/sorting-visualizer/gallery/
 source: https://github.com/zachyarbrough/sorting-visualizer
 live: https://sorting-visualizer-m8cx.vercel.app
