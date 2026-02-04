@@ -48,7 +48,7 @@ const HomePage: NextPage = () => {
 		<div> <PageHeader noCopy={true}>Welcome! <EmojiWave /></PageHeader></div>
 		<div style={{ margin: '1rem 0', padding: '1rem 1rem 1rem 1rem', borderRadius: '0.5rem', backgroundColor: 'var(--secondary-light)', width: '100%' }}>
 		    <p style={{ padding: '0 0 0.5rem 0 ' }}>
-			I am a <span className='font-bold'>Full-Stack Developer</span> specializing in the MERN stack. I'm currently pursuing my <span className='font-bold'>Masters of Computer Science</span> at <span className='font-bold'>Rice University</span>.	
+			I am a <span className='font-bold'>Full-Stack Developer</span> specializing in the MERN stack. I'm currently pursuing my <span className='font-bold'>Master's of Computer Science</span> at <span className='font-bold'>Rice University</span>.	
 		    </p>
 		    <p style={{display: 'flex', verticalAlign: 'start', padding: '0.5rem 0' }}><LocationPinIcon /> <span>Houston, Texas</span></p>
 		    <ul className='flex' style={{ gap: '1rem', padding: '0.5rem 0 0 0' }}>

@@ -45,7 +45,8 @@ const BlogPage: NextPage = () => {
             <BreadcrumbTrail />
             <PageHeader>Posts</PageHeader>
             <ItemCount count={postPreviews.length} message='found.' />
-	    {Object.keys(postPreviewsByYear).map((year) => {
+	    {Object.keys(postPreviewsByYear).sort((keyA: string, keyB: string) => keyB - keyA)
+		.map((year) => {
 		return <div key={year}>
 		    <PostHeader headerNumber={1.5}>{year}</PostHeader>
 		    <ItemCount count={postPreviewsByYear[year].length} message='found.' />
