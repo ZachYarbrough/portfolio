@@ -2,14 +2,14 @@
 title: Portfolio Retrospective 
 date: 08-17-2025
 tags: [blog, website, retrospective, nextjs, markdown]
-related: [why-blog]
+related: [why-i-decided-to-start-a-blog]
 ---
 
 I plan to write a retrospective for every project I showcase on this site, so it feels fitting to start with a retrospective of the site itself.
 
 # Goals
 
-In my post [Why I Decided to Start a Blog](posts/why-blog), I touched on some of my broader motivations. This time, I want to dive into the technical side of the portfolio. My [old portfolio site](https://zachyarbrough.github.io) was hard to maintain, updating projects was cumbersome, and adding my resume as a page meant keeping two sources of truth. I also wanted a space for blog posts, so smaller projects that didn’t quite fit in the main projects tab could still be shared.
+In my post [Why I Decided to Start a Blog](posts/why-i-decided-to-start-a-blog), I touched on some of my broader motivations. This time, I want to dive into the technical side of the portfolio. My [old portfolio site](https://zachyarbrough.github.io) was hard to maintain, updating projects was cumbersome, and adding my resume as a page meant keeping two sources of truth. I also wanted a space for blog posts, so smaller projects that didn’t quite fit in the main projects tab could still be shared.
 
 Building the new site gave me a chance to deepen my understanding of Node.js's [File System (fs)](https://www.w3schools.com/nodejs/nodejs_filesystem.asp) module and [Next.js](https://nextjs.org/docs), while also restructuring all content to live in markdown files. Every post and project is written in markdown, and the site reads and renders them dynamically using the fs module. I had used the fs module before in projects like README generators, but this was a chance to explore it more thoroughly and build a maintainable system from the ground up.
 

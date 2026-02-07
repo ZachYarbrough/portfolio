@@ -85,7 +85,7 @@ const HomePage: NextPage = () => {
 		    <PostHeader headerNumber={1.5} noCopy={true}>Recent Posts</PostHeader>
 		    <div>
 			{postPreviews}
-			{postPreviews.length > 5 && <InternalLink parentClass='arrow-link' href='/posts'>View More Posts <span className='arrow' style={{ marginLeft: '0.5rem' }}>→</span></InternalLink>}
+			{postPreviews.length > 4 && <InternalLink parentClass='arrow-link' href='/posts'>View More Posts <span className='arrow' style={{ marginLeft: '0.5rem' }}>→</span></InternalLink>}
 		    </div>
 		</div>
 	    </div>
