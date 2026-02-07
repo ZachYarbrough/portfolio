@@ -51,7 +51,7 @@ export const generateStaticParams = async () => {
 export async function generateMetadata({ params }: any) {
   const data = await params
   return {
-    title: 'Tag Index: #' + data.tag + ' | Zach Yarbrough',
+    title: 'Tag Index: ' + data.tag + ' | Zach Yarbrough',
     description: `Browse all blog posts tagged with #${params.tag}`,
   }
 }
