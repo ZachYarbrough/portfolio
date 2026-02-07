@@ -38,13 +38,7 @@ const TagHeader = ({ children, tag }: { children: React.ReactNode, tag?: string 
     return (
         <div ref={ref} id={header} onMouseEnter={() => setShowCopy(true)} onMouseLeave={() => setShowCopy(false)} className='flex items-center gap-2 tag-header' style={{ margin: '0.5rem auto'}}>
             {tag ?
-                <InternalLink href={`/tags/${tag}`}
-                    style={{
-                        padding: '0 0.4rem',
-                        backgroundColor: 'var(--secondary-light)',
-                        borderRadius: '0.4rem',
-                    }}
-                    >
+                <InternalLink href={`/tags/${tag}`} useBubbleStyle={true} >
                     <span>{children}</span>
                 </InternalLink> :
                 <h1 id={children?.toString().toLowerCase()} className='text-highlight inline-flex font-bold' style={{
