@@ -18,7 +18,7 @@ import DropdownList from './components/DropdownList';
 export async function generateMetadata() {
     return {
 	title: 'Zach Yarbrough | Software Developer',
-	description: 'Full stack engineer with expertise in React, TypeScript, and cloud-native applications. Zachary Yarbrough has delivered mission-critical solutions for government and enterprise clients, combining technical depth with a focus on performance and maintainability.',
+	description: 'Full stack engineer with expertise in React, TypeScript, and cloud-native applications. Zach Yarbrough has delivered mission-critical solutions for government and enterprise clients, combining technical depth with a focus on performance and maintainability.',
     }
 }
 
