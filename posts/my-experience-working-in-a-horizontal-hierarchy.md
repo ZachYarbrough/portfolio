@@ -1,5 +1,5 @@
 ---
-title: My Experience Working in a Horizontal Environment 
+title: My Experience Working in a Horizontal Hierarchy 
 date: 02-08-2026
 tags: [full-stack, career, retrospective]
 related: []
