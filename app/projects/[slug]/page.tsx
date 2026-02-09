@@ -127,18 +127,12 @@ const ProjectPage = async ({ params }: any) => {
 		    <p style={{ color: 'var(--secondary)' }}><CalendarIcon /> {project.date}</p>
 		    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
 			<span style={{ color: 'var(--secondary)'}} ><TagIcon /></span>
-			{project.tags.map((tag: string) => (
+			{[...project.technologyUsed, ...project.tags].map((tag: string) => (
 			    <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>{tag}</InternalLink>
 			))}
 		    </div>
 		    {project?.live && <div className='font-bold'>Live: <ExternalLink href={project.live}>{project.live}</ExternalLink></div>}
 		    {project?.source && <div className='font-bold'>Repository: <ExternalLink href={project.source}>{project.source}</ExternalLink></div>}
-		    <PostHeader headerNumber={1.5} >Technologies Used</PostHeader>
-		    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
-			{project.technologyUsed.map((technology: string) => (
-			    <InternalLink key={technology} useBubbleStyle={true} href={`/tags/${technology}`}>{technology}</InternalLink>
-			))}
-		    </div>
 		    <MarkdownRenderer content={project.content} />        
 		    {project?.gallery?.length > 0 && 
 			<div>

@@ -59,33 +59,31 @@ const HomePage: NextPage = () => {
 		    </ul>
 		    <DropdownList startExpanded={false} title="More Info" style={{ margin: '1rem 0 0 0' }}>
 			<p style={{ paddingTop: '1rem' }}>Check out my personal setup and workflow in my <ExternalLink href='https://github.com/ZachYarbrough/dotfiles'>dotfiles</ExternalLink> repo.</p>
-			<p style={{ paddingTop: '0.5rem' }}>Skills include:</p>
-			<div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', paddingTop: '0.5rem' }}>
-			    {skills.map((skill) => (
-				<InternalLink key={skill} useBubbleStyle={true} href={`/tags/${skill}`} parentClass='more-info-tag-color'>{skill}</InternalLink>
-			    ))}
-			</div>
 			<p style={{ padding: '0.5rem 0' }}>Currently Reading: <ExternalLink href='https://www.goodreads.com/book/show/44492287-heretics-of-dune'>Heretics of Dune - Frank Herbert</ExternalLink></p>
 		    </DropdownList>
 		</div>
 		<div className='flex justify-between'>
 		</div>
 		<div style={{ margin: '1rem 0', width: '100%' }}>
+		    <div className='flex justify-between item-center' style={{ margin: '0 0 1rem 0' }}>
 		    <PostHeader headerNumber={1.5} noCopy={true}>Featured Projects</PostHeader>
-		    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+		    {projectPreviews.length > 2 && <InternalLink parentClass='arrow-link' style={{ marginTop: '1rem' }} href='/projects'>View More <span className='arrow' style={{ marginLeft: '0.5rem'}}>→</span></InternalLink>}
+		    </div>
+		    <div style={{ display: 'flex', justifyContent: 'space-between', flex: 'wrap' }}>
 			{projectPreviews}
 		    </div>
-		    {projectPreviews.length > 3 && <InternalLink parentClass='arrow-link' style={{ marginTop: '1rem' }} href='/projects'>View More Projects <span className='arrow' style={{ marginLeft: '0.5rem'}}>→</span></InternalLink>}
 		</div>
 		<div style={{ margin: '1rem 0' }}> 
 		    <PostHeader headerNumber={1.5} noCopy={true}>Experience</PostHeader>
 		    <Experience />
 		</div>
 		<div style={{margin: '1rem 0'}}>
-		    <PostHeader headerNumber={1.5} noCopy={true}>Recent Posts</PostHeader>
+		    <div className='flex justify-between items-center'>
+			<PostHeader headerNumber={1.5} noCopy={true}>Recent Posts</PostHeader>
+			{postPreviews.length > 4 && <InternalLink parentClass='arrow-link' href='/posts'>View More  <span className='arrow' style={{ marginLeft: '0.5rem' }}>→</span></InternalLink>}
+		    </div>
 		    <div>
 			{postPreviews}
-			{postPreviews.length > 4 && <InternalLink parentClass='arrow-link' href='/posts'>View More Posts <span className='arrow' style={{ marginLeft: '0.5rem' }}>→</span></InternalLink>}
 		    </div>
 		</div>
 	    </div>

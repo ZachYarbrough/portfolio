@@ -10,7 +10,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
     const [width, setWidth] = useState(1501)
     const [tagsExpanded, setTagsExpanded] = useState<boolean>(false)
     const { toggleSearch } = useContext(SearchContext)
-    const tagsAndTech = [...tags, ...technologyUsed]
+    const tagsAndTech = [...technologyUsed, ...tags]
 
     useEffect(() => {
         function handleResize() {

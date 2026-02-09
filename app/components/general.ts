@@ -37,13 +37,6 @@ export const getTableOfContents = (headers: string[], isProject: boolean = false
         subSections: []
     }
 
-    if (isProject) {
-	tableOfContents['Technologies Used'] = {
-	    text: 'Technologies Used',
-	    subSections: []
-	}
-    }
-
     headers.forEach((header, index) => {
         if (index === 0 && !isProject) return
         const headerText = header.replace(/#+/g, '').trim()
