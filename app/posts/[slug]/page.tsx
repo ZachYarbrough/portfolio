@@ -14,6 +14,7 @@ import ContentFooter from '@/app/components/ContentFooter'
 import MarkdownRenderer from '@/app/components/MarkdownRenderer'
 import Head from 'next/head'
 import { notFound } from 'next/navigation'
+import { CalendarIcon, TagIcon } from '@/app/components/assets/icons'
 
 /**
  * Generates static paths for all posts
@@ -106,8 +107,9 @@ const PostPage = async ({ params }: any) => {
         <div style={{ width: '100%', margin: '0 auto' }}>
           <BreadcrumbTrail />
           <PageHeader>{post.title}</PageHeader>
-          <p style={{ color: 'var(--secondary)' }}>{post.date} <span style={{ fontWeight: 'bolder'}}>∙</span> {post.timeToRead} min read</p>
+          <p style={{ color: 'var(--secondary)' }}><CalendarIcon /> {post.date} <span style={{ fontWeight: 'bolder'}}>∙</span> {post.timeToRead} min read</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '0.5rem 0 1rem 0' }}>
+	    <span style={{ color: 'var(--secondary)' }}><TagIcon /></span>
             {post.tags.map((tag) => (
               <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`}>{tag}</InternalLink>
             ))}
