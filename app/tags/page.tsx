@@ -35,13 +35,18 @@ const TagPage: NextPage = () => {
                     <ItemCount count={tagPosts.length + tagProjects.length} message='found.' />
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
 			<div className='flex flex-wrap justify-between' style={{ width: '100%'}}>
-                        {tagProjects.map((project) => (
+			{tagProjects.length > 0 &&
+			<div style={{ marginTop: '1rem', width: '100%' }}>
+			{tagProjects.map((project) => (
                             <ProjectPreview key={project.slug} {...project} hidePreview={true} />
                         ))}
+			</div>}
 			</div>
+			<div style={{ width: '100%'}}>
                         {tagPosts.map((post) => (
                             <PostPreview key={post.slug} {...post} />
                         ))}
+			</div>
                     </div>
                 </div>
             )
