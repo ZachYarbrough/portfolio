@@ -34,7 +34,7 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, techn
                 </InternalLink>}
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
                     <InternalLink href={`/projects/${slug}`}>
-                        <PostHeader headerNumber={1.2} noCopy={true}><span className='text-highlight'>{title}</span></PostHeader>
+                        <PostHeader headerNumber={1.2} noCopy={true}><span className='highlight-text hover:highlight-text'>{title}</span></PostHeader>
                     </InternalLink>
                             <div style={{ width: '5rem', marginTop: '0.5rem', textAlign: 'right' }}>
 			    {live && <ExternalLink tooltip='Live Demo' showIcon={false} href={live}>
