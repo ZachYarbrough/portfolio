@@ -32,11 +32,11 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, techn
                 {!hidePreview && <InternalLink href={`/projects/${slug}`}>
                     <Image src={preview} alt={title} className="scale-image" imgStyle={{ width: '328px', height: '183px', cursor: 'pointer', borderRadius: '0.5rem', border: '1px solid var(--secondary-light)' }} hideModal={true} />
                 </InternalLink>}
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
                     <InternalLink href={`/projects/${slug}`}>
-                        <PostHeader headerNumber={1.2} noCopy={true}><span className='hover:text-highlight'>{title}</span></PostHeader>
+                        <PostHeader headerNumber={1.2} noCopy={true}><span className='text-highlight'>{title}</span></PostHeader>
                     </InternalLink>
-                            <div style={{ width: '5rem', textAlign: 'right' }}>
+                            <div style={{ width: '5rem', marginTop: '0.5rem', textAlign: 'right' }}>
 			    {live && <ExternalLink tooltip='Live Demo' showIcon={false} href={live}>
                                    <GlobeIcon />
                                 </ExternalLink>}
@@ -66,7 +66,7 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, techn
                     <div style={{ width: '100%' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                     <InternalLink href={`/projects/${slug}`}>
-                        <PostHeader headerNumber={1.2} noCopy={true}><span className='hover:text-highlight'>{title}</span></PostHeader>
+                        <PostHeader headerNumber={1.2} noCopy={true}><span className='text-highlight'>{title}</span></PostHeader>
                     </InternalLink>
 			    <div style={{ width: '5rem', textAlign: 'right' }}>
 			    {live && <ExternalLink tooltip='Live Demo' showIcon={false} href={live}>
