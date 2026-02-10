@@ -50,7 +50,7 @@ const HomePage: NextPage = () => {
 		    <p style={{ padding: '0 0 0.5rem 0 ' }}>
 			I am a <span className='font-bold'>Full-Stack Developer</span> specializing in the MERN stack. I'm currently pursuing my <span className='font-bold'>Master's of Computer Science</span> at <span className='font-bold'>Rice University</span>.	
 		    </p>
-		    <p style={{display: 'flex', verticalAlign: 'start', padding: '0.5rem 0' }}><LocationPinIcon /> <span>Houston, Texas</span></p>
+		    <p style={{display: 'flex', verticalAlign: 'start', padding: '0.5rem 0' }}><LocationPinIcon /> <span>Houston, TX</span></p>
 		    <ul className='flex' style={{ gap: '1rem', padding: '0.5rem 0 0 0' }}>
 			<li>Contact Me:</li>
 			<li><ExternalLink href={linkedInUrl}>LinkedIn</ExternalLink></li>
