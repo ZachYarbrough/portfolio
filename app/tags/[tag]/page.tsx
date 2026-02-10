@@ -82,7 +82,9 @@ const SingleTagPage = async ({ params }: any) => {
 	<div className='flex justify-between' style={{ width: '100%', marginTop: '1rem'}}>
 	{filteredProjects}
 	</div>
+	<div style={{ width: '100%'}}>
 	{filteredPosts}
+	</div>
 	</div>
 	</div>
 	<BorderLine />
