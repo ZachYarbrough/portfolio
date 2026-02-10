@@ -36,7 +36,15 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, techn
                     <InternalLink href={`/projects/${slug}`}>
                         <PostHeader headerNumber={1.2} noCopy={true}><span className='hover:text-highlight'>{title}</span></PostHeader>
                     </InternalLink>
-                </div>
+                            <div style={{ width: '5rem', textAlign: 'right' }}>
+			    {live && <ExternalLink tooltip='Live Demo' showIcon={false} href={live}>
+                                   <GlobeIcon />
+                                </ExternalLink>}
+                            {source && <ExternalLink tooltip='Source Code' showIcon={false} href={source}>
+                                    <CodeBracketIcon />
+                                </ExternalLink>}
+                            </div>
+			    </div>
                 {!hidePreview && <p>{description}</p>}
 		{!hidePreview && 
 		    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '1rem 0 0 0' }}>
@@ -60,7 +68,15 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, techn
                     <InternalLink href={`/projects/${slug}`}>
                         <PostHeader headerNumber={1.2} noCopy={true}><span className='hover:text-highlight'>{title}</span></PostHeader>
                     </InternalLink>
-                </div>
+			    <div style={{ width: '5rem', textAlign: 'right' }}>
+			    {live && <ExternalLink tooltip='Live Demo' showIcon={false} href={live}>
+                                   <GlobeIcon />
+                                </ExternalLink>}
+                            {source && <ExternalLink tooltip='Source Code' showIcon={false} href={source}>
+                                    <CodeBracketIcon />
+                                </ExternalLink>}
+                            </div>
+			</div>
                         {!hidePreview && <p>{description}</p>}
 			{!hidePreview && 
 		    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '1rem 0 0 0' }}>
