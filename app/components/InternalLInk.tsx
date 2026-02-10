@@ -13,6 +13,7 @@ const InternalLink = ({ href = null, children, useBubbleStyle = false, style = {
 		style={Object.keys(style).length > 0 ? style : {
 		    padding: '2px 4px',
 		    borderRadius: '0.4rem',
+		    fontSize: '14px'
 		}}
 		href={link}
 	    >

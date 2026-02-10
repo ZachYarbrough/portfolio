@@ -66,7 +66,7 @@ const PostPreview = ({ slug, title, date, tags, technologyUsed, isProjectPost = 
                         borderRadius: '0.4rem',
                     }}
                 >
-                    <span className='flex' onClick={(e) => {
+                    <span className='flex' style={{ fontSize: '14px' }} onClick={(e) => {
 			e.preventDefault()
                         setTagsExpanded(true)
                     }}>

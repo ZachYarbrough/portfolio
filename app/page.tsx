@@ -69,7 +69,7 @@ const HomePage: NextPage = () => {
 		    <PostHeader headerNumber={1.5} noCopy={true}>Featured Projects</PostHeader>
 		    {projectPreviews.length > 2 && <InternalLink parentClass='arrow-link' style={{ marginTop: '1rem' }} href='/projects'>View More <span className='arrow' style={{ marginLeft: '0.5rem'}}>→</span></InternalLink>}
 		    </div>
-		    <div style={{ display: 'flex', justifyContent: 'space-between', flex: 'wrap' }}>
+		    <div className ='flex-wrap' style={{ display: 'flex', justifyContent: 'space-between' }}>
 			{projectPreviews}
 		    </div>
 		</div>
