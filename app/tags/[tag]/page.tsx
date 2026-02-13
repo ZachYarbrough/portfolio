@@ -78,8 +78,8 @@ const SingleTagPage = async ({ params }: any) => {
 	<div key={tag}>
 	<TagHeader>{tag}</TagHeader>
 	<ItemCount count={filteredPosts.length + filteredProjects.length} message='found.' />
-	<div style={{ display: 'flex', flexWrap: 'wrap' }}>
-	<div className='flex justify-between' style={{ width: '100%', marginTop: '1rem'}}>
+	<div className='flex flex-wrap justify-between' style={{ width: '100%'}}>
+	<div className='flex flex-wrap justify-between' style={{ width: '100%', marginTop: '1rem'}}>
 	{filteredProjects}
 	</div>
 	<div style={{ width: '100%'}}>

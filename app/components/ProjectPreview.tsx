@@ -68,23 +68,16 @@ const ProjectPreview = ({ slug, title, source, live, description, preview, techn
                     <InternalLink href={`/projects/${slug}`}>
                         <PostHeader headerNumber={1.2} noCopy={true}><span className='text-highlight'>{title}</span></PostHeader>
                     </InternalLink>
-			    <div style={{ width: '5rem', textAlign: 'right' }}>
+			    {hidePreview && <div style={{ width: '5rem', textAlign: 'right' }}>
 			    {live && <ExternalLink tooltip='Live Demo' showIcon={false} href={live}>
                                    <GlobeIcon />
                                 </ExternalLink>}
                             {source && <ExternalLink tooltip='Source Code' showIcon={false} href={source}>
                                     <CodeBracketIcon />
                                 </ExternalLink>}
-                            </div>
+                            </div>}
 			</div>
                         {!hidePreview && <p>{description}</p>}
-			{!hidePreview && 
-		    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', margin: '1rem 0 0 0' }}>
-			<span style={{ color: 'var(--secondary)'}} ><TagIcon /></span>
-			{technologyUsed.map((tag: string) => (
-			    <InternalLink key={tag} useBubbleStyle={true} href={`/tags/${tag}`} parentClass='more-info-tag-color'>{tag}</InternalLink>
-			))}
-		    </div>}
                     </div>
                 </>
 
